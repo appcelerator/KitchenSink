@@ -62,6 +62,6 @@ win.add(l);
 
 // test to make sure we can still access compiled JS files
 var jsfile = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory,'app.js');
-Ti.API.info("app.js exists? " + f.exists());
-Ti.API.info("app.js size? " + f.size);
+Ti.API.info("app.js exists? " + jsfile.exists());
+Ti.API.info("app.js size? " + jsfile.size);
 
