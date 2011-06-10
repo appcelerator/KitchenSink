@@ -20,6 +20,24 @@ var softAdjust = null;
 
 // ----------------------------------------------------
 
+function updateSoftAdjust(s) {
+	l1.font = {};
+	l2.font = {};
+	l3.font = {};
+	switch(s) {
+		case Ti.UI.Android.SOFT_INPUT_ADJUST_PAN :
+			l1.font = {fontWeight:'bold'};
+			break;
+		case Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE :
+			l2.font = {fontWeight:'bold'};
+			break;
+		case Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED :
+			l3.font = {fontWeight:'bold'};
+			break;
+	}
+	softAdjust = s;
+}
+
 var b1 = Ti.UI.createButton({ width : '30', height : '30', left : 10, top : 100});
 b1.addEventListener('click', function() {
 	updateSoftAdjust(Ti.UI.Android.SOFT_INPUT_ADJUST_PAN);
@@ -55,24 +73,6 @@ var l3 = Ti.UI.createLabel({
 	left : 60, height : 30, right : 10, top : 160
 });
 win.add(l3);
-
-function updateSoftAdjust(s) {
-	l1.font = {};
-	l2.font = {};
-	l3.font = {};
-	switch(s) {
-		case Ti.UI.Android.SOFT_INPUT_ADJUST_PAN :
-			l1.font = {fontWeight:'bold'};
-			break;
-		case Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE :
-			l2.font = {fontWeight:'bold'};
-			break;
-		case Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED :
-			l3.font = {fontWeight:'bold'};
-			break;
-	}
-	softAdjust = s;
-}
 
 //-------------------------------------------------------
 
