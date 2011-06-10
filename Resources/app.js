@@ -115,7 +115,7 @@ var messageWin = Titanium.UI.createWindow({
 	Titanium.UI.PORTRAIT,
 	Titanium.UI.UPSIDE_PORTRAIT,
 	Titanium.UI.LANDSCAPE_LEFT,
-	Titanium.UI.LANDSCAPE_RIGHT,
+	Titanium.UI.LANDSCAPE_RIGHT
 	]
 });
 var messageView = Titanium.UI.createView({
@@ -259,7 +259,7 @@ function showIndicator()
 	actInd = Titanium.UI.createActivityIndicator({
 		style:Titanium.UI.iPhone.ActivityIndicatorStyle.BIG,
 		height:30,
-		width:30,
+		width:30
 	});
 	
 	if (Ti.Platform.osname != 'android')
@@ -319,10 +319,10 @@ Ti.include("welcome.js");
 Ti.API.info(String.format("%s%s",L("welcome_message","default_not_set"),Titanium.version));
 Ti.API.debug(String.format("%s %s",L("user_agent_message","default_not_set"),Titanium.userAgent));
 
-Ti.API.debug(String.format("locale specific date is %s",String.formatDate(new Date))); // default is short
-Ti.API.debug(String.format("locale specific date (medium) is %s",String.formatDate(new Date,"medium")));
-Ti.API.debug(String.format("locale specific date (long) is %s",String.formatDate(new Date,"long")));
-Ti.API.debug(String.format("locale specific time is %s",String.formatTime(new Date)));
+Ti.API.debug(String.format("locale specific date is %s", String.formatDate(new Date()))); // default is short
+Ti.API.debug(String.format("locale specific date (medium) is %s",String.formatDate(new Date(),"medium")));
+Ti.API.debug(String.format("locale specific date (long) is %s",String.formatDate(new Date(),"long")));
+Ti.API.debug(String.format("locale specific time is %s",String.formatTime(new Date())));
 Ti.API.debug(String.format("locale specific currency is %s",String.formatCurrency(12.99)));
 Ti.API.debug(String.format("locale specific decimal is %s",String.formatDecimal(12.99)));
 
