@@ -22,7 +22,7 @@ xhr.onload = function()
 	Ti.UI.currentWindow.add(textarea);
 };
 // open the client
-xhr.open('GET','http://twitter.com/statuses/show/123.xml');
+xhr.open('GET','http://api.twitter.com/1/users/show.xml?screen_name=appcelerator');
 
 // send the data
 xhr.send();
