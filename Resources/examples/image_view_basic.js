@@ -1,7 +1,7 @@
 var win = Titanium.UI.currentWindow;
 
 var imageView = Titanium.UI.createImageView({
-	image:'http://www.appcelerator.com/wp-content/uploads/2009/06/titanium_desk.png',
+	image:'http://static.appcelerator.net/images/header/appc_logo.png',
 	width:261,
 	height:178,
 	top:20
@@ -27,7 +27,11 @@ function clicker()
 {
 	Titanium.UI.createAlertDialog({title:'Image View', message:'You clicked me!'}).show();
 	l.text = "Try again. You shouldn't get alert and the image should be different";
-	imageView.image = '../images/cloud.png';
+	imageView.updateLayout({
+		image: '../images/cloud.png',
+		width: 261,
+		height: 178
+	});
 	imageView.removeEventListener('click',clicker);
 }
 
