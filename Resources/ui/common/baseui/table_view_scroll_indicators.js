@@ -1,12 +1,13 @@
 function tv_scroll() {
-	var win = Ti.UI.createWindow();
-	
-	var showScrollIndicators = false;
+	var win = Ti.UI.createWindow(),	
+		showScrollIndicators = false,
+		isMW = Ti.Platform.osname === 'mobileweb',
+		isTizen = Ti.Platform.osname === 'tizen';
 	
 	var tv = Ti.UI.createTableView({
 		showVerticalScrollIndicator:showScrollIndicators
 	});
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(isMW || isTizen) ) {
 		tv.style = Titanium.UI.iPhone.TableViewStyle.GROUPED;
 	}
 	
@@ -26,7 +27,7 @@ function tv_scroll() {
 	}
 	
 	var refresh = Titanium.UI.createButton();
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(isMW || isTizen) ) {
 		refresh.systemButton = Titanium.UI.iPhone.SystemButton.REFRESH;
 	}
 	refresh.addEventListener('click', function()

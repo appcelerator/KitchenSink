@@ -102,7 +102,7 @@ function BaseUIWindow(title) {
 		Ti.API.info('FOCUS RECEIVED IN base_ui');
 		Ti.App.fireEvent('nav_back');
 		
-		if (Ti.Platform.osname !== 'mobileweb') {
+		if (!(Ti.Platform.osname === 'mobileweb' || Ti.Platform.osname === 'tizen')) {
 			Ti.API.info(Ti.dumpCoverage());
 		}
 	});

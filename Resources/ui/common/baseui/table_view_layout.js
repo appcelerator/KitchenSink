@@ -50,7 +50,7 @@ function tv_layout() {
 		data:data,
 		top:10
 	});
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(Ti.Platform.osname === 'mobileweb' || Ti.Platform.osname === 'tizen') ) {
 		tableView.separatorStyle = Ti.UI.iPhone.TableViewSeparatorStyle.NONE;
 	}
 	

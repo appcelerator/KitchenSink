@@ -24,6 +24,13 @@ function ApplicationTabGroup() {
 		window: baseUIWin
 	});
 	baseUIWin.containingTab = baseUITab;
+	
+	// On Tizen/Mobile Web, the tabGroup property must be initialized manually.
+	// It serves to remember the tab group control that hosts the window.
+	// This is needed for the tab group-related tests to be able to access the
+	// main tab group control.
+	Ti.Platform.osname === 'tizen' && (baseUIWin.tabGroup = self);
+	
 	self.addTab(baseUITab);
 	
 	var controlsTab = Ti.UI.createTab({
@@ -103,7 +110,7 @@ function ApplicationTabGroup() {
 	});
 	messageWin.add(messageView);
 	messageWin.add(messageLabel);
-	
+
 	self.addEventListener('close', function(e) {
 		if (e.source == self){
 			if (Ti.Platform.osname === 'iphone' || Ti.Platform.osname === 'ipad') {
@@ -111,7 +118,7 @@ function ApplicationTabGroup() {
 			}
 		}
 	});
-	
+
 	self.addEventListener('open',function(e) {
 		if (e.source == self){
 			Titanium.UI.setBackgroundColor('#fff');

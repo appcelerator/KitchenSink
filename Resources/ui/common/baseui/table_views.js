@@ -1,5 +1,7 @@
 function table_views(_args) {
-	var win = Ti.UI.createWindow();
+	var isMobileWeb = Ti.Platform.osname === 'mobileweb',
+		isTizen = Ti.Platform.osname === 'tizen',
+		win = Ti.UI.createWindow();
 	if (Ti.Platform.name == 'android') 
 	{
 		win.backgroundColor = '#4e5c4d';
@@ -36,7 +38,7 @@ function table_views(_args) {
 		{title:'Table View (Layout 2)', hasChild:true, test:'ui/common/baseui/table_view_layout_2'}
 	];
 	
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(isMobileWeb || isTizen) ) {
 		data.push({title:'Table Search', hasChild:true, test:'ui/common/baseui/table_view_api_search'});
 	}
 	
@@ -84,7 +86,7 @@ function table_views(_args) {
 			rowBackgroundColor:'white'
 		};
 	
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(isMobileWeb || isTizen) ) {
 		tableViewOptions.style = Titanium.UI.iPhone.TableViewStyle.GROUPED;
 	}
 	

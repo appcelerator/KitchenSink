@@ -4,6 +4,14 @@ function picker_basic() {
 	
 	var picker = Ti.UI.createPicker();
 	
+	if (Ti.Platform.osname === 'tizen') {
+		// On Mobile Web, by default, the picker fills the entire view it is contained,
+		// unless the size is provided.
+		picker.width = '100';
+		picker.height = '110';
+		picker.color = '#fc0';
+	}
+	
 	var data = [];
 	data[0]=Ti.UI.createPickerRow({title:'Bananas',custom_item:'b'});
 	data[1]=Ti.UI.createPickerRow({title:'Strawberries',custom_item:'s'});

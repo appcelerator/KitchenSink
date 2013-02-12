@@ -1,5 +1,7 @@
 function switch_control() {
-	var win = Ti.UI.createWindow();
+	var win = Ti.UI.createWindow(),
+		isAndroid = Titanium.Platform.osname === 'android',
+		isTizen = Titanium.Platform.osname === 'tizen';
 	
 	//
 	// BASIC SWITCH
@@ -167,33 +169,36 @@ function switch_control() {
 		win.add(titleButton);
 	}
 	
-	if (Titanium.Platform.osname == 'android')
+	if (isAndroid || isTizen)
 	{
 		//
 		// CHECKBOX
 		//
 		var checkBox = Titanium.UI.createSwitch({
-				style:Titanium.UI.Android.SWITCH_STYLE_CHECKBOX,
-				title:"CheckBox: " + false,
-				value:false,
-				top:190,
-				left:60
-		});
+				value: false,
+				top: 190,
+			});
 		checkBox.addEventListener('change', function(e) {
-			checkBox.title = "CheckBox: " + e.value;
+			isTizen ? this.label = 'CheckBox: ' + e.value : this.title = 'CheckBox: ' + e.value;
 		});
-		
 		//
 		// TOGGLEBUTTON W/ TITLE
 		//
 		var titleSwitch = Titanium.UI.createSwitch({
-				style:Titanium.UI.Android.SWITCH_STYLE_TOGGLEBUTTON,
-				titleOff:"LO",
-				titleOn:"HI",
-				value:false,
-				top:240
-		});
-	
+				titleOff: 'LO',
+				titleOn: 'HI',
+				value: false,
+				top: 240
+			});
+
+		if (isAndroid) {
+			checkBox.style = Titanium.UI.Android.SWITCH_STYLE_CHECKBOX;
+			checkBox.left = 60;
+			checkBox.title = 'CheckBox: ' + false,
+			titleSwitch.style = Titanium.UI.Android.SWITCH_STYLE_TOGGLEBUTTON;
+		} else {
+			checkBox.label = 'CheckBox: ' + false;
+		}
 		win.add(checkBox);
 		win.add(titleSwitch);
 	}

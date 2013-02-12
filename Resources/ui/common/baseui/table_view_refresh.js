@@ -1,9 +1,11 @@
 function tv_refresh() {
-	var win = Ti.UI.createWindow();
+	var isMobileWeb = Ti.Platform.osname === 'mobileweb',
+		isTizen = Ti.Platform.osname === 'tizen',
+		win = Ti.UI.createWindow();
 	
 	
 	var tv = Ti.UI.createTableView();
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(isMobileWeb || isTizen) ) {
 		tv.style = Titanium.UI.iPhone.TableViewStyle.GROUPED;
 	}
 	
@@ -23,7 +25,7 @@ function tv_refresh() {
 	}
 	
 	var refresh = Titanium.UI.createButton();
-	if (Ti.Platform.osname !== 'mobileweb'){
+	if ( !(isMobileWeb || isTizen) ){
 		refresh.systemButton = Titanium.UI.iPhone.SystemButton.REFRESH;
 	}
 	refresh.addEventListener('click', function()

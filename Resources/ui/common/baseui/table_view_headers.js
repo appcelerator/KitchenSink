@@ -65,21 +65,30 @@ function tv_headers() {
 		{title:'Potsie'}
 	];
 	
-	var search = Titanium.UI.createSearchBar({
-		showCancel:false
-	});
-	search.addEventListener('blur',function(){
-		if(Ti.Platform.name === "android"){
-			Ti.API.info('Going to hide soft Keyboard as we are shifting focus away from the SearchBar.');
-			Ti.UI.Android.hideSoftKeyboard();
-		}	
-	});
+
+	var isTizen = Ti.Platform.name === "tizen",
+		search;
+
+	// Search bars are not supported in Tizen
+	if (!isTizen) {
+		search = Titanium.UI.createSearchBar({
+			showCancel:false
+		});
+		search.addEventListener('blur',function(){
+			if(Ti.Platform.name === "android"){
+				Ti.API.info('Going to hide soft Keyboard as we are shifting focus away from the SearchBar.');
+				Ti.UI.Android.hideSoftKeyboard();
+			}	
+		});
+	}
+
 	// create table view
 	var tableview = Titanium.UI.createTableView({
 		data:data,
-		search:search,
 		filterAttribute:'title'
 	});
+
+	search && (tableview.search = search);
 	
 	function showClickEventInfo(e, islongclick) {
 		// event data

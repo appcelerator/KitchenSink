@@ -4,8 +4,9 @@ function PhoneWindow(title) {
 		backgroundColor:'white'
 	});
 	
-	var isMobileWeb = Titanium.Platform.osname == 'mobileweb';
-	
+	var isMobileWeb = Titanium.Platform.osname == 'mobileweb',
+		isTizen = Titanium.Platform.osname == 'tizen';
+		
 	// create table view data object
 	var data = [
 		{title:'Play Movie', hasChild:true, test:'ui/common/phone/movie'}
@@ -15,7 +16,8 @@ function PhoneWindow(title) {
 		data.push({title:'Geolocation', hasChild:true, test:'ui/common/phone/geolocation'});
 		data.push({title:'Accelerometer', hasChild:true, test:'ui/common/phone/accelerometer'});
 	}
-	if (Ti.Platform.model != 'Kindle Fire' && Ti.Platform.osname != 'mobileweb') {
+	
+	if ( !(Ti.Platform.model === 'Kindle Fire' || isMobileWeb || isTizen) ) {
 		data.push({title:'Contacts', hasChild:true, test:'ui/common/phone/contacts'});
 	}
 	data.push({title:'Sound', hasChild:!isMobileWeb, test:'ui/common/phone/sound', touchEnabled:!isMobileWeb, color:isMobileWeb?"#aaa":"#000"});
@@ -33,6 +35,13 @@ function PhoneWindow(title) {
 	if (Titanium.Platform.name == 'iPhone OS') {
 		data.push({title:'Screenshot', hasChild:true, test:'ui/handheld/ios/phone/screenshot'});
 		data.push({title:'Save to Gallery', hasChild:true, test:'ui/handheld/ios/phone/photo_gallery_save'});
+	}
+	
+	//add tizen specific tests
+	if (isTizen) {
+		data.push({title: 'Screenshot', hasChild: true, test: 'ui/handheld/tizen/phone/screenshot'});
+		data.push({title: 'Save to Gallery', hasChild: true, test: 'ui/handheld/tizen/phone/photo_gallery_save'});
+		data.push({title: 'Notifications', hasChild: true, test: 'ui/handheld/tizen/phone/notification'});
 	}
 
 	if (Titanium.Platform.name !== 'android') {

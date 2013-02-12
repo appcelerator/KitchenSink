@@ -50,7 +50,9 @@ function openEmail() {
 */
 
 function email_dialog() {
-	var win = Ti.UI.createWindow();
+	var isTizen = Ti.Platform.osname === 'tizen',
+		isAndroid = Ti.Platform.osname === 'android',
+		win = Ti.UI.createWindow();
 	
 	// initialize to all modes
 	win.orientationModes = [
@@ -85,19 +87,21 @@ function email_dialog() {
 				} else {
 					emailDialog.setMessageBody('Appcelerator Titanium Rocks!');
 				}
-		
-				// attach a blob
-				emailDialog.addAttachment(event.media);
-				
-				// attach a file
-				var f = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'etc/cricket.wav');
-				emailDialog.addAttachment(f);
-				
+				// File attachments are not supported by the Tizen OS yet
+				if(!isTizen) {
+					// attach a blob
+					emailDialog.addAttachment(event.media);
+					
+					// attach a file
+					var f = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'etc/cricket.wav');
+					emailDialog.addAttachment(f);
+				}
+				// "complete" event is not supported on MobileWeb-based platforms
 				emailDialog.addEventListener('complete',function(e)
 				{
 					if (e.result == emailDialog.SENT)
 					{
-						if (Ti.Platform.osname != 'android') {
+						if ( !(isAndroid || isTizen) ) {
 							// android doesn't give us useful result codes.
 							// it anyway shows a toast.
 							alert("message was sent");

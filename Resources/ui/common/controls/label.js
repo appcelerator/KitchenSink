@@ -13,6 +13,8 @@ function label(_args) {
 	if (Titanium.Platform.name == 'android')
 	{
 		data.push({title:'Auto Link', hasChild:true, test:'ui/handheld/android/controls/label_linkify'});
+	} else if (Titanium.Platform.name === 'tizen') {
+		data.push({ title: 'Auto Link', hasChild: true, test: 'ui/common/controls/label_linkify' });
 	}
 	
 	// create table view

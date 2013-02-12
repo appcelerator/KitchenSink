@@ -4,7 +4,9 @@
 	//  to open windows outside of tab groups.
 	//
 function win_standalone(_args) {	
-	var win = Titanium.UI.createWindow();
+	var isMobileWeb = Ti.Platform.osname === 'mobileweb',
+		isTizen = Ti.Platform.osname === 'tizen',
+		win = Titanium.UI.createWindow();
 	
 	win.orientationModes = [
 		Titanium.UI.PORTRAIT,
@@ -49,7 +51,84 @@ function win_standalone(_args) {
 		w.open();
 	});
 
-	if (Ti.Platform.osname !== 'mobileweb') {	
+	if (isTizen) {
+		//
+		//  OPEN (ANIMATE FROM BOTTOM RIGHT)
+		//
+		var b2 = Titanium.UI.createButton({
+			title:'Open (Nav Bar Covered)',
+			width:200,
+			height:40,
+			top:60
+		});
+		
+		b2.addEventListener('click', function()
+		{
+			var t = Titanium.UI.create2DMatrix().scale(0),
+				options = {
+					height:Titanium.Platform.displayCaps.platformHeight,
+					width:Titanium.Platform.displayCaps.platformWidth,
+					backgroundColor:'#336699',
+					bottom:0,
+					right:0,
+					transform : t
+				},
+				t1 = Titanium.UI.create2DMatrix().scale(1),
+				w = Titanium.UI.createWindow(options),
+				a = Titanium.UI.createAnimation();
+		
+			a.transform = t1;
+			a.duration = 300;
+		
+			// create a button to close window
+			var b = Titanium.UI.createButton({
+				title:'Close',
+				height:30,
+				width:150
+			});
+			w.add(b);
+			b.addEventListener('click', function()
+			{
+				a.transform = t;
+				a.addEventListener('complete', function(){
+					w.close()
+				})
+				w.animate(a);
+			});
+
+			w.addEventListener('postlayout', function(){
+				w.animate(a);
+			});
+
+			w.open();
+		});
+
+		//
+		//  TRADITIONAL MODAL (FROM 0.8.x)
+		//
+		var b3 = Titanium.UI.createButton({
+			title:'Traditional Modal',
+			width:200,
+			height:40,
+			top:110
+		});
+		
+		b3.addEventListener('click', function()
+		{
+			var Win = require('ui/common/phone/vibrate'),
+				w = new Win(),
+				b = Titanium.UI.createButton( {title: 'Close'} );
+
+			w.title = 'Modal Window',
+			w.barColor = 'black',
+			w.add(b);
+			b.addEventListener('click',function()
+			{
+				w.close();
+			});
+			w.open({modal:true});
+		});
+	} else if (!isMobileWeb) {	
 		//
 		//  OPEN (ANIMATE FROM BOTTOM RIGHT)
 		//
@@ -385,9 +464,8 @@ function win_standalone(_args) {
 		}
 	});
 	
-	
 	win.add(b1);
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if (!isMobileWeb) {
 		win.add(b2);
 		win.add(b3);
 	}

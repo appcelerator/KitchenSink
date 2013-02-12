@@ -1,14 +1,19 @@
 function sound(_args) {
-	var self = Ti.UI.createWindow();
+	var isTizen = Titanium.Platform.name === 'tizen',
+		self = Ti.UI.createWindow();
 	// create table view data object
 	var data = [
 		{title:'Local', hasChild:true, test:'ui/common/phone/sound_local'},
-		{title:'Local with File', hasChild:true, test:'ui/common/phone/sound_file'},
 		{title:'Local with File URL', hasChild:true, test:'ui/common/phone/sound_file_url'},
 		{title:'Remote URL', hasChild:true, test:'ui/common/phone/sound_remote_url'},
-		{title:'Remote Streaming', hasChild:true, test:'ui/common/phone/sound_remote'}
-	
+		// 'ui/common/phone/audio_player' and 'ui/common/phone/sound_remote' have identical UI, but
+		// different implementations (audio_player is event-based and works properly in Tizen).
+		{title:'Remote Streaming', hasChild:true, test: isTizen ? 'ui/common/phone/audio_player' : 'ui/common/phone/sound_remote'}
 	];
+	
+	// This test is incorrect because it uses property "url" of Titanium.Sound as type "File" instead of "String" 
+	// So this test has been excluded on Tizen platform
+	isTizen || data.push({title:'Local with File', hasChild:true, test:'ui/common/phone/sound_file'});
 	
 	if (Titanium.Platform.name == 'iPhone OS')
 	{
@@ -27,16 +32,15 @@ function sound(_args) {
 	var tableview = Titanium.UI.createTableView({
 		data:data
 	});
-
-	// Create table view event listener
+	
+	// create table view event listener
 	tableview.addEventListener('click', function(e) {
 		if (e.rowData.test) {
-			var ExampleWindow = require(e.rowData.test);
-			win = new ExampleWindow();
-			_args.containingTab.open(win, {animated : true});
+			var ExampleWindow = require(e.rowData.test),
+				win = new ExampleWindow();
+			_args.containingTab.open(win,{animated:true});
 		}
 	});
-
 	
 	// add table view to the window
 	self.add(tableview);

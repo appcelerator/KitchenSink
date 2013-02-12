@@ -7,7 +7,8 @@ function options_dialog() {
 		Titanium.UI.LANDSCAPE_RIGHT
 	]; 
 	
-	var isAndroid = Ti.Platform.osname == 'android';
+	var isAndroid = Ti.Platform.osname === 'android',
+		isTizen = Ti.Platform.osname === 'tizen';
 	
 	if (isAndroid) {
 		var showCancel = Ti.UI.createSwitch({
@@ -24,6 +25,33 @@ function options_dialog() {
 				dialog.buttonNames = [];
 			}
 		};
+	} else if (isTizen) {
+		// There is no property OptionDialog.buttonNames in MobileWeb/Tizen, so we will
+		// demonstrate toggling the cancel button in the option dialog using the documented
+		// OptionDialog.options.
+		// The cancel button will show as an additional grey button with cancel semantics;
+		// its title will not be "Cancel".
+		var cancel_index = -1,
+			cancel_option = '',		
+			showCancel = Ti.UI.createSwitch({
+				label : 'Show Cancel Button',
+				top : 160
+			}),
+			applyOptions = function() {
+				if (showCancel.value) {
+					if(dialog.cancel < 0 && cancel_index > -1) {
+						dialog.options.splice(cancel_index, 0, cancel_option);
+						dialog.cancel = cancel_index;
+						cancel_index = -1;
+					}
+				} else {
+					if (dialog.cancel > -1) {
+						cancel_option = dialog.options.splice(dialog.cancel, 1);
+						cancel_index = dialog.cancel;
+						dialog.cancel = -1;
+					}
+				}
+			};
 	}
 	//
 	// BASIC OPTIONS DIALOG
@@ -68,6 +96,8 @@ function options_dialog() {
 		if (isAndroid) {
 			dialog.androidView = null;
 			applyButtons();
+		} else if (isTizen){
+			applyOptions();
 		}
 		dialog.show();
 	});
@@ -88,6 +118,8 @@ function options_dialog() {
 		if (isAndroid) {
 			dialog.androidView = null;
 			applyButtons();
+		} else if (isTizen){
+			applyOptions();
 		}
 		dialog.show();
 	});
@@ -137,6 +169,42 @@ function options_dialog() {
 			dialog.androidView = root;
 			dialog.show();
 		});
+	} else if (isTizen){
+
+		// Demonstrate the tizenView property, similar to the androidView property
+
+		var button3 = Titanium.UI.createButton({
+			title:'Option dialog with tizenView',
+			height:Titanium.UI.SIZE,
+			width:200,
+			top:220
+		});
+		button3.addEventListener('click', function()
+		{
+			// For now, you must give the containing view dimensions in order for it to appear.
+			var root = Ti.UI.createView({
+				width : "100%", 
+				height : 110
+			});
+			var view = Ti.UI.createView({
+				width : 300, height: '100'
+			});
+			root.add(view);
+
+			var l = Ti.UI.createLabel({
+				text : 'I am a label',
+				top: 10, left: 10, bottom: 10, right: 10,
+				color : 'white',
+				borderRadius : 10,
+				backgroundColor : 'blue'
+			}); 
+			view.add(l);
+			
+			dialog.title = 'Tizen with a View';
+			dialog.options = ['OK'];
+			dialog.tizenView = root;
+			dialog.show();
+		});
 	}
 	
 	
@@ -144,7 +212,7 @@ function options_dialog() {
 	win.add(button2);
 	win.add(label);
 	
-	if (isAndroid) {
+	if (isAndroid || isTizen) {
 		win.add(showCancel);
 		win.add(button3);
 	}
@@ -154,7 +222,7 @@ function options_dialog() {
 			title:'Show w/hide, animated',
 			height:40,
 			width:200,
-			top:250
+			top:280
 		});
 		
 		button4.addEventListener('click', function()
@@ -162,6 +230,8 @@ function options_dialog() {
 			if (isAndroid) {
 				dialog.androidView = null;
 				applyButtons();
+			} else if (isTizen){
+				applyOptions();
 			}
 			dialog.show();
 			setTimeout(function(){dialog.hide({animated:true});},2000);
@@ -171,7 +241,7 @@ function options_dialog() {
 			title:'Show w/hide, nonanimated',
 			height:40,
 			width:200,
-			top:300
+			top:330
 		});
 		
 		button5.addEventListener('click', function()
@@ -179,6 +249,8 @@ function options_dialog() {
 			if (isAndroid) {
 				dialog.androidView = null;
 				applyButtons();
+			} else if (isTizen){
+				applyOptions();
 			}
 			dialog.show();
 			setTimeout(function(){dialog.hide({animated:false});},2000);

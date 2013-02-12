@@ -47,6 +47,10 @@ function views(_args) {
 		}
 		data.push({title:'Hi-Res Image remote', wintitle:"Remote dog", hasChild:true, test:'ui/handheld/ios/baseui/hi_res_image_remote'});
 	}
+
+	if (Titanium.Platform.name === 'tizen') {
+		data.push({title:'Element Screenshot', hasChild:true, test:'ui/common/baseui/blob_image_view', touchEnabled:true, color:"#aaa"});	
+	}
 	
 	// create table view
 	for (var i = 0; i < data.length; i++ ) {

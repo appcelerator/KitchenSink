@@ -5,7 +5,7 @@ function image_view_encode() {
 	// to fetch this image OK
 	
 	var test_img = Titanium.UI.createImageView({
-			image: 'http://appcelerator.qe.test.data.s3.amazonaws.com/KSResources/image/' + encodeURIComponent('ΜΟΥΣΙΚΗ') + '/appc_logo200.png'
+			image: 'http://' + encodeURIComponent('цемент.рф') + '/images/cement_logo.gif'
 	
 	}); 
 	

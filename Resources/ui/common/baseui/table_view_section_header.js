@@ -12,7 +12,7 @@ function tv_section_header() {
 		{title:'row 5'}
 	];
 	var tableView = Titanium.UI.createTableView();
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(Ti.Platform.osname === 'mobileweb' || Ti.Platform.osname === 'tizen') ) {
 		tableView.style = Titanium.UI.iPhone.TableViewStyle.GROUPED;
 	}
 	tableView.data = inputData;
