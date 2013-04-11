@@ -1,5 +1,7 @@
-function sock_server_client() {
-	var win = Ti.UI.createWindow();
+function sock_server_client(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	win.add(Ti.UI.createLabel({text:"Listening socket output:", color:'white', top: 40}));
 	var listenerStatusArea = Ti.UI.createTextArea({

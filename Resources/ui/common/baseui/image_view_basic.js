@@ -1,5 +1,7 @@
-function image_view_basic() {
-	var win = Titanium.UI.createWindow();
+function image_view_basic(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var imageView = Titanium.UI.createImageView({
 		image:'http://static.appcelerator.com/images/header/appc_logo.png',

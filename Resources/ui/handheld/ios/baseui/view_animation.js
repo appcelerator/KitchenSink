@@ -1,5 +1,7 @@
-function view_anim() {
-	var win = Titanium.UI.createWindow();
+function view_anim(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var stopped = false;
 	var nextAnimation = null;

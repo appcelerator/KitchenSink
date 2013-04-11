@@ -1,5 +1,7 @@
-function view_autoheight() {
-	var win = Ti.UI.createWindow();
+function view_autoheight(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#336699';
 	
 	var commentTextWrap = Ti.UI.createView({ 

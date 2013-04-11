@@ -1,5 +1,7 @@
-function mapview2() {
-	var win = Titanium.UI.createWindow();
+function mapview2(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var annotation = Titanium.Map.createAnnotation({
 		latitude:42.334537,

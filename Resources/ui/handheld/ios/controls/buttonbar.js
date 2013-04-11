@@ -1,5 +1,7 @@
-function buttonbar() {
-	var win = Ti.UI.createWindow();
+function buttonbar(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	//  LABEL

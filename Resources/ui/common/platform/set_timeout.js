@@ -1,5 +1,7 @@
-function set_timeout() {
-	var win = Titanium.UI.createWindow();
+function set_timeout(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var label = Ti.UI.createLabel({
 		text:'Running...',

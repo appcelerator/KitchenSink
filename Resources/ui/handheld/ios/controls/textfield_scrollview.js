@@ -1,5 +1,7 @@
-function textfield_scroll() {
-	var win = Ti.UI.createWindow();
+function textfield_scroll(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	win.orientationModes = [
 		Titanium.UI.PORTRAIT,

@@ -3,8 +3,8 @@ function SplitView_Plain(){
     SplitViewPlain = {};
 
     // WINDOWS
-    SplitViewPlain.masterWindow = Ti.UI.createWindow({backgroundColor:'#ffffff'});
-    SplitViewPlain.detailWindow = Ti.UI.createWindow({backgroundColor:'#336699'});
+    SplitViewPlain.masterWindow = Ti.UI.createWindow({title:'Master', backgroundColor:'#ffffff'});
+    SplitViewPlain.detailWindow = Ti.UI.createWindow({title:'Detail', backgroundColor:'#336699'});
 
     // LABELS
     SplitViewPlain.masterLabel = Ti.UI.createLabel({

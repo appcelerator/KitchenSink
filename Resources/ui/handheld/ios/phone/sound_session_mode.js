@@ -1,5 +1,7 @@
-function sound_session() {
-	var win = Titanium.UI.createWindow();
+function sound_session(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var count = 0;
 	

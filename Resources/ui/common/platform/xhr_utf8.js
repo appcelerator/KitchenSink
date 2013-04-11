@@ -1,5 +1,7 @@
-function xhr_utf8() {
-	var win=Titanium.UI.createWindow();
+function xhr_utf8(_args) {
+	var win=Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l1 = Titanium.UI.createLabel({
 		text:'UTF-8 GET',

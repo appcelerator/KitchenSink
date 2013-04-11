@@ -1,5 +1,7 @@
-function scroll_view_textarea() {
-	var win = Ti.UI.createWindow();
+function scroll_view_textarea(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var scrollView = Ti.UI.createScrollView({
 		contentHeight:'auto',

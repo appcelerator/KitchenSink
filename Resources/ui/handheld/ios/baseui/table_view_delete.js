@@ -1,5 +1,7 @@
-function tv_del() {
-	var win = Titanium.UI.createWindow();
+function tv_del(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var data = [];
 	// create the rest of the rows

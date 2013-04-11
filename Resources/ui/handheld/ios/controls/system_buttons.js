@@ -1,5 +1,7 @@
-function system_buttons() {
-	var win = Ti.UI.createWindow();
+function system_buttons(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// used to evenly distribute items on the toolbar
 	var flexSpace = Titanium.UI.createButton({

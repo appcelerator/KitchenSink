@@ -1,5 +1,7 @@
-function custom_fonts() {
-	var win = Ti.UI.createWindow();
+function custom_fonts(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var label = Ti.UI.createLabel({
 		text:"Appcelerator\nFTW!",

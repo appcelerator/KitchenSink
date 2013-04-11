@@ -1,5 +1,7 @@
-function tialert() {
-	var win = Titanium.UI.createWindow();
+function tialert(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// GENERIC ALERT

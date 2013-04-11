@@ -1,5 +1,7 @@
-function view_hideshow() {
-	var win = Ti.UI.createWindow();
+function view_hideshow(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var mainView = Ti.UI.createView({
 		top: 0,

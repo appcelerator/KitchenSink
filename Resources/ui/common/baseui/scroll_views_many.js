@@ -1,5 +1,7 @@
-function scroll_view_many() {
-	var win = Titanium.UI.createWindow();
+function scroll_view_many(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// SCROLL VIEW 1

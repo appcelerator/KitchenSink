@@ -1,5 +1,7 @@
-function contacts_search() {
-	var win = Ti.UI.createWindow();	
+function contacts_search(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var tf1 = Titanium.UI.createTextField({
 		color: '#336699',
 		top: 20,

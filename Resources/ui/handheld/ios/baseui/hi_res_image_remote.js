@@ -1,5 +1,7 @@
-function hires_remote() {
-	var win = Ti.UI.createWindow();
+function hires_remote(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	if (Ti.Platform.displayCaps.density == 'high') {
 		var image = Ti.UI.createImageView({

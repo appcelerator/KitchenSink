@@ -50,8 +50,10 @@ function fireUpTheCamera() {
 	});
 }
 
-function cam_basic() {
-	win = Titanium.UI.createWindow();
+function cam_basic(_args) {
+	win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	if (Ti.Platform.osname === 'android') {
 		win.addEventListener('open', function(e) {
 			fireUpTheCamera();

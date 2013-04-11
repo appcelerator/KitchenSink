@@ -1,5 +1,7 @@
-function sock_connect() {
-	var win = Ti.UI.createWindow();
+function sock_connect(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var connectingSocket = null;
 	

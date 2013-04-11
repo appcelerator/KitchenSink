@@ -1,5 +1,7 @@
-function shake() {
-	var win = Titanium.UI.createWindow();
+function shake(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l = Titanium.UI.createLabel({
 		text:'Shake your phone',

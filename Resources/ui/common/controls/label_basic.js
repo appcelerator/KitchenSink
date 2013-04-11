@@ -1,5 +1,7 @@
-function label_basic() {
-	var win = Ti.UI.createWindow();
+function label_basic(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l1 = Titanium.UI.createLabel({
 		id:'font_label_test',

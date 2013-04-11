@@ -1,5 +1,7 @@
-function view_events2() {
-	var win = Titanium.UI.createWindow();
+function view_events2(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l = Ti.UI.createLabel({
 		text:'',
@@ -52,26 +54,26 @@ function view_events2() {
 	win.add(box2);
 	win.addEventListener('touchstart', function(e)
 	{
-		l.text = "touchstart " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")";
-	    Titanium.API.log("touchstart " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")");
+		l.text = "touchstart " + e.x + ", " + e.y ;
+	    Titanium.API.log("touchstart " + e.x + ", " + e.y);
 	});
 	
 	win.addEventListener('singletap', function(e)
 	{
-		l2.text = "singletap " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")";
-	    Titanium.API.log("singletap " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")");
+		l2.text = "singletap " + e.x + ", " + e.y;
+	    Titanium.API.log("singletap " + e.x + ", " + e.y);
 	});
 	
 	win.addEventListener('touchmove', function(e)
 	{
-		l3.text = "touchmove " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")";
-	    Titanium.API.log("touchmove " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")");
+		l3.text = "touchmove " + e.x + ", " + e.y;
+	    Titanium.API.log("touchmove " + e.x + ", " + e.y);
 	});
 	
 	win.addEventListener('swipe', function(e)
 	{
-		l4.text = "swipe ("+e.direction+") " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")";
-	    Titanium.API.log("swipe ("+e.direction+") " + e.x + ", " + e.y + " ("+e.globalPoint.x+","+e.globalPoint.y+")");
+		l4.text = "swipe ("+e.direction+") " + e.x + ", " + e.y;
+	    Titanium.API.log("swipe ("+e.direction+") " + e.x + ", " + e.y);
 	});
 	
 	return win;

@@ -1,5 +1,7 @@
-function xhr_props() {
-	var win = Titanium.UI.createWindow();
+function xhr_props(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var label = Ti.UI.createLabel({
 		top:10,

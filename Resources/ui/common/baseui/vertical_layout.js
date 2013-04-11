@@ -1,5 +1,8 @@
 function vertical_layout(_args) {
-	var win = Ti.UI.createWindow({backgroundColor:'#fff'});
+	var win = Ti.UI.createWindow({
+		title:_args.title,
+		backgroundColor:'#fff'
+	});
 	//create table view data object
 	var data = [
 		{title:'Basic', hasChild:true, test:'ui/common/baseui/vertical_layout_basic'},
@@ -19,7 +22,7 @@ function vertical_layout(_args) {
 		if (e.rowData.test)
 		{
 			var ExampleWindow = require(e.rowData.test);
-				win = new ExampleWindow(_args);
+			win = new ExampleWindow({title: e.rowData.title, containingTab: _args.containingTab, tabGroup: _args.tabGroup});
 			_args.containingTab.open(win,{animated:true});
 		}
 	});

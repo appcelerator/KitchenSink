@@ -1,6 +1,8 @@
-function picker_spinner_text1() {
+function picker_spinner_text1(_args) {
 	/*global Ti,Titanium,alert */
-	var w = Ti.UI.createWindow();
+	var w = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var status = Ti.UI.createLabel({
 		top: 5, left: 5, right: 5, height: 40, textAlign:'center'
 	});

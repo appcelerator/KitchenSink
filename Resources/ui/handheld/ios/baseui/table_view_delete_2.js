@@ -1,5 +1,7 @@
-function tv_del2() {
-	var win = Titanium.UI.createWindow();
+function tv_del2(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// create table view data object
 	var data = [

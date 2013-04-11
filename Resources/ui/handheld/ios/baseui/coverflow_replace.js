@@ -1,5 +1,7 @@
-function cf_replace() {
-	var win = Titanium.UI.createWindow();
+function cf_replace(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var images1 = [];
 	for (var c=0;c<15;c++)

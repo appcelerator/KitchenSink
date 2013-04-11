@@ -1,5 +1,7 @@
-function commonjs() {
-	var win = Ti.UI.createWindow();
+function commonjs(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var view = Ti.UI.createView({
 		backgroundColor:"white",

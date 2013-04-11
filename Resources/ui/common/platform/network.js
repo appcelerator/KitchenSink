@@ -1,5 +1,7 @@
-function network() {
-	var win = Titanium.UI.createWindow();
+function network(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var label = Titanium.UI.createLabel({
 		text:'type:' + Titanium.Network.networkType + ' online:' + Titanium.Network.online + ' name:'+Titanium.Network.networkTypeName,

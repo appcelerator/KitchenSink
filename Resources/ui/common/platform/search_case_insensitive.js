@@ -1,5 +1,7 @@
-function search_ci() {
-	var win = Ti.UI.createWindow();
+function search_ci(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l = Ti.UI.createLabel({
 		text:'Check console output'

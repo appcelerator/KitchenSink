@@ -1,10 +1,11 @@
-function scroll_view_noclip() {
+function scroll_view_noclip(_args) {
 	//
 	// SETUP WINDOW STYLES
 	//
 	Titanium.UI.iPhone.statusBarStyle = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK;
-	var win = Ti.UI.createWindow();
-	win.title = 'All Friends';
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var cover = Titanium.UI.createView({
 		backgroundImage:'/images/scrollable_view/bg.png',

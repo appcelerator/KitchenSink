@@ -1,5 +1,7 @@
-function contacts_group() {	
-	var win = Ti.UI.createWindow();
+function contacts_group(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var imageDisplay = null;
 	
@@ -38,6 +40,8 @@ function contacts_group() {
 		}
 		infoLabel.text = text;
 	};
+	
+	updatePeople();
 	
 	for (var i=0; i < groups.length; i++) {
 		data[i] = Ti.UI.createPickerRow({title:groups[i].name});
@@ -93,6 +97,14 @@ function contacts_group() {
 	win.add(addPerson);
 	win.add(removePerson);
 	
+	var reloadHandler = function(){
+		addPerson.enabled = false;
+		removePerson.enabled = false;
+		addPerson.visible = false;
+		removePerson.visible = false;
+		infoLabel.text = 'Contacts fired reload Event. Please reopen window to modify more groups.'
+	}
+	
 	// Nasty thing to get around picker bug where we can't select before
 	// drawing, and then also have to change the value to fire an event.
 	win.addEventListener('open', function() {
@@ -100,6 +112,12 @@ function contacts_group() {
 			groupPicker.setSelectedRow(0,1,false);
 			groupPicker.setSelectedRow(0,0,false);
 		}
+	});
+	
+	Ti.Contacts.addEventListener('reload',reloadHandler);
+	
+	win.addEventListener('close',function(){
+		Ti.Contacts.removeEventListener('reload',reloadHandler);
 	});
 	
 	return win;

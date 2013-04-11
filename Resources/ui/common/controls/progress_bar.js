@@ -1,5 +1,7 @@
-function progressbar() {
-	var win = Ti.UI.createWindow();
+function progressbar(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var value = 0;
 	var ind, ind2, ind3, ind4, button, flexSpace, interval;
 	var osname = Ti.Platform.osname;

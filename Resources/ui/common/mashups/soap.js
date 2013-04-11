@@ -1,6 +1,8 @@
-function soap() {
+function soap(_args) {
 	Ti.include('/ui/common/mashups/suds.js');
-	var window = Ti.UI.createWindow();
+	var window = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var label = Ti.UI.createLabel({
 	    top: 10,
 	    left: 10,

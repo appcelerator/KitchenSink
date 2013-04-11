@@ -1,5 +1,7 @@
-function movie_embed() {
-	var win = Titanium.UI.createWindow();
+function movie_embed(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var statusLabel = Titanium.UI.createLabel({
 		text:'tap on movie content',

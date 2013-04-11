@@ -1,5 +1,7 @@
-function win_layout() {
-	var win = Titanium.UI.createWindow();
+function win_layout(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#13386c';
 	win.barColor = '#13386c';
 	

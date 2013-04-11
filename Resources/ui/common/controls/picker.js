@@ -5,10 +5,11 @@ function picker(_args) {
 	});
 	
 	// create table view data object
-	var isAndroid = Ti.Platform.osname === 'android';
+	var isAndroid = Ti.Platform.osname === 'android',
+		isTizen = Ti.Platform.osname === 'tizen';
 	var items = [
 		{title:'Basic Picker', hasChild:true, test:'ui/common/controls/picker_basic'},
-		{title:'Basic Picker 2', hasChild:true, test:'ui/common/controls/picker_basic2', noandroid:true},
+		{title:'Basic Picker 2', hasChild:true, test:'ui/common/controls/picker_basic2', noandroid:true, notizen:true},
 		{title:'Picker w/o selection', hasChild:true, test:'ui/common/controls/picker_noselection', noandroid:true},
 	
 		{title:'Picker Single column 1', hasChild:true, test:'ui/common/controls/picker_singlecolumn1'},
@@ -17,8 +18,8 @@ function picker(_args) {
 	
 		{title:'Picker Multi column 1', hasChild:true, test:'ui/common/controls/picker_multicolumn1', noandroid:true},
 	
-		{title:'Picker custom labels', hasChild:true, test:'ui/common/controls/picker_custom1', noandroid:true},
-		{title:'Picker custom images', hasChild:true, test:'ui/common/controls/picker_custom2', noandroid:true},
+		{title:'Picker custom labels', hasChild:true, test:'ui/common/controls/picker_custom1', noandroid:true, notizen:true},
+		{title:'Picker custom images', hasChild:true, test:'ui/common/controls/picker_custom2', noandroid:true, notizen:true},
 		
 		{title:'Date Picker', hasChild:true, test:'ui/common/controls/picker_date1'},
 		{title:'Time Picker', hasChild:true, test:'ui/common/controls/picker_date2'},
@@ -26,10 +27,12 @@ function picker(_args) {
 		{title:'Countdown Picker', hasChild:true, test:'ui/common/controls/picker_date4', noandroid:true}
 	];
 	
-	var data = items;
+	var data = items,
+		i = 0,
+		itemsCount = items.length;
 	if (isAndroid) {
 		data = [];
-		for (var i = 0; i < items.length; i++) {
+		for (; i < itemsCount; i++) {
 			if (!items[i].noandroid) {
 				data.push(items[i]);
 			}
@@ -39,6 +42,14 @@ function picker(_args) {
 		data.push({title:'Android "useSpinner" - date', hasChild:true, test:'ui/handheld/android/controls/picker_android_spinner_date'});
 		data.push({title:'Android "useSpinner" - time', hasChild:true, test:'ui/handheld/android/controls/picker_android_spinner_time'});
 		data.push({title:'Android "useSpinner" - time (2)', hasChild:true, test:'ui/handheld/android/controls/picker_android_spinner_time2'});
+	} else if(isTizen) {
+		// On Tizen, make available all tests, except those specifically excluded by the "notizen" attribute.
+		data = [];
+		for (; i < itemsCount; i++) {
+			if (!items[i].notizen) {
+				data.push(items[i]);
+			}
+		}
 	}
 	
 	// create table view
@@ -51,7 +62,7 @@ function picker(_args) {
 	tableview.addEventListener('click', function(e) {
 		if (e.rowData.test) {
 			var ExampleWindow = require(e.rowData.test),
-				win = new ExampleWindow(_args);
+				win = new ExampleWindow({title: e.rowData.title});
 			_args.containingTab.open(win,{animated:true});
 		}
 	});

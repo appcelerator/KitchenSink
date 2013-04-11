@@ -1,4 +1,4 @@
-function activity_indicator() {
+function activity_indicator(_args) {
 	var osname = Ti.Platform.osname;
 
 	var isIos = (osname === 'iphone' || osname === 'ipad');
@@ -13,10 +13,12 @@ function activity_indicator() {
 	}
 
 	var win = Ti.UI.createWindow({
+		title:_args.title,
 		backgroundColor : '#13386c'
 	});
 
-	var indicatorAdded = false
+
+	var indicatorAdded = false;
 	//
 	// BASE INDICATOR
 	//

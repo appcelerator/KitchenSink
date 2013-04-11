@@ -1,5 +1,7 @@
-function image_view_update() {
-	var win = Titanium.UI.createWindow();
+function image_view_update(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var _WhenStillImgs = [];
 	var _WhenMovingImgs = [];

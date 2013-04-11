@@ -1,5 +1,7 @@
-function textfield_rest() {
-	var win = Ti.UI.createWindow();
+function textfield_rest(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var tf1 = Titanium.UI.createTextField({
 		color:'#336699',
@@ -185,7 +187,11 @@ function textfield_rest() {
 				break;
 		}
 	});
-	win.add(b7);
+
+	// TextField.clearButtonMode is iOS-only property, so we don't add this test for Tizen
+	if(Ti.Platform.osname !== 'tizen') {
+		win.add(b7);
+	}
 	
 	var b8 = Titanium.UI.createButton({
 		title:'Text Align',
@@ -250,7 +256,11 @@ function textfield_rest() {
 				break;
 		}
 	});
-	win.add(b8);
+	
+	// TextField.verticalAlign is not supported in Tizen
+	if(Ti.Platform.osname !== 'tizen') {
+		win.add(b8);
+	}
 	
 	var b9 = Titanium.UI.createButton({
 		title:'Allow resizing',
@@ -272,7 +282,11 @@ function textfield_rest() {
 			resizing = false;
 		}
 	});
-	win.add(b9);
+
+	// TextField.minimumFontSize is iOS-only property, so we don't add this test for Tizen
+	if(Ti.Platform.osname !== 'tizen') {
+		win.add(b9);
+	}
 	
 	// Only TextArea has 'editable' in iOS, not TextField
 	if (Ti.Platform.osname === 'android') {

@@ -1,5 +1,7 @@
-function xhr_timeout() {
-	var win = Titanium.UI.createWindow();
+function xhr_timeout(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	
 	var label1 = Titanium.UI.createLabel({

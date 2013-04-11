@@ -1,5 +1,7 @@
-function tv_removeall() {
-	var win = Ti.UI.createWindow();
+function tv_removeall(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	
 	var data = [];

@@ -1,6 +1,8 @@
-function win_nav() {
+function win_nav(_args) {
 	// current window
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// TOGGLE TITLE

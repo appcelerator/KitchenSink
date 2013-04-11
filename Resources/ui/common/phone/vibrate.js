@@ -1,5 +1,6 @@
-function vibrate() {
+function vibrate(_args) {
 	var win = Titanium.UI.createWindow({
+		title:_args.title,
 		backgroundColor:'#336699'
 	});
 	// initialize to all modes

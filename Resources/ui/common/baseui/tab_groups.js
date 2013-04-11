@@ -1,5 +1,7 @@
 function tab_group(_args) {
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// get tab group object
 	var tabGroup = _args.tabGroup;

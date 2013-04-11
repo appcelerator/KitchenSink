@@ -1,5 +1,7 @@
-function picker_spinner_text2() {
-	var win = Ti.UI.createWindow();
+function picker_spinner_text2(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	function makeNameRows() {
 		var names = ['Joanie', 'Mickey', 'Jean Pierre', 'Gustav', 'Raul', 'Mimi', 'Emily', 'Sandra', 'Carrie', 'Chachi'];

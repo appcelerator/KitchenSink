@@ -1,16 +1,20 @@
-function tv_refresh() {
-	var win = Ti.UI.createWindow();
+function tv_refresh(_args) {
+	var isMobileWeb = Ti.Platform.osname === 'mobileweb',
+		isTizen = Ti.Platform.osname === 'tizen',
+		win = Ti.UI.createWindow({
+			title:_args.title
+		});
 	
 	
 	var tv = Ti.UI.createTableView();
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(isMobileWeb || isTizen) ) {
 		tv.style = Titanium.UI.iPhone.TableViewStyle.GROUPED;
 	}
 	
 	function setData()
 	{
 		var data = [];
-		for (var i=0;i<30;i++)
+		for (var i=0; i<30; i++)
 		{
 			var row = Ti.UI.createTableViewRow({height:50});
 			var l1 = Ti.UI.createLabel({text:'Label ' +  i, font:{fontSize:14}, color:'#888', left:5});
@@ -23,7 +27,7 @@ function tv_refresh() {
 	}
 	
 	var refresh = Titanium.UI.createButton();
-	if (Ti.Platform.osname !== 'mobileweb'){
+	if ( !(isMobileWeb || isTizen) ) {
 		refresh.systemButton = Titanium.UI.iPhone.SystemButton.REFRESH;
 	}
 	refresh.addEventListener('click', function()
@@ -32,7 +36,7 @@ function tv_refresh() {
 		setTimeout(function()
 		{
 			setData();
-		},1000);
+		}, 1000);
 	});
 	
 	if (Ti.Platform.name == 'iPhone OS') {

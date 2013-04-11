@@ -1,5 +1,7 @@
-function slider_basic() {
-	var win = Ti.UI.createWindow();
+function slider_basic(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// BASIC SLIDER

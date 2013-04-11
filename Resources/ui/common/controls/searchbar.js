@@ -1,5 +1,7 @@
-function searchbar() {
-	var win = Ti.UI.createWindow();
+function searchbar(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var search = Titanium.UI.createSearchBar({
 		barColor:'#000',

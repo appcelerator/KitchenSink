@@ -1,5 +1,7 @@
 function image_view_blog(_args) {
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// start a blob async and notify callback when completed
 	_args.tabGroup.toImage(function(e)

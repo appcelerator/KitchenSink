@@ -1,5 +1,7 @@
-function gallery_cam() {
-	var win = Ti.UI.createWindow();
+function gallery_cam(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	Titanium.Media.showCamera({
 	
 		success:function(event)

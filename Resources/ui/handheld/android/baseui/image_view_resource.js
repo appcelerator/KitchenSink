@@ -1,8 +1,10 @@
-function image_view_resource() {
+function image_view_resource(_args) {
 	var IMAGE = "/images/cloud2.png";
 	var ACTUAL = "Resources/android/images/medium/cloud2.png";
 	
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var imageView = Titanium.UI.createImageView({
 		image:IMAGE,

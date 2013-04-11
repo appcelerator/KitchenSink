@@ -1,5 +1,7 @@
-function vertical_layout_basic() {
-	var win = Ti.UI.createWindow();
+function vertical_layout_basic(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.layout = 'vertical';
 	
 	// HEADER

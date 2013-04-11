@@ -1,5 +1,11 @@
-function contacts_add() {
-	var win = Ti.UI.createWindow();
+function contacts_add(_args) {
+
+	var isTizen = (Ti.Platform.osname === 'tizen');
+
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
+
 	var scrollview = Ti.UI.createScrollView({
 		contentWidth:'auto',
 		contentHeight:'auto',
@@ -25,6 +31,10 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	// fixed the view for Tizen
+	isTizen && (f1.right = 5);
+
 	v1.add(l1);
 	v1.add(f1);
 	
@@ -46,6 +56,9 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	isTizen && (f2.right = 5);
+
 	v2.add(l2);
 	v2.add(f2);
 	
@@ -67,6 +80,9 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	isTizen && (f3.right = 5);
+
 	v3.add(l3);
 	v3.add(f3);
 	
@@ -88,6 +104,9 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	isTizen && (f4.right = 5);
+
 	v4.add(l4);
 	v4.add(f4);
 	
@@ -109,6 +128,9 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	isTizen && (f5.right = 5);
+
 	v5.add(l5);
 	v5.add(f5);
 	
@@ -130,6 +152,9 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	isTizen && (f6.right = 5);
+
 	v6.add(l6);
 	v6.add(f6);
 	var v7 = Ti.UI.createView({
@@ -150,6 +175,9 @@ function contacts_add() {
 		right:0,
 		width:200
 	});
+
+	isTizen && (f7.right = 5);
+
 	v7.add(l7);
 	v7.add(f7);
 	var b1 = Ti.UI.createButton({
@@ -158,6 +186,9 @@ function contacts_add() {
 		height:40,
 		bottom:20
 	});
+
+	isTizen && (b1.top = 300);
+
 	b1.addEventListener('click', function() {
 		var address = {};
 		address.Street = f3.value;

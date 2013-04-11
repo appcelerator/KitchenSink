@@ -1,6 +1,7 @@
-function SenchaTouch() {
+function SenchaTouch(_args) {
 	var indicator;
 	var win = Ti.UI.createWindow({
+		title:_args.title,
 		backgroundColor: '#fff'
 	});
 	var webview = Ti.UI.createWebView({

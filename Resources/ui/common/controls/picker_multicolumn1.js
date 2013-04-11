@@ -1,10 +1,23 @@
-function picker_multi1() {
-	var win = Ti.UI.createWindow();
+
+function picker_multi1(_args) {
+	var win = Ti.UI.createWindow({
+			title:_args.title
+		}),
+		isTizen = Ti.Platform.osname === 'tizen';
 	win.backgroundColor = 'black';
 	
 	var picker = Ti.UI.createPicker();
 	
-	var column1 = Ti.UI.createPickerColumn({opacity:0});
+	if (isTizen) {
+		// On Mobile Web/Tizen, by default, the picker fills the entire view it is contained,
+		// unless the size is provided.
+		picker.width = 150;
+		picker.height = 110;
+		picker.color = '#fc0';
+	}
+
+	var column1 = Ti.UI.createPickerColumn();
+
 	column1.addRow(Ti.UI.createPickerRow({title:'Bananas',custom_item:'b'}));
 	column1.addRow(Ti.UI.createPickerRow({title:'Strawberries',custom_item:'s', selected:true}));
 	column1.addRow(Ti.UI.createPickerRow({title:'Mangos',custom_item:'m'}));

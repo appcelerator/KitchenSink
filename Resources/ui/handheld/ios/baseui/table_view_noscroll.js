@@ -1,5 +1,7 @@
-function tv_noscroll() {
-	var w = Ti.UI.createWindow();
+function tv_noscroll(_args) {
+	var w = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var search = Titanium.UI.createSearchBar({
 		showCancel:false,
 		hintText:'type in me then scroll'

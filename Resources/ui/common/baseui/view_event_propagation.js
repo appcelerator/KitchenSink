@@ -1,5 +1,7 @@
-function view_evt_prop() {
-	var win = Titanium.UI.createWindow();
+function view_evt_prop(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#13386c';
 	win.name = "window";
 	

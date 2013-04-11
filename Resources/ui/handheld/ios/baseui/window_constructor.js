@@ -1,5 +1,7 @@
 function win_construct(_args) {
-	var win = Ti.UI.createWindow();
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var label = Titanium.UI.createLabel({
 		text:'This test decorates a window pre-open',
 		top:10,

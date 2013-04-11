@@ -1,5 +1,7 @@
-function contacts_remove() {	
-	var win = Titanium.UI.createWindow();
+function contacts_remove(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var b1 = Ti.UI.createButton({
 		title:'Delete via picker',

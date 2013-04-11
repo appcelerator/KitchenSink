@@ -1,5 +1,7 @@
-function mix_views() {
-	var win = Titanium.UI.createWindow();
+function mix_views(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// simple inline web view that triggers an event
 	var html = '<html><body style=";color:#bbb;font-family:Helvetica Neue;text-align:center;">';

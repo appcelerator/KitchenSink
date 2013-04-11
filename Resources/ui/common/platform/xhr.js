@@ -36,7 +36,7 @@ function xhr(_args) {
 		if (e.rowData.test)
 		{
 			var ExampleWindow = require(e.rowData.test),
-				win = new ExampleWindow();
+				win = new ExampleWindow({title: e.rowData.title});
 			_args.containingTab.open(win,{animated:true});
 		}
 	});

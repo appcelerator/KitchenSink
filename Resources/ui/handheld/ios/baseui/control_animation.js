@@ -1,5 +1,7 @@
-function control_anim() {
-	var win = Titanium.UI.createWindow();
+function control_anim(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#336699';
 	
 	var button = Titanium.UI.createButton({

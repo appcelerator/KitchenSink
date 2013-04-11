@@ -2,8 +2,10 @@
 	// test case submitted by Kosso (da man)
 	// please visit his work at http://phreadz.com
 	//
-function tv_remote2() {
-	var win = Ti.UI.createWindow();	
+function tv_remote2(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// create table view data object
 	var data = [];
 	

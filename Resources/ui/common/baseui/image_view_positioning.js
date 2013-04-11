@@ -1,5 +1,7 @@
-function image_view_position() {
-	var win = Ti.UI.createWindow();
+function image_view_position(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var view = Ti.UI.createImageView({
 		image:'http://static.appcelerator.com/images/header/appc_logo.png',

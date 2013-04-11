@@ -1,5 +1,7 @@
-function textfield_buttons() {
-	var win = Ti.UI.createWindow();
+function textfield_buttons(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var leftButton = Titanium.UI.createButton({
 		style:Titanium.UI.iPhone.SystemButton.DISCLOSURE

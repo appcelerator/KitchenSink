@@ -1,5 +1,7 @@
-function json() {
-	var win = Titanium.UI.createWindow();
+function json(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var data = [];
 	function testRow(name, str, testfn) {

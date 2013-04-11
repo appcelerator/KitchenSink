@@ -1,5 +1,7 @@
-function tv_api_append() {
-	var win = Ti.UI.createWindow();	
+function tv_api_append(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// create table view with empty data set and then append
 	var tableview = Titanium.UI.createTableView();
 	

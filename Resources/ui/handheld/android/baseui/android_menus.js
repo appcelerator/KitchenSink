@@ -22,8 +22,9 @@ function android_menus(_args) {
 		if (e.rowData.test)
 		{
 			var ExampleWindow = require(e.rowData.test);
-				win = new ExampleWindow(_args);
-				win.navBarHidden = false;
+			_args.title = e.rowData.title;
+			win = new ExampleWindow(_args);
+			win.navBarHidden = false;
 			_args.containingTab.open(win,{animated:true});
 		}
 	});

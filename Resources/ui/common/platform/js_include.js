@@ -1,7 +1,9 @@
-function js_include() {
+function js_include(_args) {
 	Titanium.include('/etc/my_js_include.js', '/etc/my_js_include_2.js', '/etc/local_include.js');
 	
-	var self = Ti.UI.createWindow();
+	var self = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	self.addEventListener('open', function() {
 

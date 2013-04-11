@@ -1,5 +1,7 @@
-function movie_remote() {
-	var win = Titanium.UI.createWindow();
+function movie_remote(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var contentURL = 'http://movies.apple.com/media/us/ipad/2010/tours/apple-ipad-video-us-20100127_r848-9cie.mov';
 	if (Ti.Platform.name == 'android') {

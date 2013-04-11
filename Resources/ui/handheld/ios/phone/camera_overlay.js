@@ -1,6 +1,8 @@
-function cam_overlay() {
+function cam_overlay(_args) {
 	container ={};
-	container.win = Titanium.UI.createWindow();
+	container.win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	container.scanner = Titanium.UI.createView({
 		width:260,

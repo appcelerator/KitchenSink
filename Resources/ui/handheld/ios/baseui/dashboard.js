@@ -1,5 +1,7 @@
-function dashboard() {
-	var win = Titanium.UI.createWindow();
+function dashboard(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#13386c';
 	win.orientationModes = [Ti.UI.PORTRAIT];
 	

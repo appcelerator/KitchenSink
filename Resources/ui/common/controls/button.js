@@ -1,5 +1,7 @@
-function button_control() {
-	var win = Ti.UI.createWindow();
+function button_control(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var b1 = Titanium.UI.createButton({
 		title:'I am a Button',

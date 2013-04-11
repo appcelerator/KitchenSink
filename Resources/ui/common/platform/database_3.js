@@ -1,5 +1,6 @@
-function db3() {
+function db3(_args) {
 	var self = Titanium.UI.createWindow({
+		title:_args.title,
 		height:30,
 		width:280,
 		borderRadius:10,

@@ -1,5 +1,7 @@
-function orientation() {
-	var win = Titanium.UI.createWindow();
+function orientation(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// SUPPORTED ORIENTATION MODES
@@ -150,7 +152,7 @@ function orientation() {
 	b4.addEventListener('click', function()
 	{
 		var SubWin = require('ui/common/phone/vibrate');
-		var subwin = new SubWin();
+		var subwin = new SubWin({title: "Open A Window"});
 		subwin.backgroundColor = 'purple';
 	
 		subwin.orientationModes = [ 

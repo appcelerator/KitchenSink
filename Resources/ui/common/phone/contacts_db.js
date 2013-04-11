@@ -1,5 +1,7 @@
 function contacts_db(_args) {
-	var win = Ti.UI.createWindow();
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var android = (Ti.Platform.osname === 'android');
 	
 	// getting all from Android is very slow...

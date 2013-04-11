@@ -1,5 +1,7 @@
-function music_query() {
-	var win = Ti.UI.createWindow();
+function music_query(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var desc1 = Ti.UI.createLabel({
 		left:10,

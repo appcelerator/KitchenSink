@@ -1,5 +1,8 @@
-function tv_basic() {
-	var win = Ti.UI.createWindow({backgroundColor:'#fff'});
+function tv_basic(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title,
+		backgroundColor:'#fff'
+	});
 	// create table view data object
 	var data = [
 		{title:'Row 1', hasChild:true, color:'red', selectedColor:'#fff'},

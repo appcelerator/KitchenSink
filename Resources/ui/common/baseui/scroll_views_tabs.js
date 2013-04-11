@@ -1,5 +1,7 @@
-function scroll_view_tabs() {
-	var win = Titanium.UI.createWindow();
+function scroll_view_tabs(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#000';
 	
 	var leftImage = Ti.UI.createView({

@@ -1,5 +1,7 @@
-function cam_overlay_web() {
-	var win = Titanium.UI.createWindow();
+function cam_overlay_web(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var overlay = Titanium.UI.createView();
 	

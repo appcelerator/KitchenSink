@@ -2,8 +2,10 @@
 	//	One of the visibility states SOFT_INPUT_STATE_UNSPECIFIED, SOFT_INPUT_STATE_UNCHANGED, 
 	//      SOFT_INPUT_STATE_HIDDEN, SOFT_INPUT_STATE_ALWAYS_VISIBLE, or SOFT_INPUT_STATE_VISIBLE.
 	//	One of the adjustment options SOFT_INPUT_ADJUST_UNSPECIFIED, SOFT_INPUT_ADJUST_RESIZE, or SOFT_INPUT_ADJUST_PAN.
-function android_win_softin() {	
-	var win = Ti.UI.createWindow();
+function android_win_softin(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'gray';
 	
 	var label = Ti.UI.createLabel({

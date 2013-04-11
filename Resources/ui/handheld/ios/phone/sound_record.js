@@ -1,5 +1,7 @@
-function sound_record() {
-	var win = Titanium.UI.createWindow();
+function sound_record(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	var currentSessionMode = Titanium.Media.audioSessionMode;
 	Titanium.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAY_AND_RECORD;
 	var recording = Ti.Media.createAudioRecorder();

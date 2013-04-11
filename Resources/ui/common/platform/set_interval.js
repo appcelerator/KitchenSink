@@ -1,5 +1,7 @@
-function set_interval() {
-	var win = Titanium.UI.createWindow();
+function set_interval(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var label = Ti.UI.createLabel({
 		text:'Running...',

@@ -1,5 +1,7 @@
-function toolbar() {
-	var win = Ti.UI.createWindow();
+function toolbar(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// initialize to all modes
 	win.orientationModes = [

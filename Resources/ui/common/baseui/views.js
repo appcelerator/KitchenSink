@@ -1,5 +1,8 @@
 function views(_args) {
-	var win = Ti.UI.createWindow({backgroundColor:'#fff'});
+	var win = Ti.UI.createWindow({
+		title:_args.title,
+		backgroundColor:'#fff'
+	});
 	
 	var isMobileWeb = Titanium.Platform.osname == 'mobileweb';
 	
@@ -7,6 +10,7 @@ function views(_args) {
 	var data = [
 		{title:'Events Propagation', hasChild:true, test:'ui/common/baseui/view_event_propagation'},
 		{title:'Events Interaction', hasChild:true, test:'ui/common/baseui/view_event_interaction'},
+		{title:'List View (NEW)', hasChild:true, test:'ui/common/baseui/list_views'},
 		{title:'Image Views', hasChild:true, test:'ui/common/baseui/image_views'},
 		{title:'Scroll Views', hasChild:true, test:'ui/common/baseui/scroll_views'},
 		{title:'Table Views', hasChild:true, test:'ui/common/baseui/table_views'},
@@ -47,12 +51,20 @@ function views(_args) {
 		}
 		data.push({title:'Hi-Res Image remote', wintitle:"Remote dog", hasChild:true, test:'ui/handheld/ios/baseui/hi_res_image_remote'});
 	}
-	
+
+	if (Titanium.Platform.osname === 'tizen') {
+		data.push({title: 'SMS Dialog', hasChild: true, test: 'ui/common/baseui/sms_dialog'});
+	}
+
 	// create table view
 	for (var i = 0; i < data.length; i++ ) {
 		var d = data[i];
+
+		if (i == 2) {
+			d.color='#00cc00'
+		}
 		// On Android, if touchEnabled is not set explicitly, its value is undefined.
-		if (d.touchEnabled !== false) {
+		else if (d.touchEnabled !== false) {
 			d.color = '#000';
 		}
 		d.font = {fontWeight:'bold'};
@@ -67,8 +79,8 @@ function views(_args) {
 		if (e.rowData.test)
 		{
 			var ExampleWindow = require(e.rowData.test);
-				win = new ExampleWindow(_args);
-			_args.containingTab.open(win,{animated:true});
+			win = new ExampleWindow({title: e.rowData.title, containingTab: _args.containingTab, tabGroup: _args.tabGroup});
+			_args.containingTab.open(win, {animated:true});
 		}
 	});
 	

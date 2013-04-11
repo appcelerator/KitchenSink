@@ -1,5 +1,7 @@
-function android_menu1() {
-	var win = Ti.UI.createWindow();
+function android_menu1(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	win.backgroundColor = 'white';
 	

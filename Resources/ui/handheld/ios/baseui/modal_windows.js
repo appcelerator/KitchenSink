@@ -1,5 +1,7 @@
-function modal_windows() {
-	var win = Ti.UI.createWindow();
+function modal_windows(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'black';
 	
 	

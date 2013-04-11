@@ -1,6 +1,8 @@
-function win_props() {
+function win_props(_args) {
 	// current window
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// BACKGROUND COLOR

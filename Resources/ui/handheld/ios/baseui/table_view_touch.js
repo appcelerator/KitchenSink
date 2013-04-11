@@ -1,5 +1,7 @@
-function tv_touch() {
-	var win = Ti.UI.createWindow();
+function tv_touch(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// create table view data object
 	var data = [];
 	

@@ -1,5 +1,7 @@
-function tv_controls2() {
-	var win = Ti.UI.createWindow();
+function tv_controls2(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var clickLabel = Ti.UI.createLabel({
 		top:0,
 		height:'auto',

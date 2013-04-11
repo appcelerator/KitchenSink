@@ -1,5 +1,7 @@
-function switch_control() {
-	var win = Ti.UI.createWindow();
+function switch_control(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// BASIC SWITCH
@@ -195,6 +197,17 @@ function switch_control() {
 		});
 	
 		win.add(checkBox);
+		win.add(titleSwitch);
+	}
+
+	if (Titanium.Platform.osname == 'tizen') {
+		var titleSwitch = Titanium.UI.createSwitch({
+			titleOff:"LO",
+			titleOn:"HI",
+			value:false,
+			top:240
+		});
+
 		win.add(titleSwitch);
 	}
 	

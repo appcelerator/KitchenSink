@@ -2,8 +2,10 @@
 	//FOR DEMO ON HOW TO DO THIS IN OBJECTIVE-C WHICH WE PORTED BELOW 
 	//TO TITANIUM.
 	//http://cocoawithlove.com/2009/04/easy-custom-uitableview-drawing.html
-function tv_layout4() {	
-	var win = Titanium.UI.createWindow();
+function tv_layout4(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundImage = '/images/tableview/easycustom/gradientBackground.png';
 	
 	var data = [];

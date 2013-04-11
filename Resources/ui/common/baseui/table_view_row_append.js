@@ -1,13 +1,13 @@
-function tv_row_append() {
-	var win = Ti.UI.createWindow();
+function tv_row_append(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// create table view data object
 	var data = [
 		{title:'Row 1', hasChild:true},
 		{title:'Row 2', hasDetail:true},
 		{title:'Append Row with Header'},
 		{title:'Append Row & height=100'}
-	
-	
 	];
 	
 	// create table view
@@ -52,7 +52,11 @@ function tv_row_append() {
 			}
 			else
 			{
-				tableview.appendRow(data,{animationStyle:Titanium.UI.iPhone.RowAnimationStyle.LEFT});
+				if (Ti.Platform.osname !== 'tizen') {
+					tableview.appendRow(data, {animationStyle: Titanium.UI.iPhone.RowAnimationStyle.LEFT});	
+				} else {
+					tableview.appendRow(data);
+				}
 			}
 			newRowCount++;
 		}

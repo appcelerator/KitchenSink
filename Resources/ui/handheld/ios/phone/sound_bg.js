@@ -1,5 +1,7 @@
-function sound_bg() {
-	var win = Ti.UI.createWindow();
+function sound_bg(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	
 	var button = Ti.UI.createButton({

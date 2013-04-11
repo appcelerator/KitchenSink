@@ -1,5 +1,8 @@
 function scroll_views(_args) {
-	var win = Ti.UI.createWindow({backgroundColor:'#fff'});
+	var win = Ti.UI.createWindow({
+		title:_args.title,
+		backgroundColor:'#fff'
+	});
 	// create table view data object
 	var data = [
 		{title:'Basic', hasChild:true, test:'ui/common/baseui/scroll_views_basic'},
@@ -30,7 +33,7 @@ function scroll_views(_args) {
 		if (e.rowData.test)
 		{
 			var ExampleWindow = require(e.rowData.test);
-				win = new ExampleWindow();
+			win = new ExampleWindow({title: e.rowData.title, containingTab: _args.containingTab, tabGroup: _args.tabGroup});
 	
 			if (e.rowData.barColor)
 			{

@@ -1,5 +1,7 @@
-function tv_comp() {
-	var win = Titanium.UI.createWindow();
+function tv_comp(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#000099';
 	
 	// create table view data object

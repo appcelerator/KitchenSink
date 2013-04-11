@@ -1,5 +1,7 @@
-function sock_listen() {
-	var win = Titanium.UI.createWindow();
+function sock_listen(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var connectedSockets = [];
 	

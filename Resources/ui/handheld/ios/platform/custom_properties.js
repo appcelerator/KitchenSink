@@ -1,5 +1,7 @@
 function custom_props(_args) {
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	var tab = _args.containingTab;
 	
 	var l = Titanium.UI.createLabel({

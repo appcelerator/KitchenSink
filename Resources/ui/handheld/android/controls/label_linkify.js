@@ -1,5 +1,7 @@
-function label_linkify() {
-	var win = Ti.UI.createWindow();
+function label_linkify(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'white';
 	
 	var l = Ti.UI.createLabel({

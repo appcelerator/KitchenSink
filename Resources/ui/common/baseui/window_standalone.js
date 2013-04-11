@@ -4,7 +4,11 @@
 	//  to open windows outside of tab groups.
 	//
 function win_standalone(_args) {	
-	var win = Titanium.UI.createWindow();
+	var isMobileWeb = Ti.Platform.osname === 'mobileweb',
+		isTizen = Ti.Platform.osname === 'tizen',
+		win = Titanium.UI.createWindow({
+			title:_args.title
+		});
 	
 	win.orientationModes = [
 		Titanium.UI.PORTRAIT,
@@ -49,85 +53,116 @@ function win_standalone(_args) {
 		w.open();
 	});
 
-	if (Ti.Platform.osname !== 'mobileweb') {	
+	if (!isMobileWeb) {
 		//
 		//  OPEN (ANIMATE FROM BOTTOM RIGHT)
 		//
 		var b2 = Titanium.UI.createButton({
-			title:'Open (Nav Bar Covered)',
-			width:200,
-			height:40,
-			top:60
+			title: 'Open (Nav Bar Covered)',
+			width: 200,
+			height: 40,
+			top: 60
 		});
-		
-		b2.addEventListener('click', function()
-		{
-			var options = {
-					height:0,
-					width:0,
-					backgroundColor:'#336699',
-					bottom:0,
-					right:0
-				};
-			if (Ti.Platform.name == 'android') {
-				options.navBarHidden = true;
-			}
-			var w = Titanium.UI.createWindow(options);
-			var a = Titanium.UI.createAnimation();
-		
-			// NOTE: good example of making dynamic platform height / width values
-			// iPad vs. iPhone vs Android etc.
-			a.height = Titanium.Platform.displayCaps.platformHeight;
-			a.width = Titanium.Platform.displayCaps.platformWidth;
-			a.duration = 300;
-		
-			// create a button to close window
-			var b = Titanium.UI.createButton({
-				title:'Close',
-				height:30,
-				width:150
-			});
-			w.add(b);
-			b.addEventListener('click', function()
-			{
-				a.height = 0;
-				a.width = 0;
-				w.close(a);
-			});
-		
-			w.open(a);
-		});
-		
 		//
 		//  TRADITIONAL MODAL (FROM 0.8.x)
 		//
 		var b3 = Titanium.UI.createButton({
-			title:'Traditional Modal',
-			width:200,
-			height:40,
-			top:110
+			title: 'Traditional Modal',
+			width: 200,
+			height: 40,
+			top: 110
 		});
-		
-		b3.addEventListener('click', function()
-		{
+		b3.addEventListener('click', function() {
 			var Win = require('ui/common/phone/vibrate'),
-				w = new Win();
-				w.title = 'Modal Window';
-				w.barColor = 'black';
-	
-			var b = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			w.setLeftNavButton(b);
-			b.addEventListener('click',function()
-			{
+				w = new Win(),
+				b = Titanium.UI.createButton( {title: 'Close'} );
+
+			isTizen || (b.style = Titanium.UI.iPhone.SystemButtonStyle.PLAIN);
+			w.title = 'Modal Window';
+			w.barColor = 'black';
+			isTizen ? w.add(b) : w.setLeftNavButton(b);
+			b.addEventListener('click',function() {
 				w.close();
 			});
-			w.open({modal:true});
+			w.open({ modal: true });
 		});
+		if (isTizen) {
+			b2.addEventListener('click', function()
+			{
+				var t = Titanium.UI.create2DMatrix().scale(0),
+					options = {
+						height: Titanium.Platform.displayCaps.platformHeight,
+						width: Titanium.Platform.displayCaps.platformWidth,
+						backgroundColor: '#336699',
+						transform: t
+					},
+					t1 = Titanium.UI.create2DMatrix().scale(1),
+					w = Titanium.UI.createWindow(options),
+					a = Titanium.UI.createAnimation();
+			
+				a.transform = t1;
+				a.duration = 300;
+			
+				// create a button to close window
+				var b = Titanium.UI.createButton({
+					title: 'Close',
+					height: 30,
+					width: 150
+				});
+				w.add(b);
+				b.addEventListener('click', function()
+				{
+					a.transform = t;
+					a.addEventListener('complete', function(){
+						w.close()
+					})
+					w.animate(a);
+				});
+
+				w.addEventListener('postlayout', function(){
+					w.animate(a);
+				});
+
+				w.open();
+			});
+		} else {
+			b2.addEventListener('click', function() {
+				var options = {
+					height: 0,
+					width: 0,
+					backgroundColor: '#336699',
+					bottom: 0,
+					right: 0
+				};
+				if (Ti.Platform.name === 'android') {
+					options.navBarHidden = true;
+				}
+				var w = Titanium.UI.createWindow(options);
+				var a = Titanium.UI.createAnimation();
+
+				// NOTE: good example of making dynamic platform height / width values
+				// iPad vs. iPhone vs Android etc.
+				a.height = Titanium.Platform.displayCaps.platformHeight;
+				a.width = Titanium.Platform.displayCaps.platformWidth;
+				a.duration = 300;
+
+				// create a button to close window
+				var b = Titanium.UI.createButton({
+					title: 'Close',
+					height: 30,
+					width: 150
+				});
+				w.add(b);
+				b.addEventListener('click', function() {
+					a.height = 0;
+					a.width = 0;
+					w.close(a);
+				});
+
+				w.open(a);
+			});
+		}
 	}
-	
 	//
 	//  OPEN (WITH ANIMATED WOBBLE)
 	//
@@ -255,6 +290,7 @@ function win_standalone(_args) {
 	b6.addEventListener('click', function()
 	{
 		var w = Titanium.UI.createWindow({
+			title: 'New Window (Fullscreen)',
 			backgroundColor:'#336699'
 		});
 	
@@ -387,7 +423,7 @@ function win_standalone(_args) {
 	
 	
 	win.add(b1);
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if (!isMobileWeb) {
 		win.add(b2);
 		win.add(b3);
 	}

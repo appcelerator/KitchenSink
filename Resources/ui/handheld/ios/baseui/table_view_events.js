@@ -1,5 +1,7 @@
-function tv_events() {
-	var win = Ti.UI.createWindow();
+function tv_events(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var statusBox = Ti.UI.createView({
 		top:0,

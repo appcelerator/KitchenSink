@@ -1,5 +1,7 @@
-function view_evt_interaction() {
-	var win = Titanium.UI.createWindow();
+function view_evt_interaction(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	
 	// make a transparent view that obscures another view (sits on top)

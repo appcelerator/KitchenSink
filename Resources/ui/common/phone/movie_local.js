@@ -1,5 +1,7 @@
-function movie_local() {
-	var win = Titanium.UI.createWindow();
+function movie_local(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var options = {
 		url: '/etc/movie.mp4',

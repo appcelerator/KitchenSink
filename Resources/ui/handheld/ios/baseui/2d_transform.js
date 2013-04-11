@@ -1,5 +1,7 @@
-function transform2d() {
-	var win = Titanium.UI.createWindow();
+function transform2d(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#13386c';
 	
 	//

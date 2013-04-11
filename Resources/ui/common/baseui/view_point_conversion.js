@@ -1,5 +1,7 @@
-function view_pointconv() {
-	var win = Titanium.UI.createWindow();
+function view_pointconv(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'blue';
 	win.name = "window";
 	

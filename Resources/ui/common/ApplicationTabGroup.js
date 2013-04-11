@@ -24,6 +24,13 @@ function ApplicationTabGroup() {
 		window: baseUIWin
 	});
 	baseUIWin.containingTab = baseUITab;
+	
+	// On Tizen/Mobile Web, the tabGroup property must be initialized manually.
+	// It serves to remember the tab group control that hosts the window.
+	// This is needed for the tab group-related tests to be able to access the
+	// main tab group control.
+	Ti.Platform.osname === 'tizen' && (baseUIWin.tabGroup = self);
+	
 	self.addTab(baseUITab);
 	
 	var controlsTab = Ti.UI.createTab({

@@ -1,5 +1,7 @@
-function ti_platform() {
-	var win = Titanium.UI.createWindow();
+function ti_platform(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var scrollview = Ti.UI.createScrollView({
 		layout:'vertical',

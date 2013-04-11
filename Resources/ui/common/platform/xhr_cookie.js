@@ -1,5 +1,7 @@
-function xhr_cookie() {
-	var win = Titanium.UI.createWindow();
+function xhr_cookie(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var android = Ti.Platform.name == 'android';
 	

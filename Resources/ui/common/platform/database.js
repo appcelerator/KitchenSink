@@ -1,5 +1,7 @@
-function db() {
-	var win = Titanium.UI.createWindow();
+function db(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l = Titanium.UI.createLabel({
 		text:'See Log for output',
@@ -21,7 +23,7 @@ function db() {
 	b1.addEventListener('click', function()
 	{
 		var Win1 = require('ui/common/platform/database_2');
-		var win1 = new Win1();
+		var win1 = new Win1({title: 'DB in 2nd Context'});
 		var l1 = Titanium.UI.createLabel({
 			text:'2nd context test - see log.',
 			color:'#fff',
@@ -44,7 +46,7 @@ function db() {
 	b2.addEventListener('click', function()
 	{
 		var Win2 = require('ui/common/platform/database_3');
-		var win2 = new Win2();
+		var win2 = new Win2({title: 'Pre-packaged DB'});
 		var l2= Titanium.UI.createLabel({
 			text:'Pre-packaged Db - see log.',
 			color:'#fff',

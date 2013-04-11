@@ -1,5 +1,7 @@
-function hires_img() {
-	var win = Ti.UI.createWindow();
+function hires_img(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundImage = "/images/fence.jpg";
 	return win;
 };

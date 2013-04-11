@@ -1,5 +1,7 @@
-function picker_date2() {
-	var win = Ti.UI.createWindow();
+function picker_date2(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'black';
 	
 	var value = new Date();

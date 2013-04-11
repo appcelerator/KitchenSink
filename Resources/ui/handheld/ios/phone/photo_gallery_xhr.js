@@ -1,5 +1,7 @@
-function gallery_xhr() {
-	var win = Ti.UI.createWindow();
+function gallery_xhr(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var xhr = Titanium.Network.createHTTPClient();
 	
 	xhr.onload = function()

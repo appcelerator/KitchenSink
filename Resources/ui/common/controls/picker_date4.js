@@ -1,5 +1,7 @@
-function picker_date4() {
-	var win = Ti.UI.createWindow();
+function picker_date4(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'black';
 	
 	var duration = 60000 * 3; // expressed in milliseconds

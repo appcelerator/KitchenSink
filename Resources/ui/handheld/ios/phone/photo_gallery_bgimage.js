@@ -1,5 +1,7 @@
-function gallery_bg() {
-	var win = Titanium.UI.createWindow();
+function gallery_bg(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var f = Ti.App.Properties.getString("filename");
 	var bgImage = null;

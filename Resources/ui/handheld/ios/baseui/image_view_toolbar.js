@@ -1,6 +1,8 @@
 	// attempt to simulate a changing of image on toolbar
-function image_view_toolbar() {	
-	var win = Ti.UI.createWindow();
+function image_view_toolbar(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 
 	
 	var flexSpace = Titanium.UI.createButton({

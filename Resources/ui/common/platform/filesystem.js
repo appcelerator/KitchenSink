@@ -1,5 +1,7 @@
-function filesystem() {
-	var win = Titanium.UI.createWindow();
+function filesystem(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// path variables
 	Titanium.API.info('Resources Directory :' + Titanium.Filesystem.resourcesDirectory);

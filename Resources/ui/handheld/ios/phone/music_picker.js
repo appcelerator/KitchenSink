@@ -1,5 +1,7 @@
-function music_picker() {
-	var win = Ti.UI.createWindow();
+function music_picker(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var player = null;
 	

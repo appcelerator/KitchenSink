@@ -1,5 +1,7 @@
-function textfield_keyboard() {
-	var win = Ti.UI.createWindow();
+function textfield_keyboard(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var tf1 = Titanium.UI.createTextField({
 		color:'#336699',

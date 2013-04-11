@@ -1,8 +1,18 @@
-function picker_basic() {
-	var win = Ti.UI.createWindow();
+function picker_basic(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'black';
 	
 	var picker = Ti.UI.createPicker();
+	
+	if (Ti.Platform.osname === 'tizen') {
+		// On Mobile Web/Tizen, by default, the picker fills the entire view it is contained,
+		// unless the size is provided.
+		picker.width = '100';
+		picker.height = '110';
+		picker.color = '#fc0';
+	}
 	
 	var data = [];
 	data[0]=Ti.UI.createPickerRow({title:'Bananas',custom_item:'b'});

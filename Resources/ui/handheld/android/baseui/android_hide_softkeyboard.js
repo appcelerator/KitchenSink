@@ -1,5 +1,7 @@
-function android_hide_softkb() {
-	var win = Ti.UI.createWindow();
+function android_hide_softkb(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l1 = Ti.UI.createLabel({
 		text : 'Keyboard or Click focus TextField to Show Keyboard',

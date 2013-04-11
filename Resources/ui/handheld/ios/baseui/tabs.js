@@ -6,7 +6,9 @@ function tabs(_args) {
 	var tab = _args.containingTab;
 	
 	// get current win object
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// TOGGLE TAB TITLE

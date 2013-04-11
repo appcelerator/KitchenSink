@@ -1,9 +1,10 @@
-function android_service() {
+function android_service(_args) {
 	/*global Ti, alert */
 	var SECS = 5;
 	var URL = 'testservice.js';
 	
 	var win = Ti.UI.createWindow({
+		title:_args.title,
 		layout:'vertical'
 	});
 	var title = Ti.UI.createLabel({

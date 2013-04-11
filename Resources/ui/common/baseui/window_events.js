@@ -1,6 +1,8 @@
-function window_events() {
+function window_events(_args) {
 	// current window
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var focusText = 'Focus not fired';
 	if (Titanium.App.Properties.getString('window_focus_event')!=null)

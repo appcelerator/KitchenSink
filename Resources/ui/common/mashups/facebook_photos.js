@@ -1,8 +1,19 @@
-function fb_photos() {
+function fb_photos(_args) {
 	/*globals Titanium, Ti, alert, require, setTimeout, setInterval, JSON*/
-	var win = Ti.UI.createWindow({backgroundColor:'#fff'});
-	Titanium.Facebook.appid = "495338853813822";
-	Titanium.Facebook.permissions = ['publish_stream', 'read_stream'];
+	var platformName = Titanium.Platform.osname;
+	var facebook;
+	if (platformName == 'android' || platformName == 'iphone' || platformName == 'ipad') {
+		facebook = require('facebook');
+	} else {
+		facebook = Titanium.Facebook;
+	}
+
+	var win = Ti.UI.createWindow({
+		title:_args.title,
+		backgroundColor:'#fff'
+	});
+	facebook.appid = "495338853813822";
+	facebook.permissions = ['publish_stream', 'read_stream'];
 	
 	var B1_TITLE = "Upload Photo from Gallery with Graph API";
 	var B2_TITLE = "Upload Photo from file with REST API";
@@ -35,26 +46,19 @@ function fb_photos() {
 		alert(s);
 	}
 	
-	var login = Titanium.Facebook.createLoginButton({
+	var login = facebook.createLoginButton({
 		top: 10
 	});
-	if(Titanium.Platform.name == 'iPhone OS')
-	{
-		login.style = Ti.Facebook.BUTTON_STYLE_WIDE;
-	}
-	else
-	{
-		login.style ='wide';
-	}
+	login.style = facebook.BUTTON_STYLE_WIDE;
 	win.add(login);
 	
 	var actionsView = Ti.UI.createView({
-		top: 55, left: 0, right: 0, visible: Titanium.Facebook.loggedIn, height: 'auto'
+		top: 55, left: 0, right: 0, visible: facebook.loggedIn, height: 'auto'
 	});
 	actionsView.add(b1);
 	actionsView.add(b2);
 	
-	Titanium.Facebook.addEventListener('login', function(e) {
+	facebook.addEventListener('login', function(e) {
 		if (e.success) {
 			actionsView.show();
 		}
@@ -63,7 +67,7 @@ function fb_photos() {
 		}
 	});
 	
-	Titanium.Facebook.addEventListener('logout', function(e){
+	facebook.addEventListener('logout', function(e){
 		Ti.API.info('logout event');
 		actionsView.hide();
 	});
@@ -74,7 +78,7 @@ function fb_photos() {
 			{
 				b1.title = 'Uploading Photo...';
 				var data = {picture: event.media};
-				Titanium.Facebook.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
+				facebook.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
 			},
 			cancel:function()
 			{
@@ -94,7 +98,7 @@ function fb_photos() {
 			caption: 'behold, a flower',
 			picture: blob
 		};
-		Titanium.Facebook.request('photos.upload', data, showRequestResult);
+		facebook.request('photos.upload', data, showRequestResult);
 	});
 	
 	win.add(actionsView);

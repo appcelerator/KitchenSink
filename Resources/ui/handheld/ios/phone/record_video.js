@@ -1,5 +1,7 @@
-function record_vid() {
-	var win = Titanium.UI.createWindow();
+function record_vid(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var b = Titanium.UI.createButton({
 		title:'Record Movie',

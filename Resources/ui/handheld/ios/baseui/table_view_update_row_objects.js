@@ -1,5 +1,7 @@
-function tv_update_row() {
-	var win = Ti.UI.createWindow();
+function tv_update_row(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var tv = Ti.UI.createTableView({
 		style:Titanium.UI.iPhone.TableViewStyle.GROUPED

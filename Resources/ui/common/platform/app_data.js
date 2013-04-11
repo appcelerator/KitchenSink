@@ -1,5 +1,7 @@
-function app_data() {
-	var win = Titanium.UI.createWindow();
+function app_data(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var data = '';
 	

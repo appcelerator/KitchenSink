@@ -1,6 +1,8 @@
-function cam_ar() {
+function cam_ar(_args) {
 	container  = {};
-	container.win = Titanium.UI.createWindow();
+	container.win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	container.button = Titanium.UI.createButton({
 		color:'#fff',

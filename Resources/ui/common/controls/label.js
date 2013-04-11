@@ -13,6 +13,8 @@ function label(_args) {
 	if (Titanium.Platform.name == 'android')
 	{
 		data.push({title:'Auto Link', hasChild:true, test:'ui/handheld/android/controls/label_linkify'});
+	} else if (Titanium.Platform.osname === 'tizen') {
+		data.push({ title: 'Auto Link', hasChild: true, test: 'ui/common/controls/label_linkify' });
 	}
 	
 	// create table view
@@ -25,7 +27,7 @@ function label(_args) {
 	tableview.addEventListener('click', function(e) {
 		if (e.rowData.test) {
 			var ExampleWindow = require(e.rowData.test),
-				win = new ExampleWindow(_args);
+				win = new ExampleWindow({title: e.rowData.title});
 			_args.containingTab.open(win,{animated:true});
 		}
 	});

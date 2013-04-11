@@ -1,5 +1,7 @@
-function image_mask() {
-	var win = Titanium.UI.createWindow();
+function image_mask(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#ccc';
 	
 	// put the image mask (which must be non-transparent, black) in the back

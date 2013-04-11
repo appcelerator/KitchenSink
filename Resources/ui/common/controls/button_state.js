@@ -1,5 +1,7 @@
-function button_states() {
-	var win = Ti.UI.createWindow();
+function button_states(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var button1 = Titanium.UI.createButton({
 	  left:10,

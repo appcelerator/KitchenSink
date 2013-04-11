@@ -1,5 +1,6 @@
 function local_search(_args) {
 	var self = Ti.UI.createWindow({
+		title:_args.title,
 		backgroundColor:'#fff'
 	});
 	

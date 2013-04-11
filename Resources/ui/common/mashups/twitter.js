@@ -204,7 +204,7 @@ function getTweets() {
 	// set up a twitter screen name.
 	var screen_name = 'appcelerator';
 		win = Ti.UI.createWindow({
-			title:'@'+screen_name,
+			title:'Twitter',
 			backgroundColor:'#fff'
 		});
 

@@ -1,5 +1,7 @@
-function gradient() {
-	var win = Ti.UI.createWindow();
+function gradient(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var view1 = Ti.UI.createView({
 		height:50,
 		width:300,

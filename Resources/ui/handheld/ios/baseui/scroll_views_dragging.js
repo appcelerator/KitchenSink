@@ -1,5 +1,7 @@
-function scroll_view_drag() {
-	var win = Titanium.UI.createWindow();
+function scroll_view_drag(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var scrollView = Ti.UI.createScrollView({
 	    width: 320, 

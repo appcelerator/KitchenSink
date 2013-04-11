@@ -1,5 +1,7 @@
-function props() {
-	var win = Titanium.UI.createWindow();
+function props(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	/**
 	 * Result helper for checking a result against an expected value

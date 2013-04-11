@@ -1,5 +1,7 @@
-function anim_point() {
-	var win = Titanium.UI.createWindow();
+function anim_point(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var circle = Titanium.UI.createView({
 		height:100,
@@ -35,7 +37,9 @@ function anim_point() {
 	win.add(b);
 	b.addEventListener('click', function()
 	{
-		circle.animate({center:{x:circle.animatedCenter.x,y:circle.animatedCenter.y }});
+		var newLeft = circle.animatedCenter.x - circle.width/2;
+		var newTop = circle.animatedCenter.y - circle.height/2;
+		circle.animate({left:newLeft,top:newTop});
 	});
 	circle.animate(a, function()
 	{

@@ -1,5 +1,7 @@
-function image_view_encode() {
-	var win = Ti.UI.createWindow();
+function image_view_encode(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// this is a remote URL with a UTF-8 character encoded. We should be able
 	// to fetch this image OK

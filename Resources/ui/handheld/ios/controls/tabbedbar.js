@@ -1,5 +1,7 @@
-function tabbedbar() {
-	var win = Ti.UI.createWindow();
+function tabbedbar(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	//  LABEL

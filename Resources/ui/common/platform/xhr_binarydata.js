@@ -1,5 +1,7 @@
-function xhr_binary() {
-	var win = Titanium.UI.createWindow();
+function xhr_binary(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l = Titanium.UI.createLabel({
 		text:'Downloading image...',
@@ -27,7 +29,7 @@ function xhr_binary() {
 		imageView.image = f.nativePath;
 	};
 	// open the client (and test HTTPS)
-	xhr.open('GET','http://www.appcelerator.com/wp-content/themes/appcelerator/img/a-logo.png');
+	xhr.open('GET','http://developer.appcelerator.com/blog/wp-content/themes/newapp/images/appcelerator_avatar.png?s=48');
 	
 	// send the data
 	xhr.send();

@@ -1,5 +1,7 @@
-function geolocation() {
-	var win = Titanium.UI.createWindow();
+function geolocation(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#fff';
 	win.openedflag = 0 ;
 	win.focusedflag = 0;
@@ -484,7 +486,7 @@ function geolocation() {
 		Titanium.Geolocation.forwardGeocoder(addr,function(evt)
 		{
 			Ti.API.info('in forward ');
-			forwardGeo.text = "lat:"+evt.latitude+", long:"+evt.longitude;
+			forwardGeo.text = Titanium.Platform.osname === 'tizen' ? 'lat:' + evt.places[0].latitude + ', long:' + evt.places[0].longitude : 'lat:' + evt.latitude + ', long:' + evt.longitude;
 			Titanium.Geolocation.reverseGeocoder(evt.latitude,evt.longitude,function(evt)
 			{
 				if (evt.success) {

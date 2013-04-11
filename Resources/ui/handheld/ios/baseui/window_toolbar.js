@@ -1,6 +1,8 @@
-function win_tb() {
+function win_tb(_args) {
 	// current window
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// SINGLE BUTTON ON LEFT

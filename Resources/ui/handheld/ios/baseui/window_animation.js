@@ -1,5 +1,7 @@
-function win_anim() {
-	var win = Titanium.UI.createWindow();
+function win_anim(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = '#13386c';
 	
 	//

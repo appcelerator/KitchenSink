@@ -1,5 +1,7 @@
-function textfield_tool() {
-	var win = Ti.UI.createWindow();
+function textfield_tool(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	win.orientationModes = [
 		Titanium.UI.PORTRAIT,

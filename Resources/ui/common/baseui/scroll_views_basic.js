@@ -1,5 +1,7 @@
-function scroll_view_basic() {
-	var win = Titanium.UI.createWindow();
+function scroll_view_basic(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var scrollView = Titanium.UI.createScrollView({
 		contentWidth:'auto',

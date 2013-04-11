@@ -1,5 +1,7 @@
-function screenshot() {
-	var win = Titanium.UI.createWindow();
+function screenshot(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var imageView = Titanium.UI.createImageView({
 		height:200,

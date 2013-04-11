@@ -1,5 +1,7 @@
-function image_view_remote() {
-	var win = Titanium.UI.createWindow();
+function image_view_remote(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var imageView = Titanium.UI.createImageView({
 		image:'http://static.appcelerator.com/images/header/appc_logo.png',

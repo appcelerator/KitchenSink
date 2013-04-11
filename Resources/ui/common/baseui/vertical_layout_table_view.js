@@ -1,5 +1,7 @@
-function vertical_layout_tv() {
-	var win = Ti.UI.createWindow();
+function vertical_layout_tv(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var tv = Ti.UI.createTableView({minRowHeight:50});
 	

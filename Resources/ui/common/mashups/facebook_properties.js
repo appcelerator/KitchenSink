@@ -1,6 +1,15 @@
-function fb_properties() {
+function fb_properties(_args) {
 	/*globals Titanium, Ti, alert, require, setTimeout, setInterval, JSON*/
+	var platformName = Titanium.Platform.osname;
+	var facebook;
+	if (platformName == 'android' || platformName == 'iphone' || platformName == 'ipad') {
+		facebook = require('facebook');
+	} else {
+		facebook = Titanium.Facebook;
+	}
+
 	var win = Ti.UI.createWindow({
+		title:_args.title,
 		backgroundColor:'#fff'
 	});
 	var sv = Ti.UI.createScrollView({
@@ -12,24 +21,17 @@ function fb_properties() {
 	});
 	win.add(sv);
 	
-	Titanium.Facebook.appid = "495338853813822";
-	Titanium.Facebook.permissions = ['publish_stream', 'read_stream'];
+	facebook.appid = "495338853813822";
+	facebook.permissions = ['publish_stream', 'read_stream'];
 	
 	var plist = []; // list of known FB permissions as of Jan 2011 (see bottom)
 	//
 	// Login Button
 	//
-	var fbButton = Titanium.Facebook.createLoginButton({
+	var fbButton = facebook.createLoginButton({
 		top: 10
 	});
-	if(Titanium.Platform.name == 'iPhone OS')
-	{
-		fbButton.style = Ti.Facebook.BUTTON_STYLE_NORMAL;
-	}
-	else
-	{
-		fbButton.style ='normal';
-	}
+	fbButton.style = facebook.BUTTON_STYLE_NORMAL;
 	sv.add(fbButton);
 	
 	var b1 = Ti.UI.createButton({
@@ -72,20 +74,20 @@ function fb_properties() {
 	
 	b1.addEventListener('click', function()
 	{
-		Ti.API.info("click called, logged in = "+Titanium.Facebook.loggedIn);
+		Ti.API.info("click called, logged in = "+facebook.loggedIn);
 		
-		if (!Titanium.Facebook.loggedIn)
+		if (!facebook.loggedIn)
 		{
 			Ti.UI.createAlertDialog({title:'Facebook', message:'Login before accessing properties'}).show();
 			return;
 		}
-		loggedIn.text = "Logged In = " + Ti.Facebook.loggedIn;
-		userId.text = "User Id = " + Ti.Facebook.uid;
+		loggedIn.text = "Logged In = " + facebook.loggedIn;
+		userId.text = "User Id = " + facebook.uid;
 		permissions.text = "querying for permissions ...";
 		
 		var query = 'select ' + plist.join(',') + ' from permissions where uid = me()';
 		Ti.API.info('Will run query: ' + query);
-		Ti.Facebook.request('fql.query', {query: query}, function(r) {
+		facebook.request('fql.query', {query: query}, function(r) {
 			if (!r.success || !r.result) {
 				if (r.error) {
 					permissions.text = 'error: ' + r.error;

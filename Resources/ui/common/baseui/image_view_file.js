@@ -1,5 +1,7 @@
-function image_view_file() {
-	var win = Titanium.UI.createWindow();;
+function image_view_file(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var f = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory,'/images/apple_logo.jpg');
 	

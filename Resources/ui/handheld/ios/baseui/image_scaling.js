@@ -1,5 +1,7 @@
-function image_scale() {
-	var win = Titanium.UI.createWindow();
+function image_scale(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundImage = '/images/corkboard.jpg';
 	
 	var image1 = Titanium.UI.createView({

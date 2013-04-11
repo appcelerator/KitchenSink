@@ -1,5 +1,7 @@
-function textfield_soft() {
-	var win = Ti.UI.createWindow();
+function textfield_soft(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'white';
 	
 	var label = Ti.UI.createLabel({

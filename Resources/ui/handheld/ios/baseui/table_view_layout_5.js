@@ -1,5 +1,7 @@
-function tv_layout5() {
-	var w = Ti.UI.createWindow();
+function tv_layout5(_args) {
+	var w = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var images = [
 		'http://t2.gstatic.com/images?q=tbn:BjUSCfLZ6aMORM:http://mariusbardan.files.wordpress.com/2009/10/carbonapple_mono1024.jpg',

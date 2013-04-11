@@ -1,5 +1,7 @@
-function anchor_point() {
-	var win = Titanium.UI.createWindow();
+function anchor_point(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// REUSABLE ANIMATION WITH TRANSFORM

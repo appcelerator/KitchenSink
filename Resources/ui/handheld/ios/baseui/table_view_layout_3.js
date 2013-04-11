@@ -1,5 +1,7 @@
-function tv_layout3() {
-	var win = Titanium.UI.createWindow();
+function tv_layout3(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundImage='/images/chip.jpg';
 	
 	var data =[];

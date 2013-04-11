@@ -1,5 +1,7 @@
-function slider_range() {
-	var win = Ti.UI.createWindow();
+function slider_range(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = "white";
 	
 	var customSlider = Titanium.UI.createSlider({

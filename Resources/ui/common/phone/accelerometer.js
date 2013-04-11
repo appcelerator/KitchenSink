@@ -1,5 +1,7 @@
-function accelerometer() {
-	var win = Titanium.UI.createWindow();
+function accelerometer(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	var accelerometerAdded = false;
 	
 	var x = Titanium.UI.createLabel({

@@ -1,9 +1,13 @@
-function sound_file_url() {
-	var win = Titanium.UI.createWindow();
-	
-	var timob7502fix = ((Ti.version >= '3.0.0') && (Titanium.Platform.name == 'iPhone OS'));	
-	var file = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory,'etc/cricket.wav');
-	var file2 = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory,'etc/pop.caf');
+function sound_file_url(_args) {
+	var win = Titanium.UI.createWindow({
+			title:_args.title
+		}),
+		isTizen = Ti.Platform.osname === 'tizen',
+		isAndroid = Ti.Platform.name === 'android',
+		timob7502fix = ((Ti.version >= '3.0.0') && (Titanium.Platform.name == 'iPhone OS')),
+		file = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory,'etc/cricket.wav'),
+		file2 = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, isTizen ? 'etc/Kalimba.mp3' : 'etc/pop.caf');
+
 	
 	// load from file object but use the nativepath
 	var sound = Titanium.Media.createSound({url:file.nativePath});
@@ -168,6 +172,11 @@ function sound_file_url() {
 			sound.url = file.nativePath;
 			fileNum = 0;
 		}
+		
+		// Update the progress bar
+		pb.value = 0;
+		pb.max = sound.duration;
+		
 	});
 	win.add(urlChange);
 	
@@ -186,16 +195,20 @@ function sound_file_url() {
 	//
 	//  PROGRESS BAR TO TRACK SOUND DURATION
 	//
-	var flexSpace = Titanium.UI.createButton({
-		systemButton:Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-	});
+	var flexSpace = Titanium.UI.createButton();
+	isTizen || (flexSpace.systemButton = Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE); 
+	
 	var pb = Titanium.UI.createProgressBar({
 		min:0,
 		value:0,
 		width:200
 	});
 	
-	if (Ti.Platform.name != 'android') {
+	if (isTizen) {
+		// setToolbar is not supported on Tizen; simply add the progress bar to the window
+		pb.top = 210;
+		win.add(pb);
+	} else if (!isAndroid) {
 		win.setToolbar([flexSpace,pb,flexSpace]);
 	}
 	pb.show();
@@ -219,6 +232,7 @@ function sound_file_url() {
 	win.addEventListener('close', function()
 	{
 		clearInterval(i);
+		isTizen && sound.release();  // stop playing the audio and release the resources
 	});
 	return win;
 };

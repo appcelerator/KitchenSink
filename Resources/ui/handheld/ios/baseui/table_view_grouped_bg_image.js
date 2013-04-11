@@ -1,5 +1,7 @@
-function tv_groupbg() {
-	var win = Titanium.UI.createWindow();
+function tv_groupbg(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundImage = '/images/tableview/brown_bg_482.png';
 	
 	

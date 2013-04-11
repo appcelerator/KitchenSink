@@ -3,8 +3,14 @@ function SplitView_Features(){
 	SplitFeatures = {};
 
 	// WINDOWS
-	SplitFeatures.masterWindow = Ti.UI.createWindow({backgroundColor:'#ffffff'});
-	SplitFeatures.detailWindow = Ti.UI.createWindow({backgroundColor:'#336699'});
+	SplitFeatures.masterWindow = Ti.UI.createWindow({
+		title:'Master',
+		backgroundColor:'#ffffff'
+	});
+	SplitFeatures.detailWindow = Ti.UI.createWindow({
+		title:'Detail',
+		backgroundColor:'#336699'
+	});
 
 	SplitFeatures.masterDisplayButton = Ti.UI.createButton({
 		title:'Display master (portrait)',

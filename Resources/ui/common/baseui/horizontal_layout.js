@@ -1,5 +1,7 @@
-function horizontal_layout() {
-	var win = Ti.UI.createWindow();
+function horizontal_layout(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var view = Ti.UI.createView({
 		height:300,

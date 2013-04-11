@@ -1,5 +1,7 @@
-function slider_min_max() {
-	var win = Ti.UI.createWindow();
+function slider_min_max(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var minLabel = Ti.UI.createLabel({
 		bottom: 10, width:100, left: 10,

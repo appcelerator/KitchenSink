@@ -1,5 +1,7 @@
-function tv_editmove() {
-	var win = Titanium.UI.createWindow();
+function tv_editmove(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// create table view data object
 	var data = [

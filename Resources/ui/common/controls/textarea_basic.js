@@ -1,5 +1,7 @@
-function textarea_basic() {
-	var win = Ti.UI.createWindow();
+function textarea_basic(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var l = Titanium.UI.createLabel({
 		text:'Text area tests.',

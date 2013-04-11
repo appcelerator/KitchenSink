@@ -1,5 +1,7 @@
-function tv_textfield() {
-	var win = Ti.UI.createWindow();
+function tv_textfield(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	function addRow(addTextArea)
 	{

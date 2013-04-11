@@ -1,9 +1,11 @@
-function movie_remote2() {
+function movie_remote2(_args) {
 	// regression issue for #965
 	
 	// dynamic url with dynamic encoding (from kosso)
 	var media_url = "http://phreadz.com/service/encoder.php?g=5LPOKP754&iph=1";
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var activeMovie = Titanium.Media.createVideoPlayer({
 		url:media_url,

@@ -1,5 +1,7 @@
-function push_notifications() {
-	var win = Titanium.UI.createWindow();
+function push_notifications(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	
 	var label = Ti.UI.createLabel({

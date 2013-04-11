@@ -1,5 +1,7 @@
-function app_badge() {
-	var win = Titanium.UI.createWindow();
+function app_badge(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var b1 = Titanium.UI.createButton({
 		title:'Set App Badge',

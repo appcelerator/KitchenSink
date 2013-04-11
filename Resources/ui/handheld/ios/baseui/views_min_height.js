@@ -1,5 +1,7 @@
-function views_minheight() {
-	var win = Ti.UI.createWindow();
+function views_minheight(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// in this test, the label has a minimum was is larger than the actual
 	// auto height - this means the label should be larger (200px)

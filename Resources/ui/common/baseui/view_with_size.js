@@ -1,5 +1,7 @@
-function viewsize() {
-	var win = Ti.UI.createWindow();
+function viewsize(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// this test should test that we have a red 100x100 view in the 
 	// center of the screen by using the size property to set it
@@ -33,7 +35,13 @@ function viewsize() {
 	win.add(button);
 	
 	button.addEventListener('click',function() {
-	    view.updateLayout({width:150,height:150});
+		if(Ti.Platform.osname !== 'tizen') {
+	    	view.updateLayout({width:150,height:150});
+	    } else {
+	    	// It is impossible to use "updateLayout",
+			// because there is a bug (https://jira.appcelerator.org/browse/TIMOB-10427)
+	    	view.width = view.height = 150;
+	    }
 	    label.text = "Box should now be 150x150";
 	});
 	return win;

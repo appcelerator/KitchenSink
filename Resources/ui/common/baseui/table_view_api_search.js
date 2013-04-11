@@ -1,5 +1,7 @@
-function tv_api_search() {
-	var win = Titanium.UI.createWindow();
+function tv_api_search(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// create table view data object
 	var data = [];

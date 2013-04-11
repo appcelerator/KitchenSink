@@ -1,5 +1,7 @@
-function xhr_upload() {
-	var win = Titanium.UI.createWindow();
+function xhr_upload(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var ind=Titanium.UI.createProgressBar({
 		width:200,

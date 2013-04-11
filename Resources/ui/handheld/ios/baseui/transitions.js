@@ -1,5 +1,7 @@
-function transition() {
-	var win = Ti.UI.createWindow();
+function transition(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// this is our second view for the view transition example
 	// we add it first, so the next one will be initially visible (last on the stack)

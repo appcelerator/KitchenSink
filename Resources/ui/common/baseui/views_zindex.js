@@ -1,5 +1,7 @@
-function views_zindex() {
-	var win = Ti.UI.createWindow();
+function views_zindex(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var scrollView = Ti.UI.createScrollView({height:200,top:0});
 	win.add(scrollView);
 	

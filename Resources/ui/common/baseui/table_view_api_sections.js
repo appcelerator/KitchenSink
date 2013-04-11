@@ -1,5 +1,7 @@
-function tv_api_sections() {
-	var win = Ti.UI.createWindow();
+function tv_api_sections(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var section1 = Ti.UI.createTableViewSection({
 		headerTitle:'Header 1'

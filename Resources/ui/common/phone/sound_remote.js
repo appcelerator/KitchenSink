@@ -1,5 +1,7 @@
-function sound_remote() {
-	var win = Titanium.UI.createWindow();
+function sound_remote(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var url = Titanium.UI.createTextField({
 		value:'http://watoo.net:8000/INTRODUCTION.mp3',

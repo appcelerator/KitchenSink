@@ -1,5 +1,7 @@
-function tv_perf() {
-	var w = Ti.UI.createWindow();
+function tv_perf(_args) {
+	var w = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var v = Ti.UI.createView();
 	var tv = Ti.UI.createTableView({
 		top:0,

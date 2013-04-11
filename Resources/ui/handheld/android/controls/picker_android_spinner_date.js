@@ -1,5 +1,7 @@
-function picker_spinner_date() {
-	var win = Ti.UI.createWindow();
+function picker_spinner_date(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundColor = 'black';
 	
 	var minDate = new Date();

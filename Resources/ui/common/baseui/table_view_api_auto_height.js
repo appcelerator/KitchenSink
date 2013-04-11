@@ -1,5 +1,7 @@
-function tv_api_autoheight() {
-	var win = Ti.UI.createWindow();
+function tv_api_autoheight(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// create table view data object
 	var data = [];
 	

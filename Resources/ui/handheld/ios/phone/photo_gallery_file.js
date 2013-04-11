@@ -1,5 +1,7 @@
-function gallery_file() {
-	var win = Ti.UI.createWindow();
+function gallery_file(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var f = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory,'images/appcelerator_small.png');
 	
 	Titanium.Media.saveToPhotoGallery(f,{

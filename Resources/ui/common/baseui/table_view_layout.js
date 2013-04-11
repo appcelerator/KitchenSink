@@ -1,6 +1,8 @@
 	//FIXME: JGH redo
-function tv_layout() {
-	var win = Titanium.UI.createWindow();
+function tv_layout(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	win.backgroundImage = '/images/tableview/brown_bg_482.png';
 	
 	
@@ -50,7 +52,7 @@ function tv_layout() {
 		data:data,
 		top:10
 	});
-	if (Ti.Platform.osname !== 'mobileweb') {
+	if ( !(Ti.Platform.osname === 'mobileweb' || Ti.Platform.osname === 'tizen') ) {
 		tableView.separatorStyle = Ti.UI.iPhone.TableViewSeparatorStyle.NONE;
 	}
 	

@@ -1,5 +1,7 @@
 function sockets(_args) {
-	var self = Ti.UI.createWindow();
+	var self = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// create table view data object
 	var data = [
 		{title:'Connecting socket', hasChild:true, test:'ui/common/platform/socket_connect'},
@@ -23,7 +25,7 @@ function sockets(_args) {
 		if (e.rowData.test)
 		{
 			var ExampleWindow = require(e.rowData.test),
-				win = new ExampleWindow();
+				win = new ExampleWindow({title: e.rowData.title});
 			_args.containingTab.open(win,{animated:true});
 		}
 	});

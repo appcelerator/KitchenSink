@@ -1,5 +1,7 @@
-function ios_socket() {
-	var win = Titanium.UI.createWindow();
+function ios_socket(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var socket = Titanium.Network.createTCPSocket({
 		hostName:Titanium.Network.INADDR_ANY, 

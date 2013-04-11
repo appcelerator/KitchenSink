@@ -1,11 +1,15 @@
-function sound_remote_url() {
-	var win = Titanium.UI.createWindow();
-	var isIOS = Titanium.Platform.name == 'iPhone OS';
+function sound_remote_url(_args) {
+	var win = Titanium.UI.createWindow({
+			title:_args.title
+		}),
+		isIOS = Titanium.Platform.name === 'iPhone OS',
+		isAndroid = Ti.Platform.name === 'android',
+		isTizen = Ti.Platform.osname === 'tizen';
 
 	//TIMOB-7502. TIme moved to ms but duration is still reported in seconds
 	var timob7502fix = ((Ti.version >= '3.0.0') && (Titanium.Platform.name == 'iPhone OS'));
-	
-	var url = "http://www.archive.org/download/CelebrationWav/1.wav";
+
+	var url = "http://iphonegu.com/wp-content/uploads/2012/06/One-Direction-What-Makes-You-Beautiful.mp3";
 	
 	// On iOS, loading remote url takes time and blocks window opening.
 	// Set the url after the window opens on iOS.
@@ -183,16 +187,20 @@ function sound_remote_url() {
 	//
 	//  PROGRESS BAR TO TRACK SOUND DURATION
 	//
-	var flexSpace = Titanium.UI.createButton({
-		systemButton:Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-	});
+	var flexSpace = Titanium.UI.createButton();
+	isTizen || (flexSpace.systemButton = Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE); 
+	
 	var pb = Titanium.UI.createProgressBar({
 		min:0,
 		value:0,
 		width:200
 	});
 	
-	if (Ti.Platform.name != 'android') {
+	if (isTizen) {
+		// setToolbar is not supported on Tizen; simply add the progress bar to the window
+		pb.top = 210;
+		win.add(pb);
+	} else if (!isAndroid) {
 		win.setToolbar([flexSpace,pb,flexSpace]);
 	}
 	pb.show();
@@ -216,6 +224,7 @@ function sound_remote_url() {
 	win.addEventListener('close', function()
 	{
 		clearInterval(i);
+		isTizen && sound.release();   // stop playing the audio and release the resources
 	});
 
 	return win;

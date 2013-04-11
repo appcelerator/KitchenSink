@@ -1,5 +1,7 @@
-function contacts_image() {
-	var win = Ti.UI.createWindow();
+function contacts_image(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var imageDisplay = null;
 	

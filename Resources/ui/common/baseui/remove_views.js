@@ -1,5 +1,7 @@
-function remove_views() {
-	var win = Ti.UI.createWindow();
+function remove_views(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	var v1 = Ti.UI.createView({
 		height:40,

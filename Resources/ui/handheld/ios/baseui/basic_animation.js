@@ -1,5 +1,7 @@
-function basic_anim() {
-	var win = Titanium.UI.createWindow();
+function basic_anim(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var circle = Titanium.UI.createView({
 		height:100,

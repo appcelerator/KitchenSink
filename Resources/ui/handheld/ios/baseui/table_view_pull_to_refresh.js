@@ -1,5 +1,7 @@
-function tv_pull() {
-	var win = Ti.UI.createWindow();
+function tv_pull(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	function formatDate()
 	{

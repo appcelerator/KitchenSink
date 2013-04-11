@@ -1,5 +1,7 @@
 function cam_popover() {
-	var win = Titanium.UI.createWindow();
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var popoverButton = Titanium.UI.createButton({
 		title:'Pop Camera',

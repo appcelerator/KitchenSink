@@ -1,5 +1,7 @@
-function cam_file() {
-	var win = Titanium.UI.createWindow();
+function cam_file(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	Titanium.Media.showCamera({
 	

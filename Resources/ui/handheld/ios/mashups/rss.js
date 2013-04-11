@@ -5,7 +5,7 @@
 	
 	// eg:
 	
-function rss() {
+function rss(_args) {
 	var url = 'http://rss.cnn.com/services/podcasting/newscast/rss.xml';
 	
 	// loadRRSFeed(url) // is at the bottom of the js - after all the functions
@@ -28,14 +28,13 @@ function rss() {
 	var stream = Ti.Media.createAudioPlayer();
 	
 	var item_window = Ti.UI.createView({
-	
+		title:_args.title,
 		backgroundColor:'#b40000',
 		borderRadius:8,
 		right:5,
 		left:5,
 		height:100,
 		bottom:5
-	
 	});
 	self.add(item_window);
 	var item_title_label = Ti.UI.createLabel({

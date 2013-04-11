@@ -1,5 +1,7 @@
-function statusbar() {
-	var win = Titanium.UI.createWindow();
+function statusbar(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var b1 = Titanium.UI.createButton({
 		title:'Hide/Show',

@@ -1,5 +1,7 @@
-function clipboard() {
-	var win = Titanium.UI.createWindow();
+function clipboard(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// initialize to all modes
 	win.orientationModes = [

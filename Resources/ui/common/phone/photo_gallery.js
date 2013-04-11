@@ -36,8 +36,10 @@ function openGallery() {
 	});
 }
 
-function photo_gallery() {
-	var win = Titanium.UI.createWindow();
+function photo_gallery(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	imageView = Titanium.UI.createImageView({
 		height:200,
 		width:200,

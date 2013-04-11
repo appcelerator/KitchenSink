@@ -1,5 +1,7 @@
-function cf_remote() {
-	var win = Titanium.UI.createWindow();
+function cf_remote(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var images = [];
 	var prefix = 'http://grin.hq.nasa.gov/IMAGES/SMALL/GPN-2000-0000';

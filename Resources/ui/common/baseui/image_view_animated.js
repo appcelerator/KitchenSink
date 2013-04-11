@@ -1,5 +1,7 @@
-function image_view_anim() {	
-	var win = Titanium.UI.createWindow();
+function image_view_anim(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	// show indicator from app.js
 	Titanium.App.fireEvent('show_indicator');

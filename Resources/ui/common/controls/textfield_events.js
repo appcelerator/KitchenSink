@@ -1,5 +1,7 @@
-function textfield_events() {
-	var win = Ti.UI.createWindow();
+function textfield_events(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	
 	// initialize to all modes
 	win.orientationModes = [
@@ -114,7 +116,7 @@ function textfield_events() {
 	
 	var instructions = Ti.UI.createLabel({
 		text:'Rotate device while keyboard is up',
-		bottom:10,
+		top:260,
 		height:30,
 		color:'#777'
 	});

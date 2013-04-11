@@ -1,5 +1,7 @@
-function notif() {
-	var win= Titanium.UI.createWindow();
+function notif(_args) {
+	var win= Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	var countdown = 5;
 	

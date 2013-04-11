@@ -1,5 +1,7 @@
-function bonjour() {
-	var win = Ti.UI.createWindow();
+function bonjour(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	// Publish a local service on startup
 	var bonjourSocket = Titanium.Network.createTCPSocket({
 		hostName:Titanium.Network.INADDR_ANY,

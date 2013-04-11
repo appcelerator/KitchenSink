@@ -1,5 +1,7 @@
-function tv_options() {
-	var win = Ti.UI.createWindow();
+function tv_options(_args) {
+	var win = Ti.UI.createWindow({
+		title:_args.title
+	});
 	var data = [];
 	
 	for (var i=0;i<4;i++)

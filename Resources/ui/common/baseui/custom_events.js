@@ -1,5 +1,7 @@
-function custom_events() {
-	var win = Titanium.UI.createWindow();
+function custom_events(_args) {
+	var win = Titanium.UI.createWindow({
+		title:_args.title
+	});
 	
 	//
 	// FIRE EVENT WITH DATA ARRAY
