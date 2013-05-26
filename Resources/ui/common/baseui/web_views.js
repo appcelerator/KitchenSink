@@ -10,7 +10,7 @@ function webviews(_args) {
 		{title:'External URL', hasChild:true, url:'http://www.google.com'},
 		{title:'Local URL', hasChild:true, url:'/etc/local_webview.html'},
 		{title:'XHR to Filesystem', hasChild:true},	
-		{title:'Image URL', hasChild:true, url:'http://www.appcelerator.com/wp-content/uploads/2010/01/TABWAVE_graph1.png'},
+		{title:'Image URL', hasChild:true, url:'http://www.appcelerator.com.s3.amazonaws.com/appc-logos-legal/display/appc-logo-stacked-light.png'},
 		{title:'Inline HTML', hasChild:true, innerHTML:'<html><body>Hello from inline HTML.</body></html>'},
 		{title:'Inline HTML w/ Trans Bg', hasChild:true, innerHTML:'<html><body><div style="color:white;">Hello from inline HTML. You should see white text and black background</div></body></html>', bgcolor:'black'},
 		{title:'Inline HTML w/ Color Bg', hasChild:true, innerHTML:'<html><body><div style="color:red;">Hello from inline HTML. You should see red text and yellow background</div></body></html>', bgcolor:'yellow'},
