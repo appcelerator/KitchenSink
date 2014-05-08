@@ -110,6 +110,12 @@ function win_props(_args) {
 	var win2 = null;
 	buttonLayout.addEventListener('click', function()
 	{	
+		if(Ti.Platform.osname == 'blackberry') {
+			Ti.BlackBerry.createToastNotification({
+				message: 'Test invalid for BlackBerry'
+			}).show();
+			return;
+		}
 		if (layout)
 		{
 			win1 = Titanium.UI.createWindow({

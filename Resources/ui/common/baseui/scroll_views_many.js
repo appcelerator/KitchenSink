@@ -7,8 +7,8 @@ function scroll_view_many(_args) {
 	// SCROLL VIEW 1
 	//
 	var scrollView1 = Titanium.UI.createScrollView({
-		contentWidth:'auto',
-		contentHeight:'auto',
+		contentWidth:Ti.UI.SIZE,
+		contentHeight:Ti.UI.SIZE,
 		top:10,
 		left:10,
 		width:100,
@@ -31,8 +31,8 @@ function scroll_view_many(_args) {
 	var l1 = Ti.UI.createLabel({
 		text:'Bounce:true, vertbar:false',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	view1.add(l1);
 	scrollView1.add(view1);
@@ -42,8 +42,8 @@ function scroll_view_many(_args) {
 	// SCROLL VIEW 2
 	//
 	var scrollView2 = Titanium.UI.createScrollView({
-		contentWidth:'auto',
-		contentHeight:'auto',
+		contentWidth:Ti.UI.SIZE,
+		contentHeight:Ti.UI.SIZE,
 		top:10,
 		right:10,
 		width:100,
@@ -66,8 +66,8 @@ function scroll_view_many(_args) {
 	var l2 = Ti.UI.createLabel({
 		text:'Bounce:true, horzbar:false',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	view2.add(l2);
 	scrollView2.add(view2);
@@ -76,14 +76,14 @@ function scroll_view_many(_args) {
 	//
 	//  THESE ARE IPHONE-SPECIFIC
 	//
-	if (Titanium.Platform.name == 'iPhone OS')
+	if (Titanium.Platform.name == 'iPhone OS' || Titanium.Platform.osname == 'blackberry')
 	{
 		//
 		// SCROLL VIEW 3
 		//
 		var scrollView3 = Titanium.UI.createScrollView({
-			contentWidth:'auto',
-			contentHeight:'auto',
+			contentWidth:Ti.UI.SIZE,
+			contentHeight:Ti.UI.SIZE,
 			top:170,
 			left:10,
 			width:100,
@@ -108,8 +108,8 @@ function scroll_view_many(_args) {
 		var l3 = Ti.UI.createLabel({
 			text:'bounce',
 			color:'#fff',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		view3.add(l3);
 		scrollView3.add(view3);
@@ -120,8 +120,8 @@ function scroll_view_many(_args) {
 		// SCROLL VIEW 4
 		//
 		var scrollView4 = Titanium.UI.createScrollView({
-			contentWidth:'auto',
-			contentHeight:'auto',
+			contentWidth:Ti.UI.SIZE,
+			contentHeight:Ti.UI.SIZE,
 			top:170,
 			right:10,
 			width:100,
@@ -143,8 +143,8 @@ function scroll_view_many(_args) {
 		var l4 = Ti.UI.createLabel({
 			text:'bounce:false',
 			color:'#fff',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		view4.add(l4);
 		scrollView4.add(view4);

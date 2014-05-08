@@ -29,7 +29,9 @@ function ApplicationTabGroup() {
 	// It serves to remember the tab group control that hosts the window.
 	// This is needed for the tab group-related tests to be able to access the
 	// main tab group control.
-	Ti.Platform.osname === 'tizen' && (baseUIWin.tabGroup = self);
+	if(Ti.Platform.osname == 'tizen' || Ti.Platform.osname == 'blackberry') {
+	 (baseUIWin.tabGroup = self);
+	}
 	
 	self.addTab(baseUITab);
 	
@@ -67,50 +69,53 @@ function ApplicationTabGroup() {
 	
 	self.setActiveTab(1);
 	
-	
-	// Tabgroup events and message window
-	messageWin = Titanium.UI.createWindow({
-		height:30,
-		width:250,
-		bottom:70,
-		borderRadius:10,
-		touchEnabled:false,
-		orientationModes : [
-			Titanium.UI.PORTRAIT,
-			Titanium.UI.UPSIDE_PORTRAIT,
-			Titanium.UI.LANDSCAPE_LEFT,
-			Titanium.UI.LANDSCAPE_RIGHT
-		]
-	});
-	if (Ti.Platform.osname === 'iphone') {
-		messageWin.orientationModes = [Ti.UI.PORTRAIT]
-	}
-	
-	var messageView = Titanium.UI.createView({
-		id:'messageview',
-		height:30,
-		width:250,
-		borderRadius:10,
-		backgroundColor:'#000',
-		opacity:0.7,
-		touchEnabled:false
-	});
+	if(Ti.Platform.osname == 'blackberry') {
+		messageWin = Ti.BlackBerry.createToast();
+	} else {
+		// Tabgroup events and message window
+		messageWin = Titanium.UI.createWindow({
+			height:30,
+			width:250,
+			bottom:70,
+			borderRadius:10,
+			touchEnabled:false,
+			orientationModes : [
+				Titanium.UI.PORTRAIT,
+				Titanium.UI.UPSIDE_PORTRAIT,
+				Titanium.UI.LANDSCAPE_LEFT,
+				Titanium.UI.LANDSCAPE_RIGHT
+			]
+		});
+		if (Ti.Platform.osname === 'iphone') {
+			messageWin.orientationModes = [Ti.UI.PORTRAIT]
+		}
 		
-	var messageLabel = Titanium.UI.createLabel({
-		id:'messagelabel',
-		text:'',
-		color:'#fff',
-		width:250,
-		height:'auto',
-		font:{
-			fontFamily:'Helvetica Neue',
-			fontSize:13
-		},
-		textAlign:'center'
-	});
-	messageWin.add(messageView);
-	messageWin.add(messageLabel);
-	
+		var messageView = Titanium.UI.createView({
+			id:'messageview',
+			height:30,
+			width:250,
+			borderRadius:10,
+			backgroundColor:'#000',
+			opacity:0.7,
+			touchEnabled:false
+		});
+			
+		var messageLabel = Titanium.UI.createLabel({
+			id:'messagelabel',
+			text:'',
+			color:'#fff',
+			width:250,
+			height:'auto',
+			font:{
+				fontFamily:'Helvetica Neue',
+				fontSize:13
+			},
+			textAlign:'center'
+		});
+		messageWin.add(messageView);
+		messageWin.add(messageLabel);
+	}
+
 	self.addEventListener('close', function(e) {
 		if (e.source == self){
 			if (Ti.Platform.osname === 'iphone' || Ti.Platform.osname === 'ipad') {
@@ -121,17 +126,24 @@ function ApplicationTabGroup() {
 	
 	self.addEventListener('open',function(e) {
 		if (e.source == self){
-			Titanium.UI.setBackgroundColor('#fff');
-			messageLabel.text = 'tab group open event';
-			messageWin.open();
-	
-			setTimeout(function() {
-				messageWin.close({opacity:0,duration:500});
-			},1000);
+			if(Ti.Platform.osname == 'blackberry') {
+				messageWin.cancel();
+				messageWin.message = 'tab group open event';
+				messageWin.show();
+			} else {
+				Titanium.UI.setBackgroundColor('#fff');
+				messageLabel.text = 'tab group open event';
+				messageWin.open();
+		
+				setTimeout(function() {
+					messageWin.close({opacity:0,duration:500});
+				},1000);
+			}
 		}
 	});
 	
 	self.addEventListener('focus', function(e) {
+
 		// On iOS, the "More..." tab is actually a tab container, not a tab. When it is clicked, e.tab is undefined.
 		if (!e.tab) {
 			return;
@@ -139,21 +151,26 @@ function ApplicationTabGroup() {
 
 		// iOS fires with source tabGroup. Android with source tab
 		if ((e.source == baseUITab) || (e.source == controlsTab) || (e.source == phoneTab) || (e.source == platformTab) || (e.source == mashupsTab) || (e.source == self)) {
+			if(Ti.Platform.osname == 'blackberry') {
+				messageWin.cancel();
+				messageWin.message = 'tab changed to ' + e.index + ' old index ' + e.previousIndex;
+				messageWin.show();
+			} else {
+				messageLabel.text = 'tab changed to ' + e.index + ' old index ' + e.previousIndex;
+				messageWin.open();
 
-			messageLabel.text = 'tab changed to ' + e.index + ' old index ' + e.previousIndex;
-			messageWin.open();
+				setTimeout(function() {
+					Ti.API.info('tab = ' + e.tab.title + ', prevTab = ' + (e.previousTab ? e.previousTab.title : null));
+					messageLabel.text = 'active title ' + e.tab.title + ' old title ' + (e.previousTab ? e.previousTab.title : null);
+				}, 1000);
 
-			setTimeout(function() {
-				Ti.API.info('tab = ' + e.tab.title + ', prevTab = ' + (e.previousTab ? e.previousTab.title : null));
-				messageLabel.text = 'active title ' + e.tab.title + ' old title ' + (e.previousTab ? e.previousTab.title : null);
-			}, 1000);
-
-			setTimeout(function() {
-				messageWin.close({
-					opacity : 0,
-					duration : 500
-				});
-			}, 2000);
+				setTimeout(function() {
+					messageWin.close({
+						opacity : 0,
+						duration : 500
+					});
+				}, 2000);
+			}
 		}
 
 	}); 

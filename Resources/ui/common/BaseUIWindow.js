@@ -107,57 +107,71 @@ function BaseUIWindow(title) {
 		Ti.API.info('FOCUS RECEIVED IN base_ui');
 		Ti.App.fireEvent('nav_back');
 		
-		if (!(Ti.Platform.osname === 'mobileweb' || Ti.Platform.osname === 'tizen')) {
+		if (!(Ti.Platform.osname === 'mobileweb' || Ti.Platform.osname === 'tizen' || Ti.Platform.osname === 'blackberry')) {
 			Ti.API.info(Ti.dumpCoverage());
 		}
 	});
-	//
-	//  ADD EVENT LISTENERS FOR CUSTOM EVENTS
-	//
-	var win = Titanium.UI.createWindow({
-		height:30,
-		width:250,
-		bottom:110,
-		borderRadius:10
-	});
-	
-	var view = Titanium.UI.createView({
-		backgroundColor:'#000',
-		opacity:0.7,
-		height:30,
-		width:250,
-		borderRadius:10
-	});
-	
-	var label = Titanium.UI.createLabel({
-		color:'#fff',
-		font:{fontSize:13},
-		textAlign:'center',
-		width:'auto',
-		height:'auto'
-	});
-	win.add(view);
-	win.add(label);
-	
+	if(Ti.Platform.osname != 'blackberry') {
+		//
+		//  ADD EVENT LISTENERS FOR CUSTOM EVENTS
+		//
+		var win = Titanium.UI.createWindow({
+			height:30,
+			width:250,
+			bottom:110,
+			borderRadius:10
+		});
+		
+		var view = Titanium.UI.createView({
+			backgroundColor:'#000',
+			opacity:0.7,
+			height:30,
+			width:250,
+			borderRadius:10
+		});
+		
+		var label = Titanium.UI.createLabel({
+			color:'#fff',
+			font:{fontSize:13},
+			textAlign:'center',
+			width:'auto',
+			height:'auto'
+		});
+		win.add(view);
+		win.add(label);
+	} else {
+		var toast = Ti.BlackBerry.createToast();
+	}
 	Titanium.App.addEventListener('event_one', function(e)
 	{
-		label.text = 'base_ui.js: event one, array length = ' + e.data.length;
-		win.open();
-		setTimeout(function()
-		{
-			win.close({opacity:0,duration:500});
-		},1000);
+		if(Ti.Platform.osname != 'blackberry') {
+			label.text = 'base_ui.js: event one, array length = ' + e.data.length;
+			win.open();
+			setTimeout(function()
+			{
+				win.close({opacity:0,duration:500});
+			},1000);
+		} else {
+			toast.cancel();
+			toast.message = 'base_ui.js: event one, array length = ' + e.data.length;
+			toast.show();
+		}
 	});
 	
 	Titanium.App.addEventListener('event_two', function(e)
 	{
-		label.text = 'base_ui.js: event two, name = ' + e.name;
-		win.open();
-		setTimeout(function()
-		{
-			win.close({opacity:0,duration:500});
-		},1000);
-	
+		if(Ti.Platform.osname != 'blackberry') {
+			label.text = 'base_ui.js: event two, name = ' + e.name;
+			win.open();
+			setTimeout(function()
+			{
+				win.close({opacity:0,duration:500});
+			},1000);
+		} else {
+			toast.cancel();
+			toast.message = 'base_ui.js: event two, name = ' + e.name;
+			toast.show();
+		}
 	});
 
 	
