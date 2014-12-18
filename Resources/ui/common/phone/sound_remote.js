@@ -4,7 +4,7 @@ function sound_remote(_args) {
 	});
 	
 	var url = Titanium.UI.createTextField({
-		value:'http://watoo.net:8000/INTRODUCTION.mp3',
+		value:'http://appcelerator.qe.test.data.s3.amazonaws.com/KSResources/audio/audio_session.mp3',
 		color:'#336699',
 		returnKeyType:Titanium.UI.RETURNKEY_GO,
 		keyboardType:Titanium.UI.KEYBOARD_URL,
