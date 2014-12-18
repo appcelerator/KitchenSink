@@ -14,7 +14,7 @@ function webviews(_args) {
 		{title:'Inline HTML', hasChild:true, innerHTML:'<html><body>Hello from inline HTML.</body></html>'},
 		{title:'Inline HTML w/ Trans Bg', hasChild:true, innerHTML:'<html><body><div style="color:white;">Hello from inline HTML. You should see white text and black background</div></body></html>', bgcolor:'black'},
 		{title:'Inline HTML w/ Color Bg', hasChild:true, innerHTML:'<html><body><div style="color:red;">Hello from inline HTML. You should see red text and yellow background</div></body></html>', bgcolor:'yellow'},
-		{title:'Basic Auth', hasChild: !isTizen, url: 'http://irisresearch.library.cornell.edu/control/authBasic/authTest/', username: 'test', password: 'this', touchEnabled: !isTizen},
+		{title:'Basic Auth', hasChild: !isTizen, url: 'http://api.appcelerator.net/p/v1/basic-auth', username: 'user', password: 'foobar', touchEnabled: !isTizen},
 		{title:'Logging and Unicode', hasChild:true, url:'/etc/webview_logging.html'}
 	];
 	
