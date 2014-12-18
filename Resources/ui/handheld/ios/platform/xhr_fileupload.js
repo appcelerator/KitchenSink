@@ -38,6 +38,7 @@ function xhr_upload(_args) {
 			{
 				Ti.UI.createAlertDialog({title:'Success', message:'status code ' + this.status}).show();
 				Ti.API.info('IN ONLOAD ' + this.status + ' readyState ' + this.readyState);
+				Ti.API.info('Additional Information: ' + this.responseText);
 			};
 			xhr.onsendstream = function(e)
 			{
@@ -45,10 +46,11 @@ function xhr_upload(_args) {
 				Ti.API.info('ONSENDSTREAM - PROGRESS: ' + e.progress);
 			};
 			// open the client
-			xhr.open('POST','https://twitpic.com/api/uploadAndPost');
-	
+			xhr.open('POST','https://api.imgur.com/3/image');
+			// set the Authorization header
+			xhr.setRequestHeader('Authorization', 'Client-ID 6126cbc35f6f07c');
 			// send the data
-			xhr.send({media:image,username:'fgsandford1000',password:'sanford1000',message:'check me out'});
+			xhr.send({image:image, title:'check me out'});
 			
 		},
 		cancel:function()
