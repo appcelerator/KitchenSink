@@ -1,8 +1,7 @@
 function movie_remote2(_args) {
 	// regression issue for #965
 	
-	// dynamic url with dynamic encoding (from kosso)
-	var media_url = "http://phreadz.com/service/encoder.php?g=5LPOKP754&iph=1";
+	var media_url = "http://mirror.cessen.com/blender.org/peach/trailer/trailer_iphone.m4v";
 	var win = Titanium.UI.createWindow({
 		title:_args.title
 	});
