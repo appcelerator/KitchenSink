@@ -1,42 +1,40 @@
-function fb_photos(_args) {
-	/*globals Titanium, Ti, alert, require, setTimeout, setInterval, JSON*/
-	var platformName = Titanium.Platform.osname;
-	var facebook;
-	if (platformName == 'android' || platformName == 'iphone' || platformName == 'ipad') {
-		facebook = require('facebook');
-	} else {
-		facebook = Titanium.Facebook;
-	}
+function facebook_photos(value) {
+	var fb = require('facebook');
 
 	var win = Ti.UI.createWindow({
-		title:_args.title,
-		backgroundColor:'#fff'
+		title : 'Photos',
+		backgroundColor : '#fff',
+		fullscreen : false
 	});
-	facebook.appid = "495338853813822";
-	facebook.permissions = ['publish_stream', 'read_stream'];
-	
-	var B1_TITLE = "Upload Photo from Gallery with Graph API";
-	var B2_TITLE = "Upload Photo from file with REST API";
-	
+
+	var B1_TITLE = 'Upload Photo from Gallery with Graph API';
+	var B2_TITLE = 'Upload Photo from file with Graph API';
+
 	var b1 = Ti.UI.createButton({
-		title:B1_TITLE,
-		left: 10, right: 10, top: 0, height: 40
+		title : B1_TITLE,
+		left : 10,
+		right : 10,
+		top : 0,
+		height : 80
 	});
-	
+
 	var b2 = Ti.UI.createButton({
-		title: B2_TITLE,
-		left: 10, right: 10, top: 50, height: 40
+		title : B2_TITLE,
+		left : 10,
+		right : 10,
+		top : 90,
+		height : 80
 	});
-	
+
 	function showRequestResult(e) {
 		var s = '';
 		if (e.success) {
-			s = "SUCCESS";
+			s = 'SUCCESS';
 			if (e.result) {
 				s += "; " + e.result;
 			}
 		} else {
-			s = "FAIL";
+			s = 'FAIL';
 			if (e.error) {
 				s += "; " + e.error;
 			}
@@ -45,64 +43,86 @@ function fb_photos(_args) {
 		b2.title = B2_TITLE;
 		alert(s);
 	}
-	
-	var login = facebook.createLoginButton({
-		top: 10
-	});
-	login.style = facebook.BUTTON_STYLE_WIDE;
-	win.add(login);
-	
+
 	var actionsView = Ti.UI.createView({
-		top: 55, left: 0, right: 0, visible: facebook.loggedIn, height: 'auto'
+		top : 80,
+		left : 0,
+		right : 0,
+		visible : fb.loggedIn,
+		height : 'auto'
 	});
 	actionsView.add(b1);
 	actionsView.add(b2);
-	
-	facebook.addEventListener('login', function(e) {
-		if (e.success) {
-			actionsView.show();
-		}
-		if (e.error) {
-			alert(e.error);
-		}
-	});
-	
-	facebook.addEventListener('logout', function(e){
-		Ti.API.info('logout event');
-		actionsView.hide();
-	});
-	
+
 	b1.addEventListener('click', function() {
 		Titanium.Media.openPhotoGallery({
-			success:function(event)
-			{
+			success : function(event) {
 				b1.title = 'Uploading Photo...';
-				var data = {picture: event.media};
-				facebook.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
+				var data = {
+					picture : event.media
+				};
+				//If publish_actions permission is not granted, request it
+				if (fb.permissions.indexOf('publish_actions') < 0) {
+					fb.requestNewPublishPermissions(['publish_actions'], fb.AUDIENCE_FRIENDS, function(e) {
+						if (e.success) {
+							Ti.API.info('Permissions:' + fb.permissions);
+							fb.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
+						}
+						if (e.error) {
+							Ti.API.info('Publish permission error');
+						}
+						if (e.cancelled) {
+							Ti.API.info('Publish permission cancelled');
+						}
+					});
+				} else {
+					fb.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
+				}
 			},
-			cancel:function()
-			{
+			cancel : function() {
 			},
-			error:function(error)
-			{
+			error : function(error) {
 			},
-			allowEditing:true
+			allowEditing : true
 		});
 	});
-	
+
 	b2.addEventListener('click', function() {
 		b2.title = 'Uploading Photo...';
 		var f = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'images', 'flower.jpg');
 		var blob = f.read();
 		var data = {
-			caption: 'behold, a flower',
-			picture: blob
+			caption : 'behold, a flower',
+			picture : blob
 		};
-		facebook.request('photos.upload', data, showRequestResult);
+		//If publish_actions permission is not granted, request it
+		if (fb.permissions.indexOf('publish_actions') < 0) {
+			fb.requestNewPublishPermissions(['publish_actions'], fb.AUDIENCE_FRIENDS, function(e) {
+				if (e.success) {
+					Ti.API.info('Permissions:' + fb.permissions);
+					fb.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
+				}
+				if (e.error) {
+					Ti.API.info('Publish permission error');
+				}
+				if (e.cancelled) {
+					Ti.API.info('Publish permission cancelled');
+				}
+			});
+		} else {
+			fb.requestWithGraphPath('me/photos', data, "POST", showRequestResult);
+		}
 	});
-	
+
 	win.add(actionsView);
+
+	if (Ti.Platform.osname == 'android') {
+		win.fbProxy = fb.createActivityWorker({
+			lifecycleContainer : win
+		});
+	}
+
 	return win;
 };
 
-module.exports = fb_photos;
+module.exports = facebook_photos; 

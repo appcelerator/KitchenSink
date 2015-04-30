@@ -67,8 +67,7 @@ function cam_overlay(_args) {
 	container.overlay.add(container.messageView);
 	container.overlay.add(container.closebutton);
 	
-	container.button.addEventListener('click',function()
-	{
+	container.button.addEventListener('click',function() {
 		container.scanner.borderColor = 'blue';
 		Ti.Media.takePicture();
 		container.messageView.animate({visible:true});
@@ -80,18 +79,16 @@ function cam_overlay(_args) {
 	});
 	
 	
-	container.closebutton.addEventListener('click',function()
-	{
+	container.closebutton.addEventListener('click',function() {
 		Ti.Media.hideCamera();
 		alert("Camera closed");
 		container.win.close();
 	});
 	
-	container.showCamera = function(){
-		Titanium.Media.showCamera({
-		
-			success:function(event)
-			{
+	container.showCamera = function() {
+		container.win.removeEventListener('focus', container.showCamera);
+		Titanium.Media.showCamera({		
+			success:function(event) {
 				Ti.API.debug("picture was taken");
 				
 				// place our picture into our window
@@ -105,18 +102,14 @@ function cam_overlay(_args) {
 				// programatically hide the camera
 				Ti.Media.hideCamera();
 			},
-			cancel:function()
-			{
+			cancel:function() {
 			},
-			error:function(error)
-			{
+			error:function(error) {
 				var a = Titanium.UI.createAlertDialog({title:'Camera'});
 				if (error.code == Titanium.Media.NO_CAMERA)
 				{
 					a.setMessage('Please run this test on device');
-				}
-				else
-				{
+				} else {
 					a.setMessage('Unexpected error: ' + error.code);
 				}
 				a.show();
@@ -128,7 +121,7 @@ function cam_overlay(_args) {
 		});
 	};
 	
-	container.win.addEventListener('open',container.showCamera);
+	container.win.addEventListener('focus', container.showCamera);
 	return container.win;
 };
 

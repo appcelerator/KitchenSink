@@ -11,10 +11,8 @@ function record_vid(_args) {
 	});
 	win.add(b);
 	
-	b.addEventListener('click', function()
-	{
-		if (b.title == 'Play Movie')
-		{
+	b.addEventListener('click', function() {
+		if (b.title == 'Play Movie') {
 			var activeMovie = Titanium.Media.createVideoPlayer({
 				backgroundColor:'#111',
 				mediaControlStyle:Titanium.Media.VIDEO_CONTROL_DEFAULT,
@@ -24,47 +22,35 @@ function record_vid(_args) {
 			});
 			activeMovie.play();
 	
-			activeMovie.addEventListener('complete', function()
-			{
+			activeMovie.addEventListener('complete', function() {
 				movieFile.deleteFile();
 				b.title = 'Record Movie';
 			});
 			
-			if (parseFloat(Titanium.Platform.version) >= 3.2)
-			{
+			if (parseFloat(Titanium.Platform.version) >= 3.2) {
 				win.add(activeMovie);
 			}
-		}
-		else
-		{
+		} else {
 			Titanium.Media.showCamera({
 	
-				success:function(event)
-				{
+				success:function(event)  {
 					var video = event.media;
 					movieFile = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'mymovie.mov');
 					movieFile.write(video);
 					b.title = 'Play Movie';
 				},
-				cancel:function()
-				{
+				cancel:function() {
 	
 				},
-				error:function(error)
-				{
+				error:function(error) {
 					// create alert
 					var a = Titanium.UI.createAlertDialog({title:'Video'});
-	
 					// set message
-					if (error.code == Titanium.Media.NO_VIDEO)
-					{
+					if (error.code == Titanium.Media.NO_VIDEO) {
 						a.setMessage('Device does not have video recording capabilities');
-					}
-					else
-					{
+					} else {
 						a.setMessage('Unexpected error: ' + error.code);
 					}
-	
 					// show alert
 					a.show();
 				},
@@ -72,9 +58,7 @@ function record_vid(_args) {
 				videoMaximumDuration:10000,
 				videoQuality:Titanium.Media.QUALITY_HIGH
 			});
-		
 		}
-		
 	});
 
 	return win;

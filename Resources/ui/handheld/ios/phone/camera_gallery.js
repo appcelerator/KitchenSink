@@ -3,19 +3,16 @@ function cam_gallery(_args) {
 		title:_args.title
 	});
 	
-	var showCamera = function(){
+	function showCamera(){
+		win.removeEventListener('focus', showCamera);
 		Titanium.Media.showCamera({
-		
-			success:function(event)
-			{
+			success:function(event) {
 				Titanium.UI.createAlertDialog({title:'Camera', message:'Check your Photo Gallery'}).show();
 			},
-			cancel:function()
-			{
+			cancel:function() {
 		
 			},
-			error:function(error)
-			{
+			error:function(error) {
 				// create alert
 				var a = Titanium.UI.createAlertDialog({title:'Camera'});
 		
@@ -23,9 +20,7 @@ function cam_gallery(_args) {
 				if (error.code == Titanium.Media.NO_CAMERA)
 				{
 					a.setMessage('Device does not have video recording capabilities');
-				}
-				else
-				{
+				} else {
 					a.setMessage('Unexpected error: ' + error.code);
 				}
 		
@@ -37,7 +32,7 @@ function cam_gallery(_args) {
 		});		
 	};
 	
-	win.addEventListener('open',showCamera);
+	win.addEventListener('focus', showCamera);
 	return win;
 };
 

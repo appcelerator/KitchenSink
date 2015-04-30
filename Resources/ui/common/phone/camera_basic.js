@@ -1,10 +1,12 @@
 var win;
 
 function fireUpTheCamera() {
+	if (Ti.Platform.osname === 'android'|| Ti.Platform.osname == "iphone" || Ti.Platform.osname == 'ipad') {
+		win.removeEventListener('focus', fireUpTheCamera);
+	}
 	Titanium.Media.showCamera({
 	
-		success:function(event)
-		{
+		success:function(event) {
 			var cropRect = event.cropRect;
 			var image = event.media;
 	
@@ -23,11 +25,9 @@ function fireUpTheCamera() {
 				alert("got the wrong type back ="+event.mediaType);
 			}
 		},
-		cancel:function()
-		{
+		cancel:function() {
 		},
-		error:function(error)
-		{
+		error:function(error) {
 			// create alert
 			var a = Titanium.UI.createAlertDialog({title:'Camera'});
 	
@@ -55,9 +55,7 @@ function cam_basic(_args) {
 		title:_args.title
 	});
 	if (Ti.Platform.osname === 'android'|| Ti.Platform.osname == "iphone" || Ti.Platform.osname == 'ipad') {
-		win.addEventListener('open', function(e) {
-			fireUpTheCamera();
-		});
+		win.addEventListener('focus', fireUpTheCamera);
 	} else {
 		fireUpTheCamera();	
 	}

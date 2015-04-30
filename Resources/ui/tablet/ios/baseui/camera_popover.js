@@ -16,8 +16,7 @@ function cam_popover(_args) {
 			autohide:true,
 			allowEditing:true,
 			popoverView:popoverButton,
-			success:function(event)
-	  		{
+			success:function(event) {
 	    		Ti.API.debug("Success In Camera");
 	    		var cropRect = event.cropRect;
 				var image = event.media;
@@ -30,12 +29,10 @@ function cam_popover(_args) {
 				f.write(image);
 				win.backgroundImage = f.nativePath;
 	  		},
-	  		error:function(event)
-	  		{
+	  		error:function(event) {
 	  			Ti.API.debug("Error In Camera");
 	  		},
-	  		cancel:function(event)
-	  		{
+	  		cancel:function(event) {
 	  			Ti.API.debug("Cancel In Camera");
 	  		}
 		});

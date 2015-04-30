@@ -73,7 +73,7 @@ function cam_ar(_args) {
 	};
 	
 	Ti.include("/etc/version.js");
-	if (isIPhone3_2_Plus())
+	if (!isiOS6Plus()) //purpose is deprecated >= iOS6. Set NSLocationUsageDescription key instead in tiapp.xml.
 	{
 		Titanium.Geolocation.purpose = "AR Demo";
 	}
@@ -118,16 +118,13 @@ function cam_ar(_args) {
 
 	
 	container.showCamera = function(){
+		container.win.removeEventListener('focus',container.showCamera);
 		Titanium.Media.showCamera({
-		
-			success:function(event)
-			{
+			success:function(event) {
 			},
-			cancel:function()
-			{
+			cancel:function() {
 			},
-			error:function(error)
-			{
+			error:function(error) {
 				var a = Titanium.UI.createAlertDialog({title:'Camera'});
 				if (error.code == Titanium.Media.NO_CAMERA)
 				{
@@ -145,9 +142,10 @@ function cam_ar(_args) {
 			autohide:false	// tell the system not to auto-hide and we'll do it ourself
 		});
 	};
-		
+	
+	container.win.addEventListener('focus',container.showCamera);
+
 	container.win.addEventListener('open',function(){
-		container.showCamera();
 		Titanium.Geolocation.addEventListener('location',container.locationUpdate);
 		Titanium.Geolocation.addEventListener('heading',container.updateHeadingLabel);
 

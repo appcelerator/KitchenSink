@@ -3,18 +3,20 @@ function facebook_test(_args) {
 		title:_args.title,
 		backgroundColor:'#fff'
 	});
+	var fb = require('facebook');
 	//create table view data object
 	var data = [
 		{title:'Login/Logout', hasChild:true, test:'ui/common/mashups/facebook_login_logout'},
-		{title:'Query', hasChild:true, test:'ui/common/mashups/facebook_query'},
-		{title:'Properties', hasChild:true, test:'ui/common/mashups/facebook_properties'},
-		{title:'Publish Stream', hasChild:true, test:'ui/common/mashups/facebook_publish_stream'},
-		{title:'Photos', hasChild:true, test:'ui/common/mashups/facebook_photos'}
-	
+		{title:'Read Stream', hasChild:true, test:'ui/common/mashups/facebook_read_stream'},
+		{title:'Publish Stream', hasChild:true, test:'ui/common/mashups/facebook_publish_stream'}
 	];
 	
+	if (Ti.Platform.osname == 'android') {
+		data.push({title:'Photos', hasChild:true, test:'ui/common/mashups/facebook_photos'});
+	}
+	
 	// create table view
-	for (var i = 0; i < data.length; i++ ) { data[i].color = '#000'; data[i].font = {fontWeight:'bold'} };
+	for (var i = 0; i < data.length; i++ ) { data[i].color = '#000'; data[i].font = {fontWeight:'bold'}; };
 	var tableview = Titanium.UI.createTableView({
 		data:data
 	});
@@ -30,6 +32,14 @@ function facebook_test(_args) {
 	
 	// add table view to the window
 	self.add(tableview);
+	
+	fb.initialize(1000); // after you set up login/logout listeners and permissions
+	
+	// ActivityWorker needed for Android
+	if (Ti.Platform.osname == 'android') {
+		self.fbProxy = fb.createActivityWorker({lifecycleContainer: self});
+	}
+	
 	return self;
 };
 

@@ -10,10 +10,10 @@
     </deployment-targets>
     <property name="ti.android.useLegacyWindow" type="bool">true</property>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <sdk-version>3.5.1.GA</sdk-version>
+    <sdk-version>3.5.1.RC</sdk-version>
     <id>com.appcelerator.kitchensink</id>
     <name>KitchenSink</name>
-    <version>3.5.1</version>
+    <version>3.5.2</version>
     <publisher>appcelerator</publisher>
     <url>http://appcelerator.com</url>
     <description>not specified</description>
@@ -26,7 +26,6 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>28a706e9-4130-4acb-bc76-9494255a9279</guid>
     <ios>
         <plist>
             <dict>
@@ -36,6 +35,42 @@
                 This appears in the alert dialog when asking the user for permission to
                 access their location.
                 </string>
+                <key>NSLocationUsageDescription</key>
+                <string>AR Demo</string>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+                <key>FacebookAppID</key>
+                <string>495338853813822</string>
+                <key>FacebookDisplayName</key>
+                <string>KitchenSink</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <string>com.appcelerator.kitchensink</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <string>fb495338853813822</string>
+                        </array>
+                    </dict>
+                </array>
             </dict>
         </plist>
     </ios>
@@ -62,8 +97,11 @@
                         <category android:name="android.intent.category.LAUNCHER"/>
                     </intent-filter>
                 </activity>
+                <activity android:label="KitchenSinkFacebook"
+                    android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+                <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
             </application>
-            <uses-sdk android:targetSdkVersion="14"/>
+            <uses-sdk android:targetSdkVersion="21"/>
         </manifest>
         <activity android:name="ti.modules.titanium.ui.android.TiPreferencesActivity"/>
         <services>

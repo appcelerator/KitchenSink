@@ -46,20 +46,14 @@ function cam_video(_args) {
 	
 	container.current = Ti.Media.CAMERA_FLASH_AUTO;
 	container.cameraFlashModes = Ti.Media.availableCameraFlashModes;
-	container.cameraFlash.addEventListener('click',function()
-	{
-		if (Ti.Media.cameraFlashMode == Ti.Media.CAMERA_FLASH_AUTO)
-		{
+	container.cameraFlash.addEventListener('click',function() {
+		if (Ti.Media.cameraFlashMode == Ti.Media.CAMERA_FLASH_AUTO) {
 			container.cameraFlash.title = "on";
 			Ti.Media.cameraFlashMode = Ti.Media.CAMERA_FLASH_ON;
-		}
-		else if (Ti.Media.cameraFlashMode == Ti.Media.CAMERA_FLASH_ON)
-		{
+		} else if (Ti.Media.cameraFlashMode == Ti.Media.CAMERA_FLASH_ON) {
 			container.cameraFlash.title = "off";
 			Ti.Media.cameraFlashMode = Ti.Media.CAMERA_FLASH_OFF;
-		}
-		else
-		{
+		} else {
 			container.cameraFlash.title = "auto";
 			Ti.Media.cameraFlashMode = Ti.Media.CAMERA_FLASH_AUTO;
 		}
@@ -77,22 +71,16 @@ function cam_video(_args) {
 	});
 	
 	container.cameras = Ti.Media.availableCameras;
-	for (var c=0;c<container.cameras.length;c++)
-	{
+	for (var c=0;c<container.cameras.length;c++) {
 		// if we have a rear camera ... we add switch button
-		if (container.cameras[c]==Ti.Media.CAMERA_REAR)
-		{
+		if (container.cameras[c]==Ti.Media.CAMERA_REAR) {
 			container.overlay.add(container.cameraType);
 	
-			container.cameraType.addEventListener('click',function()
-			{
-				if (Ti.Media.camera == Ti.Media.CAMERA_FRONT)
-				{
+			container.cameraType.addEventListener('click',function() {
+				if (Ti.Media.camera == Ti.Media.CAMERA_FRONT) {
 					container.cameraType.title = "front";
 					Ti.Media.switchCamera(Ti.Media.CAMERA_REAR);
-				}
-				else
-				{
+				} else {
 					container.cameraType.title = "rear";
 					Ti.Media.switchCamera(Ti.Media.CAMERA_FRONT);
 				}
@@ -100,9 +88,8 @@ function cam_video(_args) {
 			break;
 		}
 	}
-	
-	container.button.addEventListener('click',function()
-	{
+	 
+	container.button.addEventListener('click',function() {
 		Ti.Media.startVideoCapture();
 		container.button.title = "Stop Video";
 		container.button.backgroundImage = "/images/BUTT_red_on.png";
@@ -118,7 +105,8 @@ function cam_video(_args) {
 		container = null;
 	});
 
-	container.showCamera = function(){
+	container.showCamera = function() {
+		container.win.removeEventListener('focus',container.showCamera);
 		Titanium.Media.showCamera({
 		
 			success:function(event)
@@ -142,12 +130,9 @@ function cam_video(_args) {
 			error:function(error)
 			{
 				var a = Titanium.UI.createAlertDialog({title:'Camera'});
-				if (error.code == Titanium.Media.NO_CAMERA)
-				{
+				if (error.code == Titanium.Media.NO_CAMERA) {
 					a.setMessage('Please run this test on device');
-				}
-				else
-				{
+				} else {
 					a.setMessage('Unexpected error: ' + error.code);
 				}
 				a.show();
@@ -160,9 +145,7 @@ function cam_video(_args) {
 		});		
 	};
 
-	container.win.addEventListener('open',function(){
-		container.showCamera();
-	});
+	container.win.addEventListener('focus', container.showCamera);
 
 	return container.win;
 };

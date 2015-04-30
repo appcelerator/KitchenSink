@@ -3,11 +3,10 @@ function cam_file(_args) {
 		title:_args.title
 	});
 	
-	var showCamera = function(){
-		Titanium.Media.showCamera({
-		
-			success:function(event)
-			{
+	function showCamera() {
+		win.removeEventListener('focus',showCamera);
+		Titanium.Media.showCamera({		
+			success:function(event) {
 				var cropRect = event.cropRect;
 				var image = event.media;
 				var filename = Titanium.Filesystem.applicationDataDirectory + "/"+ 'camera_photo' + new Date().getTime() + ".png";
@@ -19,22 +18,17 @@ function cam_file(_args) {
 				f.write(image);
 				win.backgroundImage = f.nativePath;
 			},
-			cancel:function()
-			{
+			cancel:function() {
 		
 			},
-			error:function(error)
-			{
+			error:function(error) {
 				// create alert
 				var a = Titanium.UI.createAlertDialog({title:'Camera'});
 		
 				// set message
-				if (error.code == Titanium.Media.NO_CAMERA)
-				{
+				if (error.code == Titanium.Media.NO_CAMERA) {
 					a.setMessage('Device does not have video recording capabilities');
-				}
-				else
-				{
+				} else {
 					a.setMessage('Unexpected error: ' + error.code);
 				}
 		
@@ -45,7 +39,7 @@ function cam_file(_args) {
 		});
 	};
 	
-	win.addEventListener('open',showCamera);
+	win.addEventListener('focus',showCamera);
 	
 	return win;
 };

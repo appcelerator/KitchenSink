@@ -1,20 +1,9 @@
-function fb_pub_stream(_args) {
-	/*globals Titanium, Ti, alert, require, setTimeout, setInterval, JSON*/
-	var platformName = Titanium.Platform.osname;
-	var facebook;
-	if (platformName == 'android' || platformName == 'iphone' || platformName == 'ipad') {
-		facebook = require('facebook');
-	} else {
-		facebook = Titanium.Facebook;
-	}
-
-	var win = Ti.UI.createWindow({
-		title:_args.title,
-		backroundColor:'#fff'
+function facebook_publish_stream(value) {
+	var win = Titanium.UI.createWindow({
+		title : 'Publish Stream',
+		backgroundColor : 'white'
 	});
-	facebook.appid = "495338853813822";
-	facebook.permissions = ['publish_stream', 'read_stream'];
-	
+	var fb = require('facebook');
 	function showRequestResult(e) {
 		var s = '';
 		if (e.success) {
@@ -38,97 +27,203 @@ function fb_pub_stream(_args) {
 		}
 		alert(s);
 	}
-	
-	var login = facebook.createLoginButton({
-		top: 10
+
+	var actionsView = Ti.UI.createScrollView({
+		top : 0,
+		left : 0,
+		right : 0,
+		visible : fb.loggedIn,
+		height : Ti.UI.SIZE,
+		contentHeight : Ti.UI.SIZE,
+		backgroundColor : 'white'
 	});
-	login.style = facebook.BUTTON_STYLE_NORMAL;
-	win.add(login);
-	
-	var actionsView = Ti.UI.createView({
-		top: 55, left: 0, right: 0, visible: facebook.loggedIn, height: 'auto'
+	win.add(Ti.UI.createLabel({
+		top : 70,
+		height : 40,
+		text : 'Please log into Facebook',
+		textAlign : 'center'
+	}));
+
+	var blurField = Ti.UI.createButton({
+		title : 'Done',
+		style : Titanium.UI.iPhone.SystemButtonStyle.DONE
 	});
-	
-	facebook.addEventListener('login', function(e) {
-		if (e.success) {
-			actionsView.show();
-		}
-		if (e.error) {
-			alert(e.error);
-		}
-	});
-	
-	facebook.addEventListener('logout', function(e){
-		Ti.API.info('logout event');
-		actionsView.hide();
-	});
-	
+
 	var statusText = Ti.UI.createTextField({
-		top: 0, left: 10, right: 10, height: 40,
-		hintText: 'Enter your FB status'
+		top : 0,
+		left : 10,
+		right : 10,
+		height : 40,
+		color : '#000',
+		backgroundColor : '#d3d3d3',
+		hintText : 'Enter your FB status',
+		keyboardToolbar : [Titanium.UI.createButton({
+			systemButton : Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+		}), blurField],
 	});
+	blurField.addEventListener('click', function(e) {
+		statusText.blur();
+	});
+
 	actionsView.add(statusText);
 	var statusBtn = Ti.UI.createButton({
-		title: 'Publish status with GRAPH API',
-		top: 45, left: 10, right: 10, height: 40
+		title : 'Publish status with GRAPH API',
+		top : 45,
+		left : 10,
+		right : 10,
+		height : 40
 	});
 	statusBtn.addEventListener('click', function() {
 		var text = statusText.value;
-		if( (text === '')){
-			Ti.UI.createAlertDialog({ tile:'ERROR', message:'No text to Publish !! '}).show();
-		}else {
-			facebook.requestWithGraphPath('me/feed', {message: text}, "POST", showRequestResult);
-		}	
+		Ti.API.info('text value::' + text + ';');
+		if ((text === '')) {
+			Ti.UI.createAlertDialog({
+				tile : 'ERROR',
+				message : 'No text to Publish !! '
+			}).show();
+		} else {
+			//If publish_actions permission is not granted, request it
+			if (fb.permissions.indexOf('publish_actions') < 0) {
+				fb.requestNewPublishPermissions(['publish_actions'], fb.AUDIENCE_FRIENDS, function(e) {
+					if (e.success) {
+						fb.requestWithGraphPath('me/feed', {
+							message : text
+						}, "POST", showRequestResult);
+					} else {
+						Ti.API.debug('Failed authorization due to: ' + e.error);
+					}
+				});
+			} else {
+				fb.requestWithGraphPath('me/feed', {
+					message : text
+				}, "POST", showRequestResult);
+			}
+		}
+
 	});
 	actionsView.add(statusBtn);
-	
+
 	var wall = Ti.UI.createButton({
-		title: 'Publish wall post with GRAPH API',
-		top: 90, left: 10, right: 10, height: 40
+		title : 'Publish wall post with GRAPH API',
+		top : 90,
+		left : 10,
+		right : 10,
+		height : 40
 	});
 	wall.addEventListener('click', function() {
 		var data = {
-			link: "https://developer.mozilla.org/en/JavaScript",
-			name: "Best online Javascript reference",
-			message: "Use Mozilla's online Javascript reference",
-			caption: "MDN Javascript Reference",
-			picture: "https://developer.mozilla.org/media/img/mdn-logo.png",
-			description: "This section of the site is dedicated to JavaScript-the-language, the parts that are not specific to web pages or other host environments...",
-			test: [ {foo:'Encoding test', bar:'Durp durp'}, 'test' ]
+			link : "https://developer.mozilla.org/en/JavaScript",
+			message : "Use Mozilla's online Javascript reference",
 		};
-		facebook.requestWithGraphPath('me/feed', data, 'POST', showRequestResult);
+		//If publish_actions permission is not granted, request it
+		if (fb.permissions.indexOf('publish_actions') < 0) {
+			fb.requestNewPublishPermissions(['publish_actions'], fb.AUDIENCE_FRIENDS, function(e) {
+				if (e.success) {
+					fb.requestWithGraphPath('me/feed', data, 'POST', showRequestResult);
+				} else {
+					Ti.API.debug('Failed authorization due to: ' + e.error);
+				}
+			});
+		} else {
+			fb.requestWithGraphPath('me/feed', data, 'POST', showRequestResult);
+		}
 	});
 	actionsView.add(wall);
-	
+
 	var wallDialog = Ti.UI.createButton({
-		title: 'Publish wall post with DIALOG',
-		top: 135, left: 10, right: 10, height: 40
+		title : 'Share URL with Share Dialog',
+		top : 135,
+		left : 10,
+		right : 10,
+		height : 40
 	});
-	var iter = 0;
+
 	wallDialog.addEventListener('click', function() {
-		iter++;
-		var data = {
-			link: "http://www.appcelerator.com",
-			name: "Appcelerator Titanium (iteration " + iter + ")",
-			message: "Awesome SDKs for building desktop and mobile apps",
-			caption: "Appcelerator Titanium (iteration " + iter + ")",
-			picture: "http://developer.appcelerator.com/assets/img/DEV_titmobile_image.png",
-			description: "You've got the ideas, now you've got the power. Titanium translates your hard won web skills..."
-		};
-		facebook.dialog("feed", data, showRequestResult);
+		if (fb.getCanPresentShareDialog()) {
+			fb.presentShareDialog({
+				link : 'https://appcelerator.com/',
+				name : 'great product',
+				description : 'Titanium is a great product',
+				caption : 'it rocks too',
+				picture : 'http://www.appcelerator.com/wp-content/uploads/scale_triangle1.png'
+			});
+		} else {
+			fb.presentWebShareDialog({
+				link : 'https://appcelerator.com/',
+				name : 'great product',
+				description : 'Titanium is a great product',
+				caption : 'it rocks too',
+				picture : 'http://www.appcelerator.com/wp-content/uploads/scale_triangle1.png'
+			});
+		}
+
+	});
+
+	fb.addEventListener('shareCompleted', function(e) {
+		if (e.success) {
+			alert('Share completed');
+		} else if (e.cancelled) {
+			alert('Share cancelled');
+		} else {
+			alert('error ' + e.errorDesciption + '. code: ' + e.code);
+		}
 	});
 	actionsView.add(wallDialog);
-	
-	// iOS BUG: Android does some kind of layout magic here which:
-	// 1. Positions the text correctly so that it doesn't overlap with other UI elements
-	// 2. Possibly even SIZES the text.
-	if (Titanium.Platform.name == 'android') {
-		var description = "FYI, the 'Publish wall post with GRAPH API' button will publish a post with a link to the Mozilla MDN JavaScript page, saying 'Best online Javascript reference'.\n\nDo the 'Publish wall post with DIALOG' option more than once, and be sure the 'iteration n' gets incremented each time.  This proves that cached post data is *not* being re-used, which is important.";
-		actionsView.add(Ti.UI.createLabel({bottom: 10, text: description}));
-	}
-	
+
+	var requestDialog = Ti.UI.createButton({
+		title : 'Request Dialog',
+		top : 180,
+		left : 10,
+		right : 10,
+		height : 40
+	});
+
+	requestDialog.addEventListener('click', function() {
+		fb.presentSendRequestDialog({
+			message : 'Go to https://appcelerator.com/'
+		}, {
+			data : "{\"badge_of_awesomeness\":\"1\"," + "\"social_karma\":\"5\"}"
+		});
+	});
+
+	fb.addEventListener('requestDialogCompleted', function(e) {
+		if (e.success) {
+			alert('Request dialog completed');
+		} else if (e.cancelled) {
+			alert('Request dialog cancelled');
+		} else {
+			alert('error ' + e.error);
+		}
+	});
+
+	actionsView.add(requestDialog);
 	win.add(actionsView);
+
+	var likeButton = fb.createLikeButton({
+		top : 230,
+		height : "50%", // Note: on iOS setting Ti.UI.SIZE dimensions prevented the button click
+		width : "50%",
+		objectId : "https://www.facebook.com/appcelerator", // URL or Facebook ID
+		foregroundColor : "white", // A color in Titanium format - see Facebook docs
+		likeViewStyle : 'box_count', // standard, button, box_count - see FB docs
+		auxiliaryViewPosition : 'inline', // bottom, inline, top - see FB docs
+		horizontalAlignment : 'left', // center, left, right - see FB docs,
+		objectType : 'page', // iOS only, 'page', 'openGraphObject', or 'unknown' - see FB docs
+		soundEnabled : true // boolean, iOS only
+	});
+
+	if (Ti.Platform.osname == 'android') {
+		likeButton.height = Ti.UI.SIZE;
+		likeButton.width = Ti.UI.SIZE;
+	}
+	win.add(likeButton);
+
+	if (Ti.Platform.osname == 'android') {
+		win.fbProxy = fb.createActivityWorker({
+			lifecycleContainer : win
+		});
+	}
+
 	return win;
 };
-
-module.exports = fb_pub_stream;
+module.exports = facebook_publish_stream; 
