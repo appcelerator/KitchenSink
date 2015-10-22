@@ -80,8 +80,8 @@ function facebook_read_stream(value) {
 			return;
 		}
 
-		if (fb.permissions.indexOf('user_groups') < 0) {
-			fb.requestNewReadPermissions(['user_groups'], function(e) {
+		if (fb.permissions.indexOf('user_managed_groups') < 0) {
+			fb.requestNewReadPermissions(['user_managed_groups'], function(e) {
 				if (!e.success) {
 					Ti.API.debug('Failed authorization due to: ' + e.error);
 				} else {
