@@ -8,7 +8,7 @@
     </deployment-targets>
     <property name="ti.android.useLegacyWindow" type="bool">true</property>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <sdk-version>5.2.0</sdk-version>
+    <sdk-version>5.2.0.v20151021171225</sdk-version>
     <id>com.appcelerator.kitchensink</id>
     <name>KitchenSink</name>
     <version>4.0.0</version>
@@ -25,7 +25,7 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <ios>
-    	<use-autolayout>true</use-autolayout>
+        <use-autolayout>true</use-autolayout>
         <plist>
             <dict>
                 <key>NSLocationWhenInUseUsageDescription</key>
@@ -55,13 +55,10 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
-                
                 <key>FacebookAppID</key>
                 <string>495338853813822</string>
-                
                 <key>FacebookDisplayName</key>
                 <string>KitchenSink</string>
-                
                 <key>CFBundleURLTypes</key>
                 <array>
                     <dict>
@@ -69,20 +66,18 @@
                         <string>com.appcelerator.kitchensink</string>
                         <key>CFBundleURLSchemes</key>
                         <array>
-                        	<string>kitchensink</string>
+                            <string>kitchensink</string>
                             <string>fb495338853813822</string>
                         </array>
                     </dict>
                 </array>
-                
                 <key>LSApplicationQueriesSchemes</key>
-			    <array>
-			        <string>fbapi</string>
-			        <string>fb-messenger-api</string>
-			        <string>fbauth2</string>
-			        <string>fbshareextension</string>
-			    </array>
-                
+                <array>
+                    <string>fbapi</string>
+                    <string>fb-messenger-api</string>
+                    <string>fbauth2</string>
+                    <string>fbshareextension</string>
+                </array>
                 <key>UIBackgroundModes</key>
                 <array>
                     <string>audio</string>
