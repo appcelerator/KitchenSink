@@ -54,8 +54,8 @@ function scroll_view_scroll(_args) {
 	var l1 = Ti.UI.createLabel({
 		text:'View 1',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	view1.add(l1);
 	
@@ -65,8 +65,8 @@ function scroll_view_scroll(_args) {
 	var l2 = Ti.UI.createLabel({
 		text:'Click Me (View 2 - see log)',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	view2.add(l2);
 	
@@ -76,8 +76,8 @@ function scroll_view_scroll(_args) {
 	var l3 = Ti.UI.createLabel({
 		text:'View 3',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	view3.add(l3);
 	
@@ -87,8 +87,8 @@ function scroll_view_scroll(_args) {
 	var l4 = Ti.UI.createLabel({
 		text:'View 4',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	view4.add(l4);
 	
@@ -136,8 +136,8 @@ function scroll_view_scroll(_args) {
 		var l = Ti.UI.createLabel({
 			text:'View ' + (scrollView.views.length+1),
 			color:'#fff',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		newView.add(l);
 		scrollView.addView(newView);
@@ -171,8 +171,8 @@ function scroll_view_scroll(_args) {
 		var l = Ti.UI.createLabel({
 			text:'View (Changed) ' + (i+1),
 			color:'#fff',
-			height:'auto',
-			width:'auto'
+			height:Ti.UI.SIZE,
+			width:Ti.UI.SIZE
 		});
 		newView.add(l);
 		var ar = [];
@@ -240,7 +240,7 @@ function scroll_view_scroll(_args) {
 	
 		var floater = Titanium.UI.createView({
 			width:320,
-			height: 'auto',
+			height: Ti.UI.FILL,
 			backgroundColor: 'transparent'
 		});
 	

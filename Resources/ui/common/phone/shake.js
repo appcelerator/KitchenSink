@@ -7,8 +7,8 @@ function shake(_args) {
 		text:'Shake your phone',
 		top:10,
 		color:'#999',
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(l);

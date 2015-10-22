@@ -6,7 +6,7 @@ function custom_props2() {
 		// pull properties off of current window object an display
 		var l = Titanium.UI.createLabel({
 			top:0,
-			height:'auto',
+			height:Ti.UI.SIZE,
 			width:300,
 			color:'#777',
 			font:{fontSize:16},

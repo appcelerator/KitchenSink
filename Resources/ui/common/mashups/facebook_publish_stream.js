@@ -33,8 +33,8 @@ function facebook_publish_stream(value) {
 		left : 0,
 		right : 0,
 		visible : fb.loggedIn,
-		height : Ti.UI.SIZE,
-		contentHeight : Ti.UI.SIZE,
+		height : Ti.UI.FILL,
+		contentHeight : Ti.UI.FILL,
 		backgroundColor : 'white'
 	});
 	win.add(Ti.UI.createLabel({

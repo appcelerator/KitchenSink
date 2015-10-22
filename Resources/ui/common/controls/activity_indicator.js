@@ -7,7 +7,7 @@ function activity_indicator(_args) {
 	var sdkVersion = parseFloat(Ti.version);
 	var ActivityIndicatorStyle;
 	if (isIos) {
-		ActivityIndicatorStyle = Titanium.UI.iPhone.ActivityIndicatorStyle;
+		ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
 	} else if (sdkVersion >= 3.0){
 		ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
 	}

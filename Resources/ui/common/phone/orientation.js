@@ -4,18 +4,6 @@ function orientation(_args) {
 		layout:'vertical'
 	});
 	
-	//
-	// SUPPORTED ORIENTATION MODES
-	//
-	//	Titanium.UI.PORTRAIT (1)
-	//	Titanium.UI.UPSIDE_PORTRAIT (2)
-	//	Titanium.UI.LANDSCAPE_LEFT (3)
-	//	Titanium.UI.LANDSCAPE_RIGHT (4)
-	//	Titanium.UI.FACE_UP (5)
-	//	Titanium.UI.FACE_DOWN (6)
-	//	Titanium.UI.UNKNOWN (7)
-	//
-	
 	// initialize to all modes
 	win.orientationModes = [
 		Titanium.UI.PORTRAIT,
@@ -59,7 +47,7 @@ function orientation(_args) {
 		text:'Current Orientation: ' + getOrientation(Titanium.Gesture.orientation),
 		top:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	win.add(l);

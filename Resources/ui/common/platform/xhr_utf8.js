@@ -9,7 +9,7 @@ function xhr_utf8(_args) {
 		top:10,
 		width:300,
 		left:10,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(l1);
 	
@@ -30,7 +30,7 @@ function xhr_utf8(_args) {
 	var l3 = Titanium.UI.createLabel({
 		text:'UTF-8 POST',
 		font:{fontSize:16,fontWeight:'bold'},
-		height:'auto',
+		height:Ti.UI.SIZE,
 		top:120,
 		width:300,
 		left:10
@@ -56,7 +56,7 @@ function xhr_utf8(_args) {
 		text:'UTF-8 GET w/Query String',
 		font:{fontSize:16,fontWeight:'bold'},
 		top:230,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		width:300,
 		left:10
 	});

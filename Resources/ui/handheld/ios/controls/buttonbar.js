@@ -10,8 +10,8 @@ function buttonbar(_args) {
 		text:'You have not clicked anything',
 		color:'#777',
 		font:{fontSize:13, fontFamily:'Helvetica Neue'},
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	win.add(l);
 	
@@ -96,7 +96,7 @@ function buttonbar(_args) {
 		top:100,
 		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
 		height:40,
-		width:'auto'
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(bb4);
@@ -108,12 +108,10 @@ function buttonbar(_args) {
 		{
 			if (plain)
 			{
-				bb4.style = Titanium.UI.iPhone.SystemButtonStyle.BAR;
 				plain=false;
 			}
 			else
 			{
-				bb4.style = Titanium.UI.iPhone.SystemButtonStyle.PLAIN;
 				plain=true;
 			}
 		}

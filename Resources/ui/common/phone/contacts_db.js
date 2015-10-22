@@ -43,8 +43,8 @@ function contacts_db(_args) {
 							text:'('+label+') '+addrs[i].Street,
 							top:top,
 							left:20,
-							height:'auto',
-							width:'auto'
+							height:Ti.UI.SIZE,
+							width:Ti.UI.SIZE
 						});
 						display.add(info);
 						showedSomething = true;

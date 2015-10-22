@@ -28,7 +28,7 @@ function view_hideshow(_args) {
 		top: 0,
 		left: 0,
 		width: '100%',
-		height: 'auto'
+		height: Ti.UI.FILL
 	});
 	mainView.add(choiceView);
 	
@@ -49,8 +49,8 @@ function view_hideshow(_args) {
 		color: 'blue',
 		left: 10,
 		top: 10,
-		height: 'auto',
-		width: 'auto'
+		height: Ti.UI.SIZE,
+		width: Ti.UI.SIZE
 	});
 	browseView.add(startOverLabel);
 	
@@ -61,8 +61,8 @@ function view_hideshow(_args) {
 		color: 'blue',
 		left: 100,
 		top: 10,
-		height: 'auto',
-		width: 'auto'
+		height: Ti.UI.SIZE,
+		width: Ti.UI.SIZE
 	});
 	browseView.add(goBackLabel);
 	

@@ -8,7 +8,7 @@
     </deployment-targets>
     <property name="ti.android.useLegacyWindow" type="bool">true</property>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <sdk-version>4.0.1.GA</sdk-version>
+    <sdk-version>5.2.0</sdk-version>
     <id>com.appcelerator.kitchensink</id>
     <name>KitchenSink</name>
     <version>4.0.0</version>
@@ -25,6 +25,7 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <ios>
+    	<use-autolayout>true</use-autolayout>
         <plist>
             <dict>
                 <key>NSLocationWhenInUseUsageDescription</key>
@@ -54,10 +55,13 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+                
                 <key>FacebookAppID</key>
                 <string>495338853813822</string>
+                
                 <key>FacebookDisplayName</key>
                 <string>KitchenSink</string>
+                
                 <key>CFBundleURLTypes</key>
                 <array>
                     <dict>
@@ -65,10 +69,26 @@
                         <string>com.appcelerator.kitchensink</string>
                         <key>CFBundleURLSchemes</key>
                         <array>
+                        	<string>kitchensink</string>
                             <string>fb495338853813822</string>
                         </array>
                     </dict>
                 </array>
+                
+                <key>LSApplicationQueriesSchemes</key>
+			    <array>
+			        <string>fbapi</string>
+			        <string>fb-messenger-api</string>
+			        <string>fbauth2</string>
+			        <string>fbshareextension</string>
+			    </array>
+                
+                <key>UIBackgroundModes</key>
+                <array>
+                    <string>audio</string>
+                </array>
+                <key>UIViewControllerBasedStatusBarAppearance</key>
+                <false/>
             </dict>
         </plist>
     </ios>
@@ -108,6 +128,8 @@
     </android>
     <modules>
         <module platform="android">facebook</module>
-        <module platform="iphone">facebook</module>
+        <module platform="iphone" version="5.0.0">facebook</module>
     </modules>
+    <guid>d1cc60a8-588a-4c31-9555-abb674de9ab4</guid>
+    <property name="appc-app-id" type="string">56252671b09607c5248b3695</property>
 </ti:app>

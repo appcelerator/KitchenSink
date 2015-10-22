@@ -43,10 +43,10 @@ function ti_platform(_args) {
 		text:'name/osname:' + Titanium.Platform.name+'/'+Titanium.Platform.osname,
 		top:2,
 		left:10,
-		width:'auto',
+		width:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	scrollview.add(l1);
@@ -56,7 +56,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -68,7 +68,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -80,7 +80,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -91,8 +91,8 @@ function ti_platform(_args) {
 		text:'macaddress:' + Titanium.Platform.macaddress,
 		top:2,
 		left:10,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -104,7 +104,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -117,7 +117,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -131,7 +131,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -143,7 +143,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -159,7 +159,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -171,7 +171,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -183,7 +183,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -195,7 +195,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -207,7 +207,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -219,7 +219,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -231,7 +231,7 @@ function ti_platform(_args) {
 		top:2,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14},
 		color:'#777'
 	});
@@ -241,7 +241,7 @@ function ti_platform(_args) {
 	var b = Titanium.UI.createButton({
 		title:'Open URL',
 		height:30,
-		width:'auto',
+		width:Ti.UI.SIZE,
 		top:5
 	});
 	scrollview.add(b);

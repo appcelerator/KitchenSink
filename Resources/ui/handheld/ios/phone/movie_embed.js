@@ -5,7 +5,7 @@ function movie_embed(_args) {
 	
 	var statusLabel = Titanium.UI.createLabel({
 		text:'tap on movie content',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		bottom:50,
 		font:{fontSize:12,fontFamily:'Helvetica Neue'}
 	});
@@ -32,7 +32,7 @@ function movie_embed(_args) {
 	// label 
 	var movieLabel = Titanium.UI.createLabel({
 		text:'Do not try this at home',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		height:25,
 		color:'white',
 		font:{fontSize:18,fontFamily:'Helvetica Neue'}
@@ -88,7 +88,7 @@ function movie_embed(_args) {
 	
 	if (Ti.Platform.name !== "android") {
 		// Thumbnails not supported
-		var thumbnailImage = activeMovie.thumbnailImageAtTime(4.0, Titanium.Media.VIDEO_TIME_OPTION_EXACT);
+		var thumbnailImage = activeMovie.requestThumbnailImagesAtTimes();
 		win.add(Titanium.UI.createImageView({
 			image:thumbnailImage,
 			bottom:10,

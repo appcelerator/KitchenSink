@@ -39,7 +39,7 @@ function xhr_cookie(_args) {
 		font:{fontSize:18},
 		color:'white',
 		width:250,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	
@@ -136,8 +136,8 @@ function xhr_cookie(_args) {
 	
 	var scrollView = Titanium.UI.createScrollView({
 		top: android ? 180 : 150,
-		contentHeight:'auto',
-		contentWidth:'auto',
+		contentHeight:Ti.UI.FILL,
+		contentWidth:Ti.UI.FILL,
 		backgroundColor:'#13386c',
 		width:300,
 		height:200,

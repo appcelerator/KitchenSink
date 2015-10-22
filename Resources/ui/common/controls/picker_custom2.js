@@ -35,8 +35,8 @@ function picker_custom2(_args) {
 	var label = Ti.UI.createLabel({
 		text:'Make a move',
 		top:10,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		color:'white'
 	});

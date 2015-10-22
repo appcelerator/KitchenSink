@@ -7,8 +7,8 @@ function contacts_group(_args) {
 	
 	var infoLabel = Ti.UI.createLabel({
 		top:20,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	var groups = Titanium.Contacts.getAllGroups();

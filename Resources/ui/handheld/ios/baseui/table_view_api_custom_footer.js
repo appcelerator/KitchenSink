@@ -16,8 +16,8 @@ function tv_api_foot(_args) {
 		color:'#191',
 		textAlign:'left',
 		left:10,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	footer.add(footerLabel);

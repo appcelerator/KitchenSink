@@ -77,16 +77,16 @@ function textarea_auto(_args) {
 	function setDetection(e) {	
 		switch (e.source.title) {
 			case btn01.title: 
-				ta.autoLink = Ti.UI.iOS.AUTODETECT_LINK; // detect links
+				ta.autoLink = Ti.UI.AUTODETECT_LINK; // detect links
 				break;
 			case btn02.title: 
-				ta.autoLink = Ti.UI.iOS.AUTODETECT_PHONE; // detect phone
+				ta.autoLink = Ti.UI.AUTODETECT_PHONE; // detect phone
 				break;
 			case btn03.title: 
-				ta.autoLink = Ti.UI.iOS.AUTODETECT_ALL; // detect all, including email and addresses
+				ta.autoLink = Ti.UI.AUTODETECT_ALL; // detect all, including email and addresses
 				break;
 			case btn05.title:
-				ta.autoLink = Ti.UI.iOS.AUTODETECT_ADDRESS;
+				ta.autoLink = Ti.UI.AUTODETECT_ADDRESS;
 				break;
 			default: break;
 		}

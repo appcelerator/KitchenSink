@@ -11,8 +11,8 @@ function tabbedbar(_args) {
 		text:'You have not clicked anything',
 		color:'#777',
 		font:{fontSize:13, fontFamily:'Helvetica Neue'},
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	win.add(l);
@@ -148,7 +148,6 @@ function tabbedbar(_args) {
 		{
 			if (plain)
 			{
-				tb4.style = Titanium.UI.iPhone.SystemButtonStyle.BAR;
 				plain=false;
 			}
 			else

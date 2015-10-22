@@ -20,7 +20,7 @@ function image_view_basic(_args) {
 		text:'Click Image',
 		bottom:30,
 		color:'#999',
-		height:'auto',
+		height:Ti.UI.SIZE,
 		width:300,
 		textAlign:'center'
 	});

@@ -4,8 +4,8 @@ function scroll_view_textarea(_args) {
 	});
 	
 	var scrollView = Ti.UI.createScrollView({
-		contentHeight:'auto',
-		contentWidth:'auto'
+		contentHeight:Ti.UI.FILL,
+		contentWidth:Ti.UI.FILL
 	});
 	
 	win.add(scrollView);

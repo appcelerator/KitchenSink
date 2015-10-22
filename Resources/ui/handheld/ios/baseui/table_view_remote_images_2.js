@@ -26,7 +26,7 @@ function tv_remote2(_args) {
 	
 	for (var c=0; c<10; c++) 
 	{
-		var row = Ti.UI.createTableViewRow({height:'auto',backgroundColor:'#ffffff',selectedBackgroundColor:'#dddddd'}); 
+		var row = Ti.UI.createTableViewRow({height:Ti.UI.SIZE,backgroundColor:'#ffffff',selectedBackgroundColor:'#dddddd'}); 
 	
 		var t = '';
 		
@@ -41,7 +41,7 @@ function tv_remote2(_args) {
 			textAlign:'left',
 			left:70,
 			top:2,
-			height:'auto',
+			height:Ti.UI.SIZE,
 			font:{fontWeight:'bold',fontSize:13}
 		});
 		row.add(post_author);
@@ -64,7 +64,7 @@ function tv_remote2(_args) {
 			color: '#111',
 			textAlign:'left',
 			left:70,
-			height:'auto',
+			height:Ti.UI.SIZE,
 			top:17,
 			font:{fontWeight:'bold',fontSize:16}
 		});

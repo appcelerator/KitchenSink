@@ -18,7 +18,7 @@ function sound_remote_url(_args) {
 		// Show Actvity Indicator when loading the remote url.
 		var actInd = Titanium.UI.createActivityIndicator({
 			bottom : 10,
-			style : Titanium.UI.iPhone.ActivityIndicatorStyle.DARK,
+			style : Titanium.UI.ActivityIndicatorStyle.DARK,
 			message : "Loading URL ..."
 		});
 		win.add(actInd);

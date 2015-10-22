@@ -24,8 +24,8 @@ function contacts_picker(_args) {
 	var info = Ti.UI.createLabel({
 		text:'',
 		bottom:70,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	win.add(info);
 	

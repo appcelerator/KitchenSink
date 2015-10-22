@@ -41,7 +41,7 @@ function button_control(_args) {
 		highlightedColor:'#0f0',
 		backgroundColor:'transparent',
 		width:'100',
-		height:'auto',
+		height:Ti.UI.SIZE,
 		right:5,
 		text:'Custom Label'
 	});

@@ -8,7 +8,7 @@ function scroll_view_noclip(_args) {
 	});
 	
 	if (Ti.version >= '3.1.3') {
-		win.statusBarStyle = Ti.UI.iPhone.StatusBar.OPAQUE_BLACK;
+		win.statusBarStyle = Ti.UI.iPhone.StatusBar.LIGHT_CONTENT;
 	}
 
 	var cover = Titanium.UI.createView({

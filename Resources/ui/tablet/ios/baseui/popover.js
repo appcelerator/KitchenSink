@@ -115,8 +115,8 @@ Popover.init = function()
 		var l1 = Ti.UI.createLabel({
 			text:'View 1',
 			color:'#fff',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		view1.add(l1);
 
@@ -126,8 +126,8 @@ Popover.init = function()
 		var l2 = Ti.UI.createLabel({
 			text:'View 2',
 			color:'#fff',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		view2.add(l2);
 
@@ -137,8 +137,8 @@ Popover.init = function()
 		var l3 = Ti.UI.createLabel({
 			text:'View 3',
 			color:'#fff',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		view3.add(l3);
 

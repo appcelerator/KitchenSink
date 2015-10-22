@@ -6,7 +6,7 @@ function custom_fonts(_args) {
 	var label = Ti.UI.createLabel({
 		text:"Appcelerator\nFTW!",
 		font:{fontSize:54,fontFamily:"Comic Zine OT"},
-		width:"auto",
+		width:Ti.UI.SIZE,
 		textAlign:"center"
 	});
 	
