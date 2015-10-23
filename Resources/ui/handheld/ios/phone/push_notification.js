@@ -32,22 +32,21 @@ function push_notifications(_args) {
 	// register for push notifications
 	if (Ti.Platform.version >= 8) {
 		
-    	Ti.App.iOS.addEventListener('usernotificationsettings', function registerForPush() {
-    		Ti.App.iOS.removeEventListener('usernotificationsettings', registerForPush); 
- 
-	        Ti.Network.registerForPushNotifications({
-	            success: success,
-	            error: error,
-	            callback: callback
+  		Ti.App.iOS.addEventListener('usernotificationsettings', function registerForPush() {
+ 		Ti.App.iOS.removeEventListener('usernotificationsettings', registerForPush); 
+ 		Ti.Network.registerForPushNotifications({
+			success: success,
+			error: error,
+			callback: callback
 	        });
 	    });
 	 
 	    // Register notification types to use
 	    Ti.App.iOS.registerUserNotificationSettings({
 		    types: [
-	            Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT,
-	            Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND,
-	            Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE
+				Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT,
+				Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND,
+				Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE
 	        ]
 	       
 	    });
@@ -60,9 +59,9 @@ function push_notifications(_args) {
 				Titanium.Network.NOTIFICATION_TYPE_ALERT,
 				Titanium.Network.NOTIFICATION_TYPE_SOUND
 			],
-			success: success,
-	        error: error,
-	        callback: callback
+				success: success,
+				error: error,
+				callback: callback
 		});	
 	}
 	

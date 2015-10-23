@@ -3,6 +3,7 @@ function movie_embed(_args) {
 		title:_args.title
 	});
 	
+	var thumbnailImage;
 	var statusLabel = Titanium.UI.createLabel({
 		text:'tap on movie content',
 		width:Ti.UI.SIZE,
@@ -88,7 +89,9 @@ function movie_embed(_args) {
 	
 	if (Ti.Platform.name !== "android") {
 		// Thumbnails not supported
-		var thumbnailImage = activeMovie.requestThumbnailImagesAtTimes();
+		activeMovie.requestThumbnailImagesAtTimes([4.0,4.5],Ti.Media.VIDEO_TIME_OPTION_EXACT,function (e) {
+			thumbnailImage = e.image;});
+			
 		win.add(Titanium.UI.createImageView({
 			image:thumbnailImage,
 			bottom:10,
@@ -96,6 +99,7 @@ function movie_embed(_args) {
 			height:100
 		}));
 	}
+	
 	
 	activeMovie.play();
 	

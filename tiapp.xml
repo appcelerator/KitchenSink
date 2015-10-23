@@ -126,6 +126,4 @@
         <module platform="android">facebook</module>
         <module platform="iphone" version="5.0.0">facebook</module>
     </modules>
-    <guid>d1cc60a8-588a-4c31-9555-abb674de9ab4</guid>
-    <property name="appc-app-id" type="string">56252671b09607c5248b3695</property>
 </ti:app>

@@ -4,7 +4,7 @@ function utils(_args) {
 	});
 	var scrollView = Titanium.UI.createScrollView({
 		contentWidth:Ti.Platform.displayCaps.platformWidth,
-		contentHeight:Ti.UI.SIZE,
+		contentHeight:Ti.UI.FILL,
 		top:0,
 		showVerticalScrollIndicator:true,
 		showHorizontalScrollIndicator:true

@@ -4,9 +4,9 @@ function orientation(_args) {
 		layout:'vertical'
 	});
 	
-	//
+	
 -	// SUPPORTED ORIENTATION MODES
--	//
+-	
 -	//	Titanium.UI.PORTRAIT (1)
 -	//	Titanium.UI.UPSIDE_PORTRAIT (2)
 -	//	Titanium.UI.LANDSCAPE_LEFT (3)

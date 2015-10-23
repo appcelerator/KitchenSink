@@ -5,12 +5,8 @@ function activity_indicator(_args) {
 	var isAndroid = (osname === 'android');
 
 	var sdkVersion = parseFloat(Ti.version);
-	var ActivityIndicatorStyle;
-	if (isIos) {
-		ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
-	} else if (sdkVersion >= 3.0){
-		ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
-	}
+	var ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
+
 
 	var win = Ti.UI.createWindow({
 		title:_args.title,

@@ -14,7 +14,7 @@ function sound_remote_url(_args) {
 	// On iOS, loading remote url takes time and blocks window opening.
 	// Set the url after the window opens on iOS.
 	var sound = Titanium.Media.createSound();
-	if (isIOS) {
+	
 		// Show Actvity Indicator when loading the remote url.
 		var actInd = Titanium.UI.createActivityIndicator({
 			bottom : 10,
@@ -27,9 +27,6 @@ function sound_remote_url(_args) {
 			sound.url = url;
 			actInd.hide();
 		});
-	} else {
-		sound.url = url;
-	}
 
 	//
 	// PLAY

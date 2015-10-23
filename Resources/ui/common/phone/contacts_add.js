@@ -7,8 +7,8 @@ function contacts_add(_args) {
 	});
 
 	var scrollview = Ti.UI.createScrollView({
-		contentWidth:Ti.UI.SIZE,
-		contentHeight:Ti.UI.SIZE,
+		contentWidth:Ti.UI.FILL,
+		contentHeight:Ti.UI.FILL,
 		top:0,
 		showVerticalScrollIndicator:true,
 		showHorizontalScrollIndicator:false

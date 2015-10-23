@@ -22,7 +22,6 @@ function buttonbar(_args) {
 		labels:['One', 'Two', 'Three'],
 		backgroundColor:'#336699',
 		top:50,
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
 		height:25,
 		width:200
 	});
@@ -94,30 +93,15 @@ function buttonbar(_args) {
 		labels:buttonObjects,
 		backgroundColor:'#000',
 		top:100,
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
 		height:40,
 		width:Ti.UI.SIZE
 	});
 	
 	win.add(bb4);
-	var plain = false;
 	bb4.addEventListener('click', function(e)
-	{
-		// toggle button bar style
-		if (e.index == 1)
-		{
-			if (plain)
-			{
-				plain=false;
-			}
-			else
-			{
-				plain=true;
-			}
-		}
-		
+	{	
 		// toggle enabled
-		else if (e.index == 2)
+	    if (e.index == 2)
 		{
 			buttonObjects[0].enabled = (buttonObjects[0].enabled === false)?true:false;
 			bb4.labels = buttonObjects;		
