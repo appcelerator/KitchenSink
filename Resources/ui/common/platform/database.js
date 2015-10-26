@@ -7,8 +7,8 @@ function db(_args) {
 		text:'See Log for output',
 		top:10,
 		left:10,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	win.add(l);
 	
@@ -28,8 +28,8 @@ function db(_args) {
 			text:'2nd context test - see log.',
 			color:'#fff',
 			font:{fontSize:14},
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		win1.add(l1);
 		win1.open();
@@ -51,8 +51,8 @@ function db(_args) {
 			text:'Pre-packaged Db - see log.',
 			color:'#fff',
 			font:{fontSize:14},
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		win2.add(l2);
 		win2.open();

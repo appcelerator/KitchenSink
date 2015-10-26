@@ -10,7 +10,7 @@ function textfield_border(_args) {
 		Titanium.UI.LANDSCAPE_RIGHT
 	]; 
 	
-	var scrolly = Titanium.UI.createScrollView({contentHeight:'auto'});
+	var scrolly = Titanium.UI.createScrollView({contentHeight:Ti.UI.FILL});
 	win.add(scrolly);
 	
 	var tf1 = Titanium.UI.createTextField({

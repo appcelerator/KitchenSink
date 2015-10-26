@@ -12,7 +12,7 @@ function view_events(_args) {
 		bottom:50,
 		width:300,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	view.add(l0);
@@ -21,7 +21,7 @@ function view_events(_args) {
 		text:'touchstart not fired',
 		top:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -32,7 +32,7 @@ function view_events(_args) {
 		top:30,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -43,7 +43,7 @@ function view_events(_args) {
 		top:50,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -54,7 +54,7 @@ function view_events(_args) {
 		top:190,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -65,7 +65,7 @@ function view_events(_args) {
 		top:90,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -76,7 +76,7 @@ function view_events(_args) {
 		top:110,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -87,7 +87,7 @@ function view_events(_args) {
 		top:130,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -98,7 +98,7 @@ function view_events(_args) {
 		top:150,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -109,7 +109,7 @@ function view_events(_args) {
 		top:170,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -120,7 +120,7 @@ function view_events(_args) {
 		top:70,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	

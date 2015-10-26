@@ -44,8 +44,8 @@ function tv_layout2(_args) {
 		color:'#fff',
 		textAlign:'center',
 		font:{fontSize:14},
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	row.className = 'header';
 	row.add(clickLabel);
@@ -70,8 +70,8 @@ function tv_layout2(_args) {
 			color:'#fff',
 			font:{fontSize:20, fontWeight:'bold'},
 			text:text,
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		updateRow.className = 'updated_row';
 		updateRow.add(updateRowText);

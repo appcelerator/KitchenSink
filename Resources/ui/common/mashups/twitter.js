@@ -285,7 +285,7 @@ function getTweets() {
 					left:54,
 					top:4,
 					bottom:2,
-					height:'auto',
+					height:Ti.UI.SIZE,
 					width:230,
 					textAlign:'left',
 					color: '#000',

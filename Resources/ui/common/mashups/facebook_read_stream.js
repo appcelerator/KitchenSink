@@ -43,7 +43,7 @@ function facebook_read_stream(value) {
 				var row = result[c];
 
 				var tvRow = Ti.UI.createTableViewRow({
-					height : 'auto',
+					height : Ti.UI.SIZE,
 					backgroundSelectedColor : '#fff',
 					backgroundColor : '#fff'
 				});

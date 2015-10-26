@@ -5,8 +5,8 @@ function logging(_args) {
 	
 	var l = Titanium.UI.createLabel({
 		text:'Check the log for output',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(l);

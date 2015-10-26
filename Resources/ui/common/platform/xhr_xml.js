@@ -18,8 +18,8 @@ function xhr_xml(_args) {
 		
 		var bodyLabel = Ti.UI.createLabel({
 			textAlign:'center',
-			height:'auto',
-			width:'auto',
+			height:Ti.UI.SIZE,
+			width:Ti.UI.SIZE,
 			top:20,
 			text:body.textContent
 		});

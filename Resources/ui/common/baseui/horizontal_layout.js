@@ -13,7 +13,7 @@ function horizontal_layout(_args) {
 	var l1 = Ti.UI.createLabel({
 		text:'I am the first label',
 		left:5,
-		width:'auto',
+		width:Ti.UI.SIZE,
 		height:20
 	});
 	
@@ -22,7 +22,7 @@ function horizontal_layout(_args) {
 	var l2 = Ti.UI.createLabel({
 		text:'I am the second label',
 		left:2,
-		width:'auto',
+		width:Ti.UI.SIZE,
 		height:20
 	});
 	
@@ -31,7 +31,7 @@ function horizontal_layout(_args) {
 	var l3 = Ti.UI.createLabel({
 		text:'I am the third label',
 		left:2,
-		width:'auto',
+		width:Ti.UI.SIZE,
 		height:20
 	});
 	

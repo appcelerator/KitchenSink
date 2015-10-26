@@ -66,8 +66,8 @@ function view_pointconv(_args) {
 		bottom:25,
 		textAlign:'center',
 		text:'',
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	var label2 = Ti.UI.createLabel({
@@ -76,8 +76,8 @@ function view_pointconv(_args) {
 		bottom:5,
 		textAlign:'center',
 		text:'click anywhere',
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(greenView);

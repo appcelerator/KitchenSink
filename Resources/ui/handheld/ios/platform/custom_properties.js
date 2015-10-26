@@ -7,7 +7,7 @@ function custom_props(_args) {
 	var l = Titanium.UI.createLabel({
 		top:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		color:'#777',
 		font:{fontSize:16},
 		text:'We are going to place custom properties on a new window then retrieve them in the new window.'

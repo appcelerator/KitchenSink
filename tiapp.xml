@@ -9,14 +9,14 @@
     <guid>11111111-1111-1111-1111-111111111111</guid>
     <property name="ti.android.useLegacyWindow" type="bool">true</property>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <sdk-version>5.1.0.v20151009204425</sdk-version>
+    <sdk-version>5.2.0.v20151021171225</sdk-version>
     <id>com.appcelerator.kitchensink</id>
     <name>KitchenSink</name>
-    <version>5.0.0</version>
-    <publisher>appcelerator</publisher>
+    <version>4.1.0</version>
+    <publisher>Appcelerator</publisher>
     <url>http://appcelerator.com</url>
     <description>not specified</description>
-    <copyright>2014-2015 by appcelerator</copyright>
+    <copyright>2014-2015 by Appcelerator</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -26,6 +26,7 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <ios>
+        <use-autolayout>true</use-autolayout>
         <plist>
             <dict>
                 <key>NSLocationWhenInUseUsageDescription</key>
@@ -66,17 +67,24 @@
                         <string>com.appcelerator.kitchensink</string>
                         <key>CFBundleURLSchemes</key>
                         <array>
+                            <string>kitchensink</string>
                             <string>fb1511403295849049</string>
                         </array>
                     </dict>
                 </array>
                 <key>LSApplicationQueriesSchemes</key>
-                    <array>
-                        <string>fbapi</string>
-                        <string>fb-messenger-api</string>
-                        <string>fbauth2</string>
-                        <string>fbshareextension</string>
-                    </array>
+                <array>
+                    <string>fbapi</string>
+                    <string>fb-messenger-api</string>
+                    <string>fbauth2</string>
+                    <string>fbshareextension</string>
+                </array>
+                <key>UIBackgroundModes</key>
+                <array>
+                    <string>audio</string>
+                </array>
+                <key>UIViewControllerBasedStatusBarAppearance</key>
+                <false/>
             </dict>
         </plist>
     </ios>
@@ -116,6 +124,6 @@
     </android>
     <modules>
         <module platform="android">facebook</module>
-        <module platform="iphone">facebook</module>
+        <module platform="iphone" version="5.0.0">facebook</module>
     </modules>
 </ti:app>

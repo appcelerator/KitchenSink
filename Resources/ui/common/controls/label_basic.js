@@ -16,7 +16,7 @@ function label_basic(_args) {
 	var l2 = Titanium.UI.createLabel({
 		text:'Appcelerator',
 		height:50,
-		width:'auto',
+		width:Ti.UI.SIZE,
 		shadowColor:'#aaa',
 		shadowOffset:{x:5,y:5},
 		color:'#900',

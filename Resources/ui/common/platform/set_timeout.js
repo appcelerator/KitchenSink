@@ -13,7 +13,7 @@ function set_timeout(_args) {
 	var act = Ti.UI.createActivityIndicator({
 		bottom:10
 	});
-	Titanium.UI.iPhone && (act.style = Titanium.UI.iPhone.ActivityIndicatorStyle.DARK);
+	Titanium.UI.iPhone && (act.style = Titanium.UI.ActivityIndicatorStyle.DARK);
 	act.font = {fontFamily:'Helvetica Neue', fontSize:15,fontWeight:'bold'};
 	act.color = 'black';
 	act.message = 'Waiting for timer to fire...';

@@ -17,8 +17,8 @@ function tv_layout4(_args) {
 	var headerLabel = Ti.UI.createLabel({
 		top:10,
 		left:20,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		text:'Cocoa with Love',
 		color:'white',
 		shadowColor:'black',
@@ -29,8 +29,8 @@ function tv_layout4(_args) {
 	var footerLabel = Ti.UI.createLabel({
 		text:'Thanks for Matt Gallagher for this awesome example (in Cocoa)',
 		color:'white',
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		shadowColor:'black',
 		shadowOffset:{x:0,y:1},
@@ -83,8 +83,8 @@ function tv_layout4(_args) {
 			textAlign:'left',
 			top:20,
 			left:85,
-			width: 'auto',
-			height:'auto',
+			width: Ti.UI.SIZE,
+			height:Ti.UI.SIZE,
 			font:{fontWeight:'bold',fontSize:18}
 		});
 		if (Titanium.Platform.name == 'android') {
@@ -105,7 +105,7 @@ function tv_layout4(_args) {
 			shadowOffset:{x:0,y:1},
 			font:{fontWeight:'bold',fontSize:13},
 			bottom:22,
-			height:'auto',
+			height:Ti.UI.SIZE,
 			left:85,
 			right:50
 		});

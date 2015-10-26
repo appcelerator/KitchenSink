@@ -17,8 +17,8 @@ function image_view_file(_args) {
 	var l = Titanium.UI.createLabel({
 		text:'Click Image of Apple Logo',
 		bottom:20,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		color:'#999'
 	});
 	win.add(l);

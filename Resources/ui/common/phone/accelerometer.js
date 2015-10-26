@@ -11,7 +11,7 @@ function accelerometer(_args) {
 		font:{fontSize:14},
 		color:'#555',
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(x);
 	
@@ -22,7 +22,7 @@ function accelerometer(_args) {
 		font:{fontSize:14},
 		color:'#555',
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(y);
 	
@@ -33,7 +33,7 @@ function accelerometer(_args) {
 		font:{fontSize:14},
 		color:'#555',
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(z);
 	
@@ -44,7 +44,7 @@ function accelerometer(_args) {
 		font:{fontSize:14},
 		color:'#555',
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(ts);
 	
@@ -64,7 +64,7 @@ function accelerometer(_args) {
 			bottom:50,
 			font:{fontSize:18},
 			color:'#900',
-			width:'auto',
+			width:Ti.UI.SIZE,
 			text:'Note: Accelerometer does not work in simulator',
 			textAlign:'center'
 		});
