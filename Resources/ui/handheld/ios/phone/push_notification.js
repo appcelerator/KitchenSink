@@ -32,12 +32,13 @@ function push_notifications(_args) {
 	// register for push notifications
 	if (Ti.Platform.version >= 8) {
 		
-  		Ti.App.iOS.addEventListener('usernotificationsettings', function registerForPush() {
- 		Ti.App.iOS.removeEventListener('usernotificationsettings', registerForPush); 
- 		Ti.Network.registerForPushNotifications({
-			success: success,
-			error: error,
-			callback: callback
+  		Ti.App.iOS.addEventListener('usernotificationsettings', 
+  			function registerForPush() { 
+  				Ti.App.iOS.removeEventListener('usernotificationsettings', registerForPush); 
+ 				Ti.Network.registerForPushNotifications({
+					success: success,
+					error: error,
+					callback: callback
 	        });
 	    });
 	 

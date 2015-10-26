@@ -90,7 +90,7 @@ function movie_embed(_args) {
 	if (Ti.Platform.name !== "android") {
 		// Thumbnails not supported
 		activeMovie.requestThumbnailImagesAtTimes([4.0,4.5],Ti.Media.VIDEO_TIME_OPTION_EXACT,function (e) {
-			thumbnailImage = e.image;});
+				thumbnailImage = e.image;});
 			
 		win.add(Titanium.UI.createImageView({
 			image:thumbnailImage,
@@ -99,7 +99,6 @@ function movie_embed(_args) {
 			height:100
 		}));
 	}
-	
 	
 	activeMovie.play();
 	
