@@ -78,7 +78,7 @@ function tv_events(_args) {
 	for (var i=0;i<10;i++)
 	{
 		var row = Ti.UI.createTableViewRow({
-			height:'auto'
+			height:Ti.UI.SIZE
 		});
 		row.addEventListener('click', function(e)
 		{

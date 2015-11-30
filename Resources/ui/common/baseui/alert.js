@@ -17,8 +17,8 @@ function tialert(_args) {
 		bottom:80,
 		color:'#336699',
 		font:{fontSize:13},
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	a.addEventListener('click', function(e)

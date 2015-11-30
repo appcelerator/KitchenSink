@@ -15,7 +15,7 @@ function app_events(_args) {
 	var label = Ti.UI.createLabel({
 		text:'No app event received. Make call while running app',
 		textAlign:'center',
-		width:'auto'
+		width:Ti.UI.SIZE
 	});
 
 	view.add(label);
@@ -55,7 +55,7 @@ function app_events(_args) {
 			top:50,
 			text:'No Time Change event, received. Try Changing the devices time zone (Setting > General > Date & Time> TimeZone',
 			textAlign:'center',
-			width:'auto'
+			width:Ti.UI.SIZE
 		});
 		view.add(timeLabel)
 

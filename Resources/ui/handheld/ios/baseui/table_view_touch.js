@@ -10,8 +10,8 @@ function tv_touch(_args) {
 		//var view = Ti.UI.createView();
 		var label = Ti.UI.createLabel({
 			text:'Row Label ' + x,
-			height:'auto',
-			width:'auto',
+			height:Ti.UI.SIZE,
+			width:Ti.UI.SIZE,
 			color:'#336699',
 			left:10
 		});

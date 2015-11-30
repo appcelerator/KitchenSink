@@ -35,7 +35,7 @@ function image_view_remote(_args) {
 		title : 'Assign remote image url',
 		top : 260,
 		height : 50,
-		width : "auto"
+		width : Ti.UI.SIZE
 	});
 	win.add(b);
 	b.addEventListener('click', function(e) {

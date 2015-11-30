@@ -27,7 +27,7 @@ function tv_empty(_args) {
 		//a table className otherwise the tableview will assume they're the same layout and
 		//you'll get warnings and bad performance on lots of rows - this shows you how to do that
 		var row = Ti.UI.createTableViewRow({height:50,className:'row'});
-		var label = Ti.UI.createLabel({text:'row 1', color:'#111', width:'auto', height:'auto'});
+		var label = Ti.UI.createLabel({text:'row 1', color:'#111', width:Ti.UI.SIZE, height:Ti.UI.SIZE});
 		row.add(label);
 		if (isMW || isTizen) {
 			tableView.appendRow(row);

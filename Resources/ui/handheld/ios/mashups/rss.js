@@ -87,7 +87,7 @@ function rss(_args) {
 				mp3_url = itemList.item(c).getElementsByTagName("enclosure").item(0).getAttribute("url");
 	
 				// Create a table row for this item
-				var row = Ti.UI.createTableViewRow({height:'auto',backgroundColor:'#eeeeee',selectedBackgroundColor:'#b40000'}); 
+				var row = Ti.UI.createTableViewRow({height:Ti.UI.SIZE,backgroundColor:'#eeeeee',selectedBackgroundColor:'#b40000'}); 
 	
 				// Create a label for the title
 				var post_title = Ti.UI.createLabel({
@@ -95,8 +95,8 @@ function rss(_args) {
 					color: '#000',
 					textAlign:'left',
 					left:60,
-					height:'auto',
-					width:'auto',
+					height:Ti.UI.SIZE,
+					width:Ti.UI.SIZE,
 					top:3,
 					font:{fontWeight:'bold',fontSize:16}
 				});

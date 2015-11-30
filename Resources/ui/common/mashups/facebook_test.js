@@ -33,7 +33,7 @@ function facebook_test(_args) {
 	// add table view to the window
 	self.add(tableview);
 	
-	fb.initialize(1000); // after you set up login/logout listeners and permissions
+	fb.initialize(); // after you set up login/logout listeners and permissions
 	
 	// ActivityWorker needed for Android
 	if (Ti.Platform.osname == 'android') {

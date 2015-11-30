@@ -27,8 +27,8 @@ function view_anim(_args) {
 		text:'Hovering tip...',
 		color:'#fff',
 		textAlign:'center',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	winContainer.add(label);
 	

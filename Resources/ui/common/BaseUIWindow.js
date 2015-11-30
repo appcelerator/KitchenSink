@@ -134,8 +134,8 @@ function BaseUIWindow(title) {
 			color:'#fff',
 			font:{fontSize:13},
 			textAlign:'center',
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		win.add(view);
 		win.add(label);

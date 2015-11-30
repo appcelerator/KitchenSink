@@ -37,8 +37,8 @@ function sound_record(_args) {
 		top:150,
 		color:'#999',
 		textAlign:'center',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(label);
@@ -76,8 +76,8 @@ function sound_record(_args) {
 		bottom:20,
 		color:'#999',
 		textAlign:'center',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(linetype);
@@ -87,8 +87,8 @@ function sound_record(_args) {
 		bottom:50,
 		color:'#999',
 		textAlign:'center',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(volume);
@@ -205,8 +205,8 @@ function sound_record(_args) {
 	
 	var switchLabel = Titanium.UI.createLabel({
 		text:'Hi-fidelity:',
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		color:'#999',
 		bottom:115

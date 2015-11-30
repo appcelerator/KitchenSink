@@ -6,7 +6,7 @@ function vertical_layout_basic(_args) {
 	
 	// HEADER
 	var header = Ti.UI.createView({height:50,borderWidth:1,borderColor:'#999',backgroundColor:'white'});
-	var headerLabel = Ti.UI.createLabel({color:'#777', top:10,textAlign:'center', height:'auto', text:'Header'});
+	var headerLabel = Ti.UI.createLabel({color:'#777', top:10,textAlign:'center', height:Ti.UI.SIZE, text:'Header'});
 	header.add(headerLabel);
 	
 	win.add(header);
@@ -25,7 +25,7 @@ function vertical_layout_basic(_args) {
 	
 	// FOOTER
 	var footer = Ti.UI.createView({height:50,borderWidth:1,borderColor:'#999',backgroundColor:'white'});
-	var footerLabel = Ti.UI.createLabel({color:'#777', textAlign:'center', height:'auto', text:'Footer'});
+	var footerLabel = Ti.UI.createLabel({color:'#777', textAlign:'center', height:Ti.UI.SIZE, text:'Footer'});
 	footer.add(footerLabel);
 	
 	win.add(footer);

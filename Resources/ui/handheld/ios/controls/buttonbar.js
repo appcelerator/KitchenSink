@@ -10,8 +10,8 @@ function buttonbar(_args) {
 		text:'You have not clicked anything',
 		color:'#777',
 		font:{fontSize:13, fontFamily:'Helvetica Neue'},
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	win.add(l);
 	
@@ -22,7 +22,6 @@ function buttonbar(_args) {
 		labels:['One', 'Two', 'Three'],
 		backgroundColor:'#336699',
 		top:50,
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
 		height:25,
 		width:200
 	});
@@ -94,32 +93,15 @@ function buttonbar(_args) {
 		labels:buttonObjects,
 		backgroundColor:'#000',
 		top:100,
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
 		height:40,
-		width:'auto'
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(bb4);
-	var plain = false;
 	bb4.addEventListener('click', function(e)
-	{
-		// toggle button bar style
-		if (e.index == 1)
-		{
-			if (plain)
-			{
-				bb4.style = Titanium.UI.iPhone.SystemButtonStyle.BAR;
-				plain=false;
-			}
-			else
-			{
-				bb4.style = Titanium.UI.iPhone.SystemButtonStyle.PLAIN;
-				plain=true;
-			}
-		}
-		
+	{	
 		// toggle enabled
-		else if (e.index == 2)
+	    if (e.index == 2)
 		{
 			buttonObjects[0].enabled = (buttonObjects[0].enabled === false)?true:false;
 			bb4.labels = buttonObjects;		

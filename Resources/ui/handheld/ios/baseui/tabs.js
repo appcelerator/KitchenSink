@@ -33,7 +33,7 @@ function tabs(_args) {
 		textAlign:'center',
 		top:260,
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	changeTitleButton.addEventListener('click', function(e)

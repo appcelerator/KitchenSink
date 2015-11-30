@@ -10,7 +10,7 @@ function webviews(_args) {
 		{title:'External URL', hasChild:true, url: isTizen? 'http://maps.google.co.nz/maps?q=-40,176%28Test%20Point%29&output=embed&t=h&z=15' : 'http://www.google.com'},
 		{title:'Local URL', hasChild:true, url:'/etc/local_webview.html'},
 		{title:'XHR to Filesystem', hasChild:true},	
-		{title:'Image URL', hasChild:true, url:'http://www.appcelerator.com/wp-content/uploads/2010/01/TABWAVE_graph1.png'},
+		{title:'Image URL', hasChild:true, url:'https://evbdn.eventbrite.com/s3-s3/eventlogos/9947961/appceleratorlogo-1.png'},
 		{title:'Inline HTML', hasChild:true, innerHTML:'<html><body>Hello from inline HTML.</body></html>'},
 		{title:'Inline HTML w/ Trans Bg', hasChild:true, innerHTML:'<html><body><div style="color:white;">Hello from inline HTML. You should see white text and black background</div></body></html>', bgcolor:'black'},
 		{title:'Inline HTML w/ Color Bg', hasChild:true, innerHTML:'<html><body><div style="color:red;">Hello from inline HTML. You should see red text and yellow background</div></body></html>', bgcolor:'yellow'},

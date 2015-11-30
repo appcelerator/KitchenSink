@@ -9,7 +9,7 @@ function textarea_basic(_args) {
 		left:10,
 		top:10,
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(l);
 	

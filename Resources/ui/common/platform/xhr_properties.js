@@ -6,7 +6,7 @@ function xhr_props(_args) {
 	var label = Ti.UI.createLabel({
 		top:10,
 		color:'#777',
-		height:'auto',
+		height:Ti.UI.SIZE,
 		width:300,
 		font:{fontSize:15}
 	});

@@ -107,8 +107,8 @@ function image_scale(_args) {
 		text:'Click images to toggle scale',
 		color:'#fff',
 		bottom:20,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	

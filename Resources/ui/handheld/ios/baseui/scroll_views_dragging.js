@@ -31,15 +31,15 @@ function scroll_view_drag(_args) {
 	var message1 = Ti.UI.createLabel({
 		font:{fontSize:14,fontFamily:'Helvetica Neue'},
 		color:'yellow',
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 	    top:5
 	});
 	var message2 = Ti.UI.createLabel({
 		font:{fontSize:14,fontFamily:'Helvetica Neue'},
 		color:'yellow',
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 	    bottom:5
 	});
 	messageView.add(message1);

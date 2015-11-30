@@ -7,8 +7,8 @@ function contacts_image(_args) {
 	
 	var infoLabel = Ti.UI.createLabel({
 		top:20,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	var showDisplay = Ti.UI.createButton({

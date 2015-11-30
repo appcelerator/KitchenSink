@@ -7,7 +7,7 @@ function tv_api_header(_args) {
 	
 	var header = Ti.UI.createView({
 		backgroundColor:'#999',
-		height:'auto'
+		height:Ti.UI.FILL
 	});
 	
 	var headerLabel = Ti.UI.createLabel({
