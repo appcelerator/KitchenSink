@@ -5,8 +5,8 @@ function win_construct(_args) {
 	var label = Titanium.UI.createLabel({
 		text:'This test decorates a window pre-open',
 		top:10,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	win.add(label);
 	

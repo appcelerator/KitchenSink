@@ -11,8 +11,8 @@ function textfield_scroll(_args) {
 	]; 
 	
 	var scrollview = Ti.UI.createScrollView({
-		contentWidth:'auto',
-		contentHeight:'auto',
+		contentWidth:Ti.UI.SIZE,
+		contentHeight:Ti.UI.SIZE,
 		top:0,
 		showVerticalScrollIndicator:true,
 		showHorizontalScrollIndicator:false

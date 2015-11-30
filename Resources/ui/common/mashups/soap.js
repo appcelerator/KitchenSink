@@ -6,8 +6,8 @@ function soap(_args) {
 	var label = Ti.UI.createLabel({
 	    top: 10,
 	    left: 10,
-	    width: 'auto',
-	    height: 'auto',
+	    width: Ti.UI.SIZE,
+	    height: Ti.UI.SIZE,
 	    text: 'Contacting currency rates web service...'
 	});
 	

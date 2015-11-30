@@ -29,8 +29,8 @@ function tv_api_controls(_args) {
 		{
 			var label = Ti.UI.createLabel({
 				text:'Group '+(c+1)+', Row '+(x+1)+"\nThis is another line.\nCool",
-				height:'auto',
-				width:'auto',
+				height:Ti.UI.SIZE,
+				width:Ti.UI.SIZE,
 				left:10
 			});
 			var rightButton = Titanium.UI.createButton({
@@ -40,7 +40,7 @@ function tv_api_controls(_args) {
 				section:c
 			});
 			rightButton.addEventListener('click',rightButtonClickHandler);
-			var row = Ti.UI.createTableViewRow({height:'auto',className:'row'});
+			var row = Ti.UI.createTableViewRow({height:Ti.UI.SIZE,className:'row'});
 			row.add(label);
 			row.add(rightButton);
 			data[c].add(row);
@@ -108,7 +108,7 @@ function tv_api_controls(_args) {
 		text:(ts2-ts1)+' ms',
 		color:'#fff',
 		width:200,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{
 			fontFamily:'Helvetica Neue',
 			fontSize:13

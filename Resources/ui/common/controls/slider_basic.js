@@ -16,7 +16,7 @@ function slider_basic(_args) {
 		textAlign:'center',
 		top:10,
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	var basicSlider = Titanium.UI.createSlider({
@@ -24,7 +24,7 @@ function slider_basic(_args) {
 		max:10,
 		value:5,
 		width:100,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		top:30
 	});
 	basicSlider.addEventListener('change',function(e)
@@ -55,7 +55,7 @@ function slider_basic(_args) {
 		textAlign:'center',
 		top:70,
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	var customSlider = Titanium.UI.createSlider({
@@ -212,7 +212,7 @@ function slider_basic(_args) {
 				max:10,
 				value:5,
 				width:80,
-				height:'auto'
+				height:Ti.UI.SIZE
 			});
 			win.titleControl = titleSlider;
 			inTitle=true;

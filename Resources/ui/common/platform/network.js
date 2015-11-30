@@ -9,8 +9,8 @@ function network(_args) {
 		color:'#777',
 		top:10,
 		left:10,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	win.add(label);
 	
@@ -20,8 +20,8 @@ function network(_args) {
 		color:'#777',
 		top:30,
 		left:10,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	win.add(label2);
 	Titanium.Network.addEventListener('change', function(e)

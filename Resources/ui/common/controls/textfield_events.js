@@ -10,7 +10,7 @@ function textfield_events(_args) {
 		Titanium.UI.LANDSCAPE_RIGHT
 	]; 
 	
-	var scrolly = Titanium.UI.createScrollView({contentHeight:'auto'});
+	var scrolly = Titanium.UI.createScrollView({contentHeight:Ti.UI.FILL});
 	win.add(scrolly);
 	
 	var tf1 = Titanium.UI.createTextField({
@@ -26,7 +26,7 @@ function textfield_events(_args) {
 		top:50,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		color:'#777',
 		font:{fontSize:13},
 		text:'do something like click a button...'

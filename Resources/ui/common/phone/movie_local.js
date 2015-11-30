@@ -21,7 +21,7 @@ function movie_local(_args) {
 	// label 
 	var movieLabel = Titanium.UI.createLabel({
 		text:'Do not try this at home',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		height:35,
 		color:'white',
 		font:{fontSize:12,fontFamily:'Helvetica Neue'}

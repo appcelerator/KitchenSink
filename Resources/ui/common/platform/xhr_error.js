@@ -9,7 +9,7 @@ function xhr_error(_args) {
 		top:10,
 		width:300,
 		left:10,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	win.add(l1);
 	
@@ -19,7 +19,7 @@ function xhr_error(_args) {
 		top:40,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		color:'#888'
 	});
 	win.add(l2);

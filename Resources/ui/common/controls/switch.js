@@ -15,7 +15,7 @@ function switch_control(_args) {
 		},
 		textAlign:'center',
 		top:10,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	var basicSwitch = Titanium.UI.createSwitch({

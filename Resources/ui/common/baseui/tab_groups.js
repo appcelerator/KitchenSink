@@ -155,8 +155,8 @@ function tab_group(_args) {
 		},
 		textAlign:'center',
 		top:310,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	// add views based on platform

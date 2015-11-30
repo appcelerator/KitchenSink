@@ -146,23 +146,20 @@ function transition(_args) {
 	var bb1 = Titanium.UI.createButtonBar({
 		labels:['One', 'Two', 'Three', 'Four', 'Five'],
 		backgroundColor:'maroon',
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	var bb2 = Titanium.UI.createButtonBar({
 		labels:['Six', 'Seven', 'Eight'],
 		backgroundColor:'#336699',
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	var bb3 = Titanium.UI.createButtonBar({
 		labels:['Nine', 'Ten', 'Eleven', 'Twelve'],
 		backgroundColor:'#ff9900',
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	bb1.addEventListener('click', function()
 	{
@@ -289,8 +286,8 @@ function transition(_args) {
 	var bViewLabel = Titanium.UI.createLabel({
 		text:'Ouch!',
 		color:'#fff',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	b2.add(bViewLabel);
 	

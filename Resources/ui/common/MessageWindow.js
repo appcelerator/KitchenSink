@@ -23,7 +23,7 @@ function MessageWindow() {
 		text:'',
 		color:'#fff',
 		width:250,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{
 			fontFamily:'Helvetica Neue',
 			fontSize:13

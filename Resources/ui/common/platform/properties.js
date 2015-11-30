@@ -28,8 +28,8 @@ function props(_args) {
 	
 	var l = Titanium.UI.createLabel({
 		text:'See Log for output',
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	win.add(l);
 	

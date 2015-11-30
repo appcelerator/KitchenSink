@@ -318,7 +318,7 @@ function textfield_rest(_args) {
 		right:10,
 		top:305,
 		color:'#777',
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontHeight:10}
 	});
 	

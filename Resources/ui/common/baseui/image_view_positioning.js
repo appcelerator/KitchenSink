@@ -7,15 +7,15 @@ function image_view_position(_args) {
 		image:'http://static.appcelerator.com/images/header/appc_logo.png',
 		top:10,
 		left:10,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(view);
 	
 	var label = Ti.UI.createLabel({
 		text:'Image should be at top 10 and left 10',
-		height:'auto',
+		height:Ti.UI.SIZE,
 		bottom:20,
 		textAlign:'center'
 	});

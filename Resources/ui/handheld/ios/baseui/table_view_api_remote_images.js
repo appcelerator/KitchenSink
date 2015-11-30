@@ -17,8 +17,8 @@ function tv_api_remote(_args) {
 			textAlign:'left',
 			left:130,
 			font:{fontWeight:'bold',fontSize:18},
-			width:'auto',
-			height:'auto'
+			width:Ti.UI.SIZE,
+			height:Ti.UI.SIZE
 		});
 		row.add(label);
 		

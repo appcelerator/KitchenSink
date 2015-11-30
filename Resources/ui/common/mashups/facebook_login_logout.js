@@ -48,6 +48,7 @@ function facebook_login_logout(value) {
 	//Android's LoginButton width shouldn't be fixed
 	if (Ti.Platform.osname != 'android') {
 		loginButton.width = 200;
+		loginButton.height = 40;
 	}
 
 	loginButton.readPermissions = ['email'];

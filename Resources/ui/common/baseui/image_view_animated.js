@@ -28,8 +28,8 @@ function image_view_anim(_args) {
 	var frame = Ti.UI.createLabel({
 		text:'',
 		color:'white',
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		font:{fontSize:48,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -106,7 +106,7 @@ function image_view_anim(_args) {
 	});
 	win.add(reverse);
 	
-	// stop animation
+	// stop animation	
 	var stop = Titanium.UI.createButton({
 		title:'Stop Animation',
 		height:30,
@@ -175,8 +175,8 @@ function image_view_anim(_args) {
 		text:'Duration = 110 ms (re-start to apply)',
 		bottom:10,
 		color:'blue',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	durationUp.addEventListener('click', function()
