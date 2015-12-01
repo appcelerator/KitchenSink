@@ -34,8 +34,8 @@ function picker_date1(_args) {
 	var label = Ti.UI.createLabel({
 		text:'Choose a date',
 		top:6,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		color:'white'
 	});

@@ -5,16 +5,16 @@ function tv_api_autoheight(_args) {
 	// create table view data object
 	var data = [];
 	
-	data[0] = Ti.UI.createTableViewRow({hasChild:true,height:'auto'});
-	data[1] = Ti.UI.createTableViewRow({hasDetail:true,height:'auto'});
-	data[2] = Ti.UI.createTableViewRow({hasCheck:true,height:'auto'});
+	data[0] = Ti.UI.createTableViewRow({hasChild:true,height:Ti.UI.SIZE});
+	data[1] = Ti.UI.createTableViewRow({hasDetail:true,height:Ti.UI.SIZE});
+	data[2] = Ti.UI.createTableViewRow({hasCheck:true,height:Ti.UI.SIZE});
 	
 	function addRow(idx,text)
 	{
 		data[idx].add(Ti.UI.createLabel({
 			text:text,
-			height:'auto',
-			width:'auto',
+			height:Ti.UI.SIZE,
+			width:Ti.UI.SIZE,
 			left:10,
 			right:50,
 			top:10,

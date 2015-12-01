@@ -39,8 +39,8 @@ function window_events(_args) {
 		},
 		left:10,
 		top:10,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(focusLabel);
@@ -56,8 +56,8 @@ function window_events(_args) {
 		},
 		left:10,
 		top:30,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(blurLabel);
@@ -73,8 +73,8 @@ function window_events(_args) {
 		},
 		left:10,
 		top:50,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(openLabel);
@@ -90,8 +90,8 @@ function window_events(_args) {
 		},
 		left:10,
 		top:70,
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(closeLabel);
@@ -101,7 +101,7 @@ function window_events(_args) {
 		text:'try to trigger each event',
 		bottom:50,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	
@@ -112,7 +112,7 @@ function window_events(_args) {
 		top:90,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:14,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -123,7 +123,7 @@ function window_events(_args) {
 		top:110,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -134,7 +134,7 @@ function window_events(_args) {
 		top:130,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -145,7 +145,7 @@ function window_events(_args) {
 		top:270,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -156,7 +156,7 @@ function window_events(_args) {
 		top:150,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -167,7 +167,7 @@ function window_events(_args) {
 		top:170,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -178,7 +178,7 @@ function window_events(_args) {
 		top:190,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -189,7 +189,7 @@ function window_events(_args) {
 		top:210,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -200,7 +200,7 @@ function window_events(_args) {
 		top:230,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -211,7 +211,7 @@ function window_events(_args) {
 		top:250,
 		left:10,
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		font:{fontSize:13,fontFamily:'Helvetica Neue'}
 	});
 	
@@ -223,7 +223,7 @@ function window_events(_args) {
 			top:290,
 			left:10,
 			width:300,
-			height:'auto',
+			height:Ti.UI.SIZE,
 			font:{fontSize:13,fontFamily:'Helvetica Neue'}
 		});
 	

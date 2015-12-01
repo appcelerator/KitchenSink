@@ -24,8 +24,8 @@ function picker_basic2(_args) {
 	var label = Ti.UI.createLabel({
 		text:'Make a move',
 		top:6,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		color:'white'
 	});
@@ -35,8 +35,8 @@ function picker_basic2(_args) {
 		text:'',
 		bottom:16,
 		zIndex:10,
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		color:'white'
 	});

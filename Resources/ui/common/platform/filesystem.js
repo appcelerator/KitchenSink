@@ -62,7 +62,7 @@ function filesystem(_args) {
 		Ti.API.info('external directoryListing = ' + dir.getParent().getDirectoryListing());
 	}
 	
-	var l = Titanium.UI.createLabel({text:'Check Log for details', width:300, height:'auto', textAlign:'center'});
+	var l = Titanium.UI.createLabel({text:'Check Log for details', width:300, height:Ti.UI.SIZE, textAlign:'center'});
 	win.add(l);
 	
 	// test to make sure we can still access compiled JS files

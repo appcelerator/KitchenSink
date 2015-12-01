@@ -7,15 +7,15 @@ function music_picker(_args) {
 	
 	var info = Ti.UI.createLabel({
 		text:'',
-		height:'auto',
-		width:'auto',
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE,
 		top:200
 	});
 	win.add(info);
 	var title = Ti.UI.createLabel({
 		text:'',
-		height:'auto',
-		width:'auto',
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE,
 		top:220
 	});
 	win.add(title);

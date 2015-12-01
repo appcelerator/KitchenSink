@@ -49,7 +49,7 @@ function facebook_photos(value) {
 		left : 0,
 		right : 0,
 		visible : fb.loggedIn,
-		height : 'auto'
+		height : Ti.UI.SIZE
 	});
 	actionsView.add(b1);
 	actionsView.add(b2);

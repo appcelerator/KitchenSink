@@ -14,7 +14,7 @@ function win_layout(_args) {
 		top:10,
 		left:30,
 		width:100,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(firstName);
@@ -39,7 +39,7 @@ function win_layout(_args) {
 		top:75,
 		left:30,
 		width:100,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(lastName);
@@ -81,8 +81,8 @@ function win_layout(_args) {
 	var messageLabel = Titanium.UI.createLabel({
 		color:'#fff',
 		text:'Register for a free toaster!',
-		height:'auto',
-		width:'auto',
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	

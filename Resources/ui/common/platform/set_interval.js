@@ -8,8 +8,8 @@ function set_interval(_args) {
 		font:{fontFamily:'Helvetica Neue',fontSize:24,fontWeight:'bold'},
 		color:'#999',
 		textAlign:'center',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	win.add(label);
 	var count = 0;

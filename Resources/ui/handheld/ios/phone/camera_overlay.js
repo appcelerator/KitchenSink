@@ -56,8 +56,8 @@ function cam_overlay(_args) {
 		text:'Picture Taken',
 		color:'#fff',
 		font:{fontSize:20,fontWeight:'bold',fontFamily:'Helvetica Neue'},
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	container.messageView.add(container.message);
 	

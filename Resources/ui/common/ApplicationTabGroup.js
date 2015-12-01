@@ -104,8 +104,8 @@ function ApplicationTabGroup() {
 			id:'messagelabel',
 			text:'',
 			color:'#fff',
+			height:Ti.UI.SIZE,
 			width:250,
-			height:'auto',
 			font:{
 				fontFamily:'Helvetica Neue',
 				fontSize:13
@@ -154,8 +154,7 @@ function ApplicationTabGroup() {
 		}
 	});
 
-	self.addEventListener('focus', function(e) {
-
+	self.addEventListener('selected', function(e) {
 		// On iOS, the "More..." tab is actually a tab container, not a tab. When it is clicked, e.tab is undefined.
 		if (!e.tab) {
 			return;
@@ -186,7 +185,7 @@ function ApplicationTabGroup() {
 
 	});
 
-	self.addEventListener('blur', function(e) {
+	self.addEventListener('unselected', function(e) {
 		Titanium.API.info('tab blur - new index ' + e.index + ' old index ' + e.previousIndex);
 	});
 	self.model = Ti.Platform.model;

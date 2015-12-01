@@ -4,8 +4,8 @@ function scroll_view_scale(_args) {
 	});
 	
 	var scrollView = Titanium.UI.createScrollView({
-		contentWidth:'auto',
-		contentHeight:'auto',
+		contentWidth:Ti.UI.FILL,
+		contentHeight:Ti.UI.FILL,
 	
 		top:0,
 		bottom:50,
@@ -31,8 +31,8 @@ function scroll_view_scale(_args) {
 	var label = Ti.UI.createLabel({
 		font:{fontSize:18,fontWeight:'bold',fontFamily:'Helvetica Neue'},
 		text:'Pinch or Zoom',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	view.add(label);
@@ -48,8 +48,8 @@ function scroll_view_scale(_args) {
 	var message = Ti.UI.createLabel({
 		font:{fontSize:14,fontFamily:'Helvetica Neue'},
 		color:'yellow',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	messageView.add(message);
@@ -71,7 +71,6 @@ function scroll_view_scale(_args) {
 		labels:['+', '-'],
 		backgroundColor:'#336699',
 		top:50,
-		style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
 		height:25,
 		width:100
 	});

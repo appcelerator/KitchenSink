@@ -27,8 +27,8 @@ function view_evt_interaction(_args) {
 		text:'Click on me',
 		color:'white',
 		font:{fontSize:15,fontWeight:'bold'},
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	
 	view2.add(label);
@@ -39,7 +39,7 @@ function view_evt_interaction(_args) {
 	var l = Ti.UI.createLabel({
 		text:'click on box',
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		top:10,
 		font:{fontSize:13}
 	});
@@ -47,7 +47,7 @@ function view_evt_interaction(_args) {
 	var l2 = Ti.UI.createLabel({
 		text:'click on label',
 		width:300,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		top:25,
 		font:{fontSize:13}
 	});

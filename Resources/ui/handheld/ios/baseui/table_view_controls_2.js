@@ -4,7 +4,7 @@ function tv_controls2(_args) {
 	});
 	var clickLabel = Ti.UI.createLabel({
 		top:0,
-		height:'auto',
+		height:Ti.UI.SIZE,
 		textAlign:'center',
 		font:{fontSize:13},
 		color:'#777'

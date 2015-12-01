@@ -13,10 +13,10 @@ function vertical_layout_tv(_args) {
 	
 	for (var i=0;i<50;i++)
 	{
-		var row = Ti.UI.createTableViewRow({height:'auto',className:"row"});
+		var row = Ti.UI.createTableViewRow({height:Ti.UI.SIZE,className:"row"});
 		
 		var textView = Ti.UI.createView({
-			height:'auto',
+			height:Ti.UI.FILL,
 			layout:'vertical',
 			left:70,
 			top:10,
@@ -26,7 +26,7 @@ function vertical_layout_tv(_args) {
 		
 		var l1 = Ti.UI.createLabel({
 			text:text1,
-			height:'auto'
+			height:Ti.UI.SIZE
 			
 		});
 		textView.add(l1);
@@ -34,14 +34,14 @@ function vertical_layout_tv(_args) {
 		var l2 = Ti.UI.createLabel({
 			text:text2,
 			top:10,
-			height:'auto'
+			height:Ti.UI.SIZE
 		});
 		textView.add(l2);
 	
 		var l3 = Ti.UI.createLabel({
 			text:text3,
 			top:10,
-			height:'auto'
+			height:Ti.UI.SIZE
 		});
 		textView.add(l3);
 		

@@ -26,7 +26,7 @@ function mix_views(_args) {
 	
 	var webView = Ti.UI.createWebView({
 		top:10,
-		height:'auto',
+		height:Ti.UI.FILL,
 		width:300,
 		borderRadius:10,
 		backgroundColor:'#13386c',
@@ -41,7 +41,7 @@ function mix_views(_args) {
 		top:90,
 		visible:false,
 		width:300,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	
 	win.add(l1);

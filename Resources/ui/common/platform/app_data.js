@@ -24,8 +24,8 @@ function app_data(_args) {
 		top:20,
 		font:{fontFamily:'Helvetica Neue',fontSize:16,fontWeight:'bold'},
 		textAlign:'left',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	win.add(label);
 

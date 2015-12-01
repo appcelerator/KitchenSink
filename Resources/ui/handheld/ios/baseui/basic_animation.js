@@ -19,8 +19,8 @@ function basic_anim(_args) {
 		color:'#555',
 		font:{fontSize:12,fontFamily:'Helvetica Neue'},
 		textAlign:'center',
-		height:'auto',
-		width:'auto'
+		height:Ti.UI.SIZE,
+		width:Ti.UI.SIZE
 	});
 	
 	win.add(label);

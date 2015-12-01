@@ -45,7 +45,7 @@ function cam_ar(_args) {
 		font:{fontSize:14,fontWeight:'bold',fontFamily:'Helvetica Neue'},
 		textAlign:'center',
 		width:270,
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	container.messageView.add(container.message);
 	

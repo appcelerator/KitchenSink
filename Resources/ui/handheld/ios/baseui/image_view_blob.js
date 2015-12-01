@@ -26,8 +26,8 @@ function image_view_blog(_args) {
 		text:'Click Image of Tab Group',
 		bottom:20,
 		color:'#999',
-		width:'auto',
-		height:'auto'
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE
 	});
 	win.add(l);
 	

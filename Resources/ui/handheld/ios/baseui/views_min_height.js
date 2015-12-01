@@ -10,7 +10,7 @@ function views_minheight(_args) {
 		text: "Line 1\nLine 2", 
 		font: {fontSize: 12},
 		width: 280, 
-		height:'auto', 
+		height:Ti.UI.SIZE, 
 		minHeight:200,
 		borderWidth:1,
 		borderColor:'red',

@@ -73,9 +73,9 @@ function scroll_view_tabs(_args) {
 		text:'1',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view1.add(l1);
 	
@@ -91,9 +91,9 @@ function scroll_view_tabs(_args) {
 		text:'2',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view2.add(l2);
 	
@@ -110,9 +110,9 @@ function scroll_view_tabs(_args) {
 		text:'3',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view3.add(l3);
 	
@@ -129,9 +129,9 @@ function scroll_view_tabs(_args) {
 		text:'4',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view4.add(l4);
 	
@@ -148,9 +148,9 @@ function scroll_view_tabs(_args) {
 		text:'5',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view5.add(l5);
 	
@@ -167,9 +167,9 @@ function scroll_view_tabs(_args) {
 		text:'6',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view6.add(l6);
 	
@@ -186,9 +186,9 @@ function scroll_view_tabs(_args) {
 		text:'7',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view7.add(l7);
 	
@@ -205,9 +205,9 @@ function scroll_view_tabs(_args) {
 		text:'8',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view8.add(l8);
 	
@@ -247,9 +247,9 @@ function scroll_view_tabs(_args) {
 		text:'9',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view9.add(l9);
 	
@@ -266,9 +266,9 @@ function scroll_view_tabs(_args) {
 		text:'10',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view10.add(l10);
 	
@@ -285,9 +285,9 @@ function scroll_view_tabs(_args) {
 		text:'11',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view11.add(l11);
 	
@@ -304,9 +304,9 @@ function scroll_view_tabs(_args) {
 		text:'12',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view12.add(l12);
 	
@@ -323,9 +323,9 @@ function scroll_view_tabs(_args) {
 		text:'13',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view13.add(l13);
 	
@@ -342,9 +342,9 @@ function scroll_view_tabs(_args) {
 		text:'14',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view14.add(l14);
 	
@@ -361,9 +361,9 @@ function scroll_view_tabs(_args) {
 		text:'15',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view15.add(l15);
 	
@@ -380,9 +380,9 @@ function scroll_view_tabs(_args) {
 		text:'16',
 		font:{fontSize:13},
 		color:'#fff',
-		width:'auto',
+		width:Ti.UI.SIZE,
 		textAlign:'center',
-		height:'auto'
+		height:Ti.UI.SIZE
 	});
 	view16.add(l16);
 	

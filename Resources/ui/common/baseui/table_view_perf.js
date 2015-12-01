@@ -11,8 +11,8 @@ function tv_perf(_args) {
 	});
 	var l = Ti.UI.createLabel({
 		text:"running",
-		width:"auto",
-		height:"auto",
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		bottom:15
 	});
 	v.add(tv);

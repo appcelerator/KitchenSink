@@ -19,8 +19,8 @@ function transform3d(_args) {
 	var label = Titanium.UI.createLabel({
 		text:'1',
 		font:{fontSize:60},
-		width:'auto',
-		height:'auto',
+		width:Ti.UI.SIZE,
+		height:Ti.UI.SIZE,
 		textAlign:'center'
 	});
 	view.add(label);
